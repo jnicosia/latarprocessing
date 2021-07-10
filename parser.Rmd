@@ -1,0 +1,29 @@
+---
+title: "LaTAR parser"
+author: "bessica"
+date: "7/10/2021"
+output: html_document
+---
+
+```{r}
+library(RJSONIO)
+library(data.table)
+
+json_file <- fromJSON("session_2021-07-10_19-14-39_A30.json")
+
+
+obj1 <- lapply(json_file$objectives[[1]]$data, function(x) {
+  x[sapply(x, is.null)] <- NA
+  unlist(x)
+})
+
+df<-as.data.frame(do.call("cbind", obj1))
+```
+
+```{r}
+
+dft = transpose(df)
+colnames(dft) = rownames(df)
+#rownames(dft) = colnames(df)
+```
+
