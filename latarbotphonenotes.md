@@ -29,3 +29,15 @@
 - [x] capacitive
 - [x] display
 - [ ] solenoid
+
+## Samsung SM-A525M
+
+- [x] capacitive
+- [x] display
+- [x] solenoid
+
+## iPhone 11
+
+- [x] capacitive
+- [x] display
+- [x] solenoid
