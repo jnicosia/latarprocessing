@@ -230,7 +230,7 @@ def process_file(filename, output_dir):
             if len(tempDf) != len(df):
                 # raise Exception(f"Length mismatch due to source '{source_key}'. Length {str(len(tempDf))} vs {str(len(df))}")
                 print(f"WARN: Length mismatch due to source '{source_key}'. Length {str(len(tempDf))} vs {str(len(df))}")
-                warning = True
+                #warning = True # Disabled this warning b/c it's not very useful. It's possible to have length mismatch due to missing samples on fixture or mobile
 
             df = df.join(tempDf, how='outer')
 
@@ -243,7 +243,7 @@ def process_file(filename, output_dir):
         csv_filename = ("_".join(csv_filename_elts) + ".csv").replace(" ", "_")
 
         if warning:
-            csv_filename = "WARN-" + csv_filepath
+            csv_filename = "WARN-" + csv_filename
         
         csv_filepath = normpath(output_dir + "/" + csv_filename)
 
