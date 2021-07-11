@@ -2,8 +2,13 @@
 
 Python script used for processing JSON files collected by LaTAR Bot. Current features:
 
-- Creates one CSV file per Objective per Session
-- Parses 
+- Creates one CSV file per Objective per Session, named based on phone, objective, period, and repetitions
+- Aligns rows for each objective such that:
+  - stimulus time must be less than response time
+  - current response time must be < next stimulus time
+- Simple, folder-based input/output for batches processing
+
+Note: Be careful that the same phone/objective/period/repetition combo results in an overwrite! No feature to merge CSVs yet.
 
 ## Setup
 
