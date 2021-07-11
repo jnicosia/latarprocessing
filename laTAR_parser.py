@@ -5,7 +5,15 @@ Python program to post-process LaTAR output json file into per-objective CSVs
 import json
 import pandas as pd
 import numpy as np
-from os.path import exists
+import os
+from os.path import exists, normpath
+
+# Path to input JSON files
+INPUT_JSON_DIR = "./01-JSON_data"
+OUTPUT_CSV_DIR = "./02-CSV_data"
+
+# True to prompt before overwriting, False to simply overwrite
+IGNORE_OVERWRITE = True
 
 # Definitions
 STIMULUS = 0
@@ -37,7 +45,16 @@ TYPENAME_STIMULUS_RESPONSE = {
             COLUMN: "corrected_actionTime_mobile",
         },
     },
-    # "solenoid_tap": "Solenoid Tap Latency", # Make sure this is right when needed
+    "Solenoid Tap Latency" : {
+        STIMULUS: {
+            SOURCE: "fixture",
+            COLUMN: "corrected_timestamp_fixture",
+        },
+        RESPONSE: {
+            SOURCE: "mobile",
+            COLUMN: "corrected_actionTime_mobile",
+        },
+    },
 }
 
 # Debug print
@@ -119,7 +136,7 @@ def insert_df_row(df, row_idx):
 # - stimulus must be <= response timestamp (increment response until satisfied)
 # - response timestamp must be < next stimulus timestamp (increment stimulus until satisfied)
 def validate_dataframes(dataframes, typeName):
-    # Determine source and destination columns based on
+    # Determine source and destination columns based on objective type
     stimulus = TYPENAME_STIMULUS_RESPONSE[typeName][STIMULUS]
     response = TYPENAME_STIMULUS_RESPONSE[typeName][RESPONSE]
 
@@ -163,7 +180,7 @@ def validate_dataframes(dataframes, typeName):
 #######################################################
 
 # Opening JSON file
-def process_file(filename):
+def process_file(filename, output_dir):
     print(f"INFO: Processing file '{filename}'...")
 
     f = open(filename, 'r')
@@ -226,24 +243,34 @@ def process_file(filename):
         csv_filename = ("_".join(csv_filename_elts) + ".csv").replace(" ", "_")
 
         if warning:
-            csv_filename = "WARN-" + csv_filename
+            csv_filename = "WARN-" + csv_filepath
+        
+        csv_filepath = normpath(output_dir + "/" + csv_filename)
 
-        # # Uncomment the following to prompt file overwrite if it exists
-        # if exists(csv_filename):
-        #     val = input(f"WARNING: Output CSV filename '{csv_filename}' already exists! Overwrite? (Y/n): ")
-        #     if val != "Y":
-        #         print("Not overwriting file. Skipping this objective...")
-        #         continue
+        # Uncomment the following to prompt file overwrite if it exists
+        if exists(csv_filepath):
+            print("**********************************************************")
+            print("WARN: Output CSV filename '{csv_filepath}' already exists!")
+            print("**********************************************************")
+            if not IGNORE_OVERWRITE:
+                val = input(f"Overwrite CSV? (Y/n): ")
+                if val != "Y":
+                    print("Not overwriting file. Skipping this objective...")
+                    continue
 
         try:
-            df.to_csv(csv_filename)
-            print(f"INFO: Successfully wrote '{csv_filename}'")
+            df.to_csv(csv_filepath)
+            print(f"INFO: Successfully wrote '{csv_filepath}'")
         except Exception as e:
-            print(f"ERROR: Failed to write to '{csv_filename}': {str(e)}")
+            print(f"ERROR: Failed to write to '{csv_filepath}': {str(e)}")
 
 #######################################################
 # Main program
 #######################################################
-# filename = 'session_2021-07-10_19-14-39_A30.json'
-# process_file(filename)
-process_file("validation_test_null.json")
+
+files = os.listdir(normpath(INPUT_JSON_DIR))
+
+for i,file in enumerate(files):
+    print(f"========[{i}/{len(files)}]=======")
+    if file.endswith(".json"):
+        process_file(normpath(INPUT_JSON_DIR + "/" + file), OUTPUT_CSV_DIR)
