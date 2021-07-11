@@ -4,7 +4,46 @@ Python program to post-process LaTAR output json file into per-objective CSVs
 
 import json
 import pandas as pd
+import numpy as np
 from os.path import exists
+
+# Definitions
+STIMULUS = 0
+RESPONSE = 1
+SOURCE = 2
+COLUMN = 4
+
+# Debug print
+DEBUG = False
+
+TYPENAME_STIMULUS_RESPONSE = {
+    "Display Latency" : {
+        STIMULUS: {
+            SOURCE: "mobile",
+            COLUMN: "corrected_displayTime_mobile",
+        },
+        RESPONSE: {
+            SOURCE: "fixture",
+            COLUMN: "corrected_detectTime_fixture",
+        },
+    },
+    "Capacitive Tap Latency" : {
+        STIMULUS: {
+            SOURCE: "fixture",
+            COLUMN: "corrected_timestamp_fixture",
+        },
+        RESPONSE: {
+            SOURCE: "mobile",
+            COLUMN: "corrected_actionTime_mobile",
+        },
+    },
+    # "solenoid_tap": "Solenoid Tap Latency", # Make sure this is right when needed
+}
+
+# Debug print
+def dprint(s):
+    if DEBUG:
+        print("DEBUG: " + str(s))
 
 def parse_objective_to_sources(objective):
     sources = {}
@@ -18,12 +57,12 @@ def parse_objective_to_sources(objective):
                 sources[source][key] += [sample[key]]
         else:
             # Initialize source
-            print("Discovered new source", source)
+            dprint(f"Discovered new source '{source}'")
             sources[source] = {}
 
             # Add the first sample
             for key in sample:
-                print(" - Adding new key to source", key)
+                dprint(f" - Adding new key to source '{key}'")
                 sources[source][key] = [sample[key]]
     
     return sources
@@ -32,7 +71,8 @@ def parse_objective_to_sources(objective):
 def correct_time(timestamp, t0, offset):
     return timestamp + t0 - offset
 
-def convert_sources_dict_to_dataframe(sources):
+def convert_sources_dicts_to_dataframes(json_data, sources):
+    dataframes = {}
     source_keys_list = list(sources)
 
     for source_key in source_keys_list:
@@ -48,8 +88,8 @@ def convert_sources_dict_to_dataframe(sources):
         tempDf = tempDf.add_suffix("_" + source_key)
 
         # Pull time parameters for this column
-        t0_us = data["clockSync"][source_key]["t0"]
-        offset_us = data["clockSync"][source_key]["offset"]
+        t0_us = json_data["clockSync"][source_key]["t0"]
+        offset_us = json_data["clockSync"][source_key]["offset"]
 
         # Save offset and t0 to df
         tempDf["t0_us_" + source_key] = len(tempDf.index) * [t0_us]
@@ -62,79 +102,148 @@ def convert_sources_dict_to_dataframe(sources):
                 tempDf["corrected_" + column] = correct_time(tempDf[column], t0_us, offset_us)
 
         # Save dataframe to the source
-        source["dataframe"] = tempDf
+        dataframes[source_key] = tempDf
     
-    return sources
+    return dataframes
+
+# Inserts a row of NaNs at the specified row index
+def insert_df_row(df, row_idx):
+    pre_df = df.iloc[:row_idx]
+    na_row = pd.DataFrame([[np.nan]*len(df.iloc[0])], columns=list(df))
+    na_row.index = range(row_idx, row_idx + 1)
+    post_df = df.iloc[row_idx:]
+    post_df.index += 1
+    return pre_df.append(na_row).append(post_df)
+
+# For a stimulus and response to be aligned:
+# - stimulus must be <= response timestamp (increment response until satisfied)
+# - response timestamp must be < next stimulus timestamp (increment stimulus until satisfied)
+def validate_dataframes(dataframes, typeName):
+    # Determine source and destination columns based on
+    stimulus = TYPENAME_STIMULUS_RESPONSE[typeName][STIMULUS]
+    response = TYPENAME_STIMULUS_RESPONSE[typeName][RESPONSE]
+
+    # Initialize stimulus pointer to first index
+    row_idx = 0
+    
+    while row_idx < len(dataframes[stimulus[SOURCE]]) and row_idx < len(dataframes[response[SOURCE]]):
+        # Insert rows in stimulus before row_idx so stimulus < response
+        while (
+            row_idx < len(dataframes[stimulus[SOURCE]]) and
+            row_idx < len(dataframes[response[SOURCE]]) and
+            dataframes[stimulus[SOURCE]].iloc[row_idx][stimulus[COLUMN]] > dataframes[response[SOURCE]].iloc[row_idx][response[COLUMN]]
+        ):
+            dprint("WARN: Stimulus > response. Inserting row before stimulus at index {row_idx}")
+            dataframes[stimulus[SOURCE]] = insert_df_row(dataframes[stimulus[SOURCE]], row_idx)
+            row_idx += 1
+            dprint(f"  new row idx: {row_idx}")
+        
+        # Insert rows in response before row_idx so response < next stimulus
+        while (
+            ((row_idx + 1) < len(dataframes[stimulus[SOURCE]])) and
+            (row_idx < len(dataframes[response[SOURCE]])) and
+            (dataframes[response[SOURCE]].iloc[row_idx][response[COLUMN]] > dataframes[stimulus[SOURCE]].iloc[row_idx + 1][stimulus[COLUMN]])
+        ):
+            print(f"WARN: Response > next stimulus. Inserting row before response at index {row_idx}")
+            dataframes[response[SOURCE]] = insert_df_row(dataframes[response[SOURCE]], row_idx)
+            row_idx += 1
+            dprint(f"  new stim idx: {row_idx}  new resp idx: {row_idx}")
+        
+        if row_idx < len(dataframes[stimulus[SOURCE]]) and row_idx < len(dataframes[response[SOURCE]]):
+            dprint(f"Matched pair: stim={dataframes[stimulus[SOURCE]].iloc[row_idx][stimulus[COLUMN]]} resp={dataframes[response[SOURCE]].iloc[row_idx][response[COLUMN]]}")
+        row_idx += 1
+
+        dprint(f"  new row idx: {row_idx}")
+    
+    # No need to assert this b/c there could be extra rows at end (eg., if stim has no paired response)
+    # assert len(dataframes[stimulus[SOURCE]]) == len(dataframes[response[SOURCE]]), "ERROR: at end of validation, stim and resp rows not equal!"
+
+    return dataframes
+
+#######################################################
 
 # Opening JSON file
-filename = 'session_2021-07-10_19-14-39_A30.json'
-f = open(filename, 'r')
+def process_file(filename):
+    print(f"INFO: Processing file '{filename}'...")
 
-# returns JSON object as
-# a dictionary
-data = json.load(f)
+    f = open(filename, 'r')
 
-# Pull static metadata
-phone_name = data["mobile"]["name"]
+    # returns JSON object as a dictionary
+    data = json.load(f)
 
-# Iterating through the json
-objectives = data["objectives"]
-procedure_objectives = data["procedure"]["objectives"]
+    # Close file
+    f.close()
 
-# Process each objective
-for i,objective in enumerate(objectives):
-    # Adds flag in filename
-    warning = False
+    # Pull static metadata
+    phone_name = data["mobile"]["name"]
 
-    # Parse json object to per-source dictionaries
-    sources = parse_objective_to_sources(objective)
-    
-    # Convert each source dictionary to dataframe
-    sources = convert_sources_dict_to_dataframe(sources)
+    # Iterating through the json
+    objectives = data["objectives"]
+    procedure_objectives = data["procedure"]["objectives"]
 
-    # Validate the dataframes
-    
-
-    # Merge this objective's dataframes and export as .csv
-    source_keys_list = list(sources)
-    df = sources[source_keys_list[0]]["dataframe"]
-
-    for source_key in source_keys_list[1:]:
-        source = sources[source_key]
-        tempDf = source["dataframe"]
-
-        # Make sure sources have same length
-        if len(tempDf) != len(df):
-            # raise Exception(f"Length mismatch due to source '{source_key}'. Length {str(len(tempDf))} vs {str(len(df))}")
-            print(f"WARNING: Length mismatch due to source '{source_key}'. Length {str(len(tempDf))} vs {str(len(df))}")
-            warning = True
-
-        df = df.join(tempDf, how='outer')
-    
-    # Pull metadata from this objective
-    typeName = procedure_objectives[i]["typeName"]
-    interval = procedure_objectives[i]["parameters"]["interval"]
-    count = procedure_objectives[i]["parameters"]["count"]
-
-    csv_filename_elts = [phone_name, typeName, interval, count]
-    for i,elt in enumerate(csv_filename_elts):
-        csv_filename_elts[i] = str(elt)
-
-    # Export CSV
-    csv_filename = "_".join(csv_filename_elts) + ".csv"
-
-    if warning:
-        csv_filename = "WARN-" + csv_filename
-
-    if exists(csv_filename):
-        val = input(f"WARNING: Output CSV filename '{csv_filename}' already exists! Overwrite? (Y/n): ")
-        if val != "Y":
-            print("Not overwriting file. Skipping this objective...")
-            continue
-
-    df.to_csv(csv_filename)
-    print(f"INFO: Successfully wrote '{csv_filename}'")
+    # Process each objective
+    for i,objective in enumerate(objectives):
+        # Adds flag in filename
+        warning = False
         
+        # Pull metadata from this objective
+        typeName = procedure_objectives[i]["typeName"]
+        interval = procedure_objectives[i]["parameters"]["interval"]
+        count = procedure_objectives[i]["parameters"]["count"]
 
-# Closing file
-f.close()
+        print(f"INFO: Processing objective '{typeName}'")
+
+        # Parse json object to per-source dictionaries
+        sources = parse_objective_to_sources(objective)
+        
+        # Convert each source dictionary to dataframe
+        dataframes = convert_sources_dicts_to_dataframes(data, sources)
+
+        # Validate the dataframes
+        dataframes = validate_dataframes(dataframes, typeName)
+
+        # Merge this objective's dataframes and export as .csv
+        source_keys_list = list(dataframes)
+        df = dataframes[source_keys_list[0]]
+
+        for source_key in source_keys_list[1:]:
+            tempDf = dataframes[source_key]
+
+            # Make sure sources have same length
+            if len(tempDf) != len(df):
+                # raise Exception(f"Length mismatch due to source '{source_key}'. Length {str(len(tempDf))} vs {str(len(df))}")
+                print(f"WARN: Length mismatch due to source '{source_key}'. Length {str(len(tempDf))} vs {str(len(df))}")
+                warning = True
+
+            df = df.join(tempDf, how='outer')
+
+        # Make sure all elements are strings
+        csv_filename_elts = [phone_name, typeName, interval, "ms", count, "x"]
+        for i,elt in enumerate(csv_filename_elts):
+            csv_filename_elts[i] = str(elt)
+
+        # Export CSV
+        csv_filename = ("_".join(csv_filename_elts) + ".csv").replace(" ", "_")
+
+        if warning:
+            csv_filename = "WARN-" + csv_filename
+
+        # # Uncomment the following to prompt file overwrite if it exists
+        # if exists(csv_filename):
+        #     val = input(f"WARNING: Output CSV filename '{csv_filename}' already exists! Overwrite? (Y/n): ")
+        #     if val != "Y":
+        #         print("Not overwriting file. Skipping this objective...")
+        #         continue
+
+        try:
+            df.to_csv(csv_filename)
+            print(f"INFO: Successfully wrote '{csv_filename}'")
+        except Exception as e:
+            print(f"ERROR: Failed to write to '{csv_filename}': {str(e)}")
+
+#######################################################
+# Main program
+#######################################################
+# filename = 'session_2021-07-10_19-14-39_A30.json'
+# process_file(filename)
+process_file("validation_test_null.json")
