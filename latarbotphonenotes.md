@@ -6,7 +6,7 @@
 - [x] display
 - [x] solenoid
 
-## Samsung SM-G960U
+## Samsung SM-G960U (Ben's S9)
 
 - [x] capacitive
 - [x] display
@@ -24,7 +24,7 @@
 - [x] display
 - [x] solenoid
 
-## iPhone X
+## iPhone X (Jessica's iPhone)
 
 - [x] capacitive
 - [x] display
