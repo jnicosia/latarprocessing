@@ -290,7 +290,11 @@ def process_file(filename, output_dir):
         if warning:
             csv_filename = "WARN-" + csv_filename
 
-        csv_filepath = normpath(output_dir + "/" + csv_filename)
+        csv_folder = normpath(output_dir + "/" + typeName.replace(" ", "_"))
+        csv_filepath = normpath(csv_folder + "/" + csv_filename)
+
+        if not os.path.exists(csv_folder):
+            os.makedirs(csv_folder)
 
         if export_csv(csv_filepath, df):
             conflicts += 1
