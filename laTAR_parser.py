@@ -81,7 +81,7 @@ def parse_objective_to_sources(objective):
             for key in sample:
                 dprint(f" - Adding new key to source '{key}'")
                 sources[source][key] = [sample[key]]
-    
+
     return sources
 
 # Given t0 and offset, corrects the time
@@ -95,7 +95,7 @@ def convert_sources_dicts_to_dataframes(json_data, sources):
     for source_key in source_keys_list:
         source = sources[source_key]
         tempDf = pd.DataFrame.from_dict(source)
-        
+
         # tempDf.set_index("index") # Index could be offset later during validation, so don't index off of it
 
         # Delete source column
@@ -120,7 +120,7 @@ def convert_sources_dicts_to_dataframes(json_data, sources):
 
         # Save dataframe to the source
         dataframes[source_key] = tempDf
-    
+
     return dataframes
 
 # Inserts a row of NaNs at the specified row index
@@ -142,7 +142,7 @@ def align_dataframes(dataframes, typeName):
 
     # Initialize stimulus pointer to first index
     row_idx = 0
-    
+
     while row_idx < len(dataframes[stimulus[SOURCE]]) and row_idx < len(dataframes[response[SOURCE]]):
         # Insert rows in stimulus before row_idx so stimulus < response
         while (
@@ -154,7 +154,7 @@ def align_dataframes(dataframes, typeName):
             dataframes[stimulus[SOURCE]] = insert_df_row(dataframes[stimulus[SOURCE]], row_idx)
             row_idx += 1
             dprint(f"  new row idx: {row_idx}")
-        
+
         # Insert rows in response before row_idx so response < next stimulus
         while (
             ((row_idx + 1) < len(dataframes[stimulus[SOURCE]])) and
@@ -165,13 +165,13 @@ def align_dataframes(dataframes, typeName):
             dataframes[response[SOURCE]] = insert_df_row(dataframes[response[SOURCE]], row_idx)
             row_idx += 1
             dprint(f"  new stim idx: {row_idx}  new resp idx: {row_idx}")
-        
+
         if row_idx < len(dataframes[stimulus[SOURCE]]) and row_idx < len(dataframes[response[SOURCE]]):
             dprint(f"Matched pair: stim={dataframes[stimulus[SOURCE]].iloc[row_idx][stimulus[COLUMN]]} resp={dataframes[response[SOURCE]].iloc[row_idx][response[COLUMN]]}")
         row_idx += 1
 
         dprint(f"  new row idx: {row_idx}")
-    
+
     # No need to assert this b/c there could be extra rows at end (eg., if stim has no paired response)
     # assert len(dataframes[stimulus[SOURCE]]) == len(dataframes[response[SOURCE]]), "ERROR: at end of validation, stim and resp rows not equal!"
 
@@ -202,7 +202,7 @@ def process_file(filename, output_dir):
     for i,objective in enumerate(objectives):
         # Adds flag in filename
         warning = False
-        
+
         # Pull metadata from this objective
         typeName = procedure_objectives[i]["typeName"]
         interval = procedure_objectives[i]["parameters"]["interval"]
@@ -212,7 +212,7 @@ def process_file(filename, output_dir):
 
         # Parse json object to per-source dictionaries
         sources = parse_objective_to_sources(objective)
-        
+
         # Convert each source dictionary to dataframe
         dataframes = convert_sources_dicts_to_dataframes(data, sources)
 
@@ -234,6 +234,9 @@ def process_file(filename, output_dir):
 
             df = df.join(tempDf, how='outer')
 
+        # add latency (difference between stimulus and response values)
+        df["latency_us"] = df[TYPENAME_STIMULUS_RESPONSE[typeName][RESPONSE][COLUMN]] - df[TYPENAME_STIMULUS_RESPONSE[typeName][STIMULUS][COLUMN]]
+
         # Make sure all elements used in output CSV filename are strings
         csv_filename_elts = [phone_name, typeName, interval, "ms", count, "x"]
         for i,elt in enumerate(csv_filename_elts):
@@ -244,7 +247,7 @@ def process_file(filename, output_dir):
 
         if warning:
             csv_filename = "WARN-" + csv_filename
-        
+
         csv_filepath = normpath(output_dir + "/" + csv_filename)
 
         # Uncomment the following to prompt file overwrite if it exists
