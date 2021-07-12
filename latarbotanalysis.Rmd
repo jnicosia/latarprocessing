@@ -14,8 +14,6 @@ rm(list = ls(all = TRUE))
 ```
 
 ```{r, include = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
-# load packages
-library(tidyverse)
 library(readit)
 library(lme4)
 library(broom)
@@ -34,6 +32,7 @@ library(gtsummary)
 library(Rmisc)
 library(pander)
 library(ez)
+library(tidyverse)
 ```
 
 ```{r}
@@ -104,6 +103,9 @@ ggplot(solenoiddata, aes(x = index_fixture, y = z_sol_latency_us, color = phone_
   geom_point(aes(color = phone_model)) + 
   theme_classic()
 
+```
+
+```{r}
 # relationship between capacitive and solenoid
 solenoiddata$sol_latency_us <- solenoiddata$latency_us
 capacitivedata$cap_latency_us <- capacitivedata$latency_us
@@ -143,8 +145,38 @@ ggscatter(tappin_nooutliers_extreme, x = "z_sol_latency_us", y = "z_cap_latency_
    conf.int = TRUE) +
   stat_cor(method = "pearson", label.x = 0.2, label.y = 3)
 
-capvariance <- sd(tappin_nooutliers_extreme$cap_latency_us)
-solvariance <- sd(tappin_nooutliers_extreme$sol_latency_us)
+tappin_nooutliers_extreme %>% subset(., select = c("phone_model", "sol_latency_us", "cap_latency_us")) %>%
+  tbl_summary(by = phone_model, missing = "no",
+              label = list(sol_latency_us ~ "Solenoid Latency (us)", 
+                           cap_latency_us~ "Capacitive Latency (us)"),
+              statistic = list(all_continuous() ~ "{mean} ({sd})")) %>%
+  bold_labels()
+```
+
+```{r}
+tappin_nooutliers_extreme_bargraph <- subset(tappin_nooutliers_extreme, select = c("index_fixture", "sol_latency_us", "cap_latency_us", "phone_model")) %>%
+  gather(., taptype, latency_us, sol_latency_us:cap_latency_us)
+
+means <- summarySE(data = tappin_nooutliers_extreme_bargraph,
+                   measurevar = "latency_us",
+                   groupvars = c("phone_model", "taptype"),
+                   na.rm = T,
+                   conf.interval = 0.95,
+                   .drop = TRUE)
+means
+ggplot(means, aes(x = phone_model,
+                  y = latency_us, 
+                  fill = taptype)) +
+geom_bar(position = "dodge",
+         stat = "identity",
+         color = "black") +
+  labs(x = "Phone Model",
+       y = "Latency (us)") +
+  guides(fill = guide_legend(title = "Tap Type")) +
+  geom_errorbar(aes (ymin = latency_us - ci, ymax = latency_us + ci),
+                position = position_dodge(0.9), width = .1) +
+  theme_classic() +
+  coord_flip()
 ```
 
 
