@@ -35,6 +35,7 @@ library(ez)
 library(tidyverse)
 ```
 
+# Load Data
 ```{r}
 ##### CAPACITIVE
 wd <- "./02-CSV_data/Capacitive_Tap_Latency/"
@@ -80,8 +81,15 @@ for (i in 1:length(N)){
 solenoiddata <- data
 ```
 
+# Visualizations
+## Raw Line Graphs
 ```{r}
 # capacitive
+ggplot(capacitivedata, aes(x = index_fixture, y = latency_us, color = phone_model)) +
+  geom_line(aes(color = phone_model)) +
+  geom_point(aes(color = phone_model)) + 
+  theme_classic()
+
 capacitivedata$z_cap_latency_us <- scale(capacitivedata$latency_us)
 ggplot(capacitivedata, aes(x = index_fixture, y = z_cap_latency_us, color = phone_model)) +
   geom_line(aes(color = phone_model)) +
@@ -89,6 +97,11 @@ ggplot(capacitivedata, aes(x = index_fixture, y = z_cap_latency_us, color = phon
   theme_classic()
 
 # display
+ggplot(displaydata, aes(x = index_fixture, y = latency_us, color = phone_model)) +
+  geom_line(aes(color = phone_model)) +
+  geom_point(aes(color = phone_model)) + 
+  theme_classic()
+
 displaydata$z_latency_us <- scale(displaydata$latency_us)
 ggplot(displaydata, aes(x = index_fixture, y = z_latency_us, color = phone_model)) +
   geom_line(aes(color = phone_model)) +
@@ -96,6 +109,11 @@ ggplot(displaydata, aes(x = index_fixture, y = z_latency_us, color = phone_model
   theme_classic()
 
 # solenoid
+ggplot(solenoiddata, aes(x = index_fixture, y = latency_us, color = phone_model)) +
+  geom_line(aes(color = phone_model)) +
+  geom_point(aes(color = phone_model)) + 
+  theme_classic()
+
 solenoiddata$z_sol_latency_us <- scale(solenoiddata$latency_us)
 solenoiddata$z_sol_latency_us <- with(solenoiddata, ifelse(abs(solenoiddata$z_sol_latency_us) > 3, NA, solenoiddata$z_sol_latency_us))
 ggplot(solenoiddata, aes(x = index_fixture, y = z_sol_latency_us, color = phone_model)) +
@@ -104,7 +122,8 @@ ggplot(solenoiddata, aes(x = index_fixture, y = z_sol_latency_us, color = phone_
   theme_classic()
 
 ```
-
+## Capacitive ~ Solenoid
+### Scatterplot
 ```{r}
 # relationship between capacitive and solenoid
 solenoiddata$sol_latency_us <- solenoiddata$latency_us
@@ -144,16 +163,17 @@ ggscatter(tappin_nooutliers_extreme, x = "z_sol_latency_us", y = "z_cap_latency_
    add.params = list(color = "blue", fill = "lightgray"),
    conf.int = TRUE) +
   stat_cor(method = "pearson", label.x = 0.2, label.y = 3)
+```
 
+### Bar Graph
+```{r}
 tappin_nooutliers_extreme %>% subset(., select = c("phone_model", "sol_latency_us", "cap_latency_us")) %>%
   tbl_summary(by = phone_model, missing = "no",
               label = list(sol_latency_us ~ "Solenoid Latency (us)", 
                            cap_latency_us~ "Capacitive Latency (us)"),
               statistic = list(all_continuous() ~ "{mean} ({sd})")) %>%
   bold_labels()
-```
 
-```{r}
 tappin_nooutliers_extreme_bargraph <- subset(tappin_nooutliers_extreme, select = c("index_fixture", "sol_latency_us", "cap_latency_us", "phone_model")) %>%
   gather(., taptype, latency_us, sol_latency_us:cap_latency_us)
 
@@ -163,7 +183,7 @@ means <- summarySE(data = tappin_nooutliers_extreme_bargraph,
                    na.rm = T,
                    conf.interval = 0.95,
                    .drop = TRUE)
-means
+
 ggplot(means, aes(x = phone_model,
                   y = latency_us, 
                   fill = taptype)) +
