@@ -219,7 +219,7 @@ def export_csv(csv_filepath, df):
                 return conflict
 
     try:
-        df.to_csv(csv_filepath)
+        df.to_csv(csv_filepath, index=False)
         print(f"INFO: Successfully wrote '{csv_filepath}'")
         return conflict
     except Exception as e:
