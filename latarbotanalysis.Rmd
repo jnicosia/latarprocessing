@@ -140,7 +140,9 @@ ggplot(solenoiddata, aes(x = index_fixture, y = z_sol_latency_us, color = phone_
 # relationship between capacitive and solenoid
 solenoiddata$sol_latency_us <- solenoiddata$latency_us
 capacitivedata$cap_latency_us <- capacitivedata$latency_us
-tappin <- full_join(solenoiddata, capacitivedata, by = c("index_fixture", "phone_model")) %>% subset(., select = c("index_fixture", "z_sol_latency_us", "z_cap_latency_us", "sol_latency_us", "cap_latency_us", "phone_model")) 
+
+tappin <- full_join(solenoiddata, capacitivedata, by = c("index_fixture", "phone_model")) %>% 
+  subset(., select = c("index_fixture", "z_sol_latency_us", "z_cap_latency_us", "sol_latency_us", "cap_latency_us", "phone_model")) 
 
 tappin <- tappin[complete.cases(tappin), ]
 
@@ -156,6 +158,7 @@ ggscatter(tappin, x = "sol_latency_us", y = "cap_latency_us", color = "phone_mod
    conf.int = TRUE) +
   stat_cor(method = "pearson", label.x = 2, label.y = 2)
 
+# remove first round of outliers
 tappin_nooutliers <- subset(tappin, phone_model %in% c("iPhone10_3", "iPhone10_4", "iPhone11_2", "iPhone11_8", "iPhone12_1", "Motorola moto g stylus (XT2115DL)", "Samsung SM-A305G", "Samsung SM-A325M", "Samsung SM-G960U", "Samsung SM-S111DL")) 
 
 tappin_nooutliers$z_sol_latency_us <- with(tappin_nooutliers, ifelse(abs(tappin_nooutliers$z_sol_latency_us) > 3, NA, tappin_nooutliers$z_sol_latency_us))
@@ -167,6 +170,7 @@ ggscatter(tappin_nooutliers, x = "z_sol_latency_us", y = "z_cap_latency_us", col
    conf.int = TRUE) +
   stat_cor(method = "pearson", label.x = 1, label.y = 3)
 
+# remove second round of outliers
 tappin_nooutliers_extreme <- subset(tappin_nooutliers, z_sol_latency_us < 0.8)
 
 ggscatter(tappin_nooutliers_extreme, x = "z_sol_latency_us", y = "z_cap_latency_us", color = "phone_model",
