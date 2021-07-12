@@ -44,6 +44,18 @@
 - [x] display
 - [x] solenoid
 
+### iPhone XR
+
+- [x] capacitive
+- [x] display
+- [x] solenoid
+
+### iPhone XS
+
+- [x] capacitive
+- [x] display
+- [x] solenoid
+
 ## Event Timeline
 
 1. app decides to display stimulus (dispTime)
