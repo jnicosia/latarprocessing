@@ -85,38 +85,50 @@ solenoiddata <- data
 ## Raw Line Graphs
 ```{r}
 # capacitive
+# raw
 ggplot(capacitivedata, aes(x = index_fixture, y = latency_us, color = phone_model)) +
+  labs(title = "Raw Capacitive") +
   geom_line(aes(color = phone_model)) +
-  geom_point(aes(color = phone_model)) + 
+  geom_point(aes(color = phone_model)) +
   theme_classic()
 
+# standardized
 capacitivedata$z_cap_latency_us <- scale(capacitivedata$latency_us)
 ggplot(capacitivedata, aes(x = index_fixture, y = z_cap_latency_us, color = phone_model)) +
+  labs(title = "Standardized Capacitive") +
   geom_line(aes(color = phone_model)) +
   geom_point(aes(color = phone_model)) + 
   theme_classic()
 
 # display
+# raw
 ggplot(displaydata, aes(x = index_fixture, y = latency_us, color = phone_model)) +
+  labs(title = "Raw Display") +
   geom_line(aes(color = phone_model)) +
   geom_point(aes(color = phone_model)) + 
   theme_classic()
 
+# standardized
 displaydata$z_latency_us <- scale(displaydata$latency_us)
 ggplot(displaydata, aes(x = index_fixture, y = z_latency_us, color = phone_model)) +
+  labs(title = "Standardized Display") +
   geom_line(aes(color = phone_model)) +
   geom_point(aes(color = phone_model)) + 
   theme_classic()
 
 # solenoid
+# raw
 ggplot(solenoiddata, aes(x = index_fixture, y = latency_us, color = phone_model)) +
+  labs(title = "Raw Solenoid") +
   geom_line(aes(color = phone_model)) +
   geom_point(aes(color = phone_model)) + 
   theme_classic()
 
+# standardized
 solenoiddata$z_sol_latency_us <- scale(solenoiddata$latency_us)
 solenoiddata$z_sol_latency_us <- with(solenoiddata, ifelse(abs(solenoiddata$z_sol_latency_us) > 3, NA, solenoiddata$z_sol_latency_us))
 ggplot(solenoiddata, aes(x = index_fixture, y = z_sol_latency_us, color = phone_model)) +
+  labs(title = "Standardized Solenoid") +
   geom_line(aes(color = phone_model)) +
   geom_point(aes(color = phone_model)) + 
   theme_classic()
