@@ -1,0 +1,158 @@
+---
+title: "LaTARBot Data"
+author: "Jessica Nicosia"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  pdf_document:
+    toc: yes
+    toc_depth: 6
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, collapse = TRUE, fig.show = 'hold')
+rm(list = ls(all = TRUE))
+```
+
+```{r, include = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
+# load packages
+library(tidyverse)
+library(readit)
+library(lme4)
+library(broom)
+library(ggforce)
+library(effsize)
+library(pROC)
+library(DT)
+library(psych)
+library(survminer)
+library(survival)
+library(data.table)
+library(sjPlot)
+library(ggpubr)
+library(data.table)
+library(gtsummary)
+library(Rmisc)
+library(pander)
+library(ez)
+```
+
+```{r}
+##### CAPACITIVE
+wd <- "./02-CSV_data/Capacitive_Tap_Latency/"
+N <- paste(wd, list.files(wd), sep = "")
+data <- data.frame()
+for (i in 1:length(N)){
+  file <- N[i]
+  #print(file)
+  data_in <- read.csv(file, header = TRUE, stringsAsFactors = FALSE)
+  data <- rbind(data, data_in)
+}
+
+capacitivedata <- data
+
+
+
+##### DISPLAY
+wd <- "./02-CSV_data/Display_Latency/"
+N <- paste(wd, list.files(wd), sep = "")
+data <- data.frame()
+for (i in 1:length(N)){
+  file <- N[i]
+  #print(file)
+  data_in <- read.csv(file, header = TRUE, stringsAsFactors = FALSE)
+  data <- rbind(data, data_in)
+}
+
+displaydata <- data
+
+
+
+##### SOLENOID
+wd <- "./02-CSV_data/Solenoid_Tap_Latency/"
+N <- paste(wd, list.files(wd), sep = "")
+data <- data.frame()
+for (i in 1:length(N)){
+  file <- N[i]
+  #print(file)
+  data_in <- read.csv(file, header = TRUE, stringsAsFactors = FALSE)
+  data <- rbind(data, data_in)
+}
+
+solenoiddata <- data
+```
+
+```{r}
+# capacitive
+capacitivedata$z_cap_latency_us <- scale(capacitivedata$latency_us)
+ggplot(capacitivedata, aes(x = index_fixture, y = z_cap_latency_us, color = phone_model)) +
+  geom_line(aes(color = phone_model)) +
+  geom_point(aes(color = phone_model)) + 
+  theme_classic()
+
+# display
+displaydata$z_latency_us <- scale(displaydata$latency_us)
+ggplot(displaydata, aes(x = index_fixture, y = z_latency_us, color = phone_model)) +
+  geom_line(aes(color = phone_model)) +
+  geom_point(aes(color = phone_model)) + 
+  theme_classic()
+
+# solenoid
+solenoiddata$z_sol_latency_us <- scale(solenoiddata$latency_us)
+solenoiddata$z_sol_latency_us <- with(solenoiddata, ifelse(abs(solenoiddata$z_sol_latency_us) > 3, NA, solenoiddata$z_sol_latency_us))
+ggplot(solenoiddata, aes(x = index_fixture, y = z_sol_latency_us, color = phone_model)) +
+  geom_line(aes(color = phone_model)) +
+  geom_point(aes(color = phone_model)) + 
+  theme_classic()
+
+# relationship between capacitive and solenoid
+solenoiddata$sol_latency_us <- solenoiddata$latency_us
+capacitivedata$cap_latency_us <- capacitivedata$latency_us
+tappin <- full_join(solenoiddata, capacitivedata, by = c("index_fixture", "phone_model")) %>% subset(., select = c("index_fixture", "z_sol_latency_us", "z_cap_latency_us", "sol_latency_us", "cap_latency_us", "phone_model")) 
+
+tappin <- tappin[complete.cases(tappin), ]
+
+ggscatter(tappin, x = "z_sol_latency_us", y = "z_cap_latency_us", color = "phone_model",
+   add = "reg.line",
+   add.params = list(color = "blue", fill = "lightgray"),
+   conf.int = TRUE) +
+  stat_cor(method = "pearson", label.x = 2, label.y = 2)
+
+ggscatter(tappin, x = "sol_latency_us", y = "cap_latency_us", color = "phone_model",
+   add = "reg.line",
+   add.params = list(color = "blue", fill = "lightgray"),
+   conf.int = TRUE) +
+  stat_cor(method = "pearson", label.x = 2, label.y = 2)
+
+tappin_nooutliers <- subset(tappin, phone_model %in% c("iPhone10_3", "iPhone10_4", "iPhone11_2", "iPhone11_8", "iPhone12_1", "Motorola moto g stylus (XT2115DL)", "Samsung SM-A305G", "Samsung SM-A325M", "Samsung SM-G960U", "Samsung SM-S111DL")) 
+
+tappin_nooutliers$z_sol_latency_us <- with(tappin_nooutliers, ifelse(abs(tappin_nooutliers$z_sol_latency_us) > 3, NA, tappin_nooutliers$z_sol_latency_us))
+
+ggscatter(tappin_nooutliers, x = "z_sol_latency_us", y = "z_cap_latency_us", color = "phone_model",
+   label = "index_fixture", repel = TRUE,
+   add = "reg.line",
+   add.params = list(color = "blue", fill = "lightgray"),
+   conf.int = TRUE) +
+  stat_cor(method = "pearson", label.x = 1, label.y = 3)
+
+tappin_nooutliers_extreme <- subset(tappin_nooutliers, z_sol_latency_us < 0.8)
+
+ggscatter(tappin_nooutliers_extreme, x = "z_sol_latency_us", y = "z_cap_latency_us", color = "phone_model",
+   label = "index_fixture", repel = TRUE,
+   add = "reg.line",
+   add.params = list(color = "blue", fill = "lightgray"),
+   conf.int = TRUE) +
+  stat_cor(method = "pearson", label.x = 0.2, label.y = 3)
+
+capvariance <- sd(tappin_nooutliers_extreme$cap_latency_us)
+solvariance <- sd(tappin_nooutliers_extreme$sol_latency_us)
+```
+
+
+
+
+
+
+
+
+
+
