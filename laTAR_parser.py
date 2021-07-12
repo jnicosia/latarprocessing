@@ -177,9 +177,58 @@ def align_dataframes(dataframes, typeName):
 
     return dataframes
 
+# Merges dataframes from multiple sources (mobile, fixture, etc)
+def merge_source_dataframes(dataframes, typeName):
+    # Take the stimulus as the far-left
+    source_keys_list = list(dataframes)
+    df = dataframes[TYPENAME_STIMULUS_RESPONSE[typeName][STIMULUS][SOURCE]]
+
+    for source_key in source_keys_list:
+        # Skip the source dataframe when it shows up again
+        if source_key == TYPENAME_STIMULUS_RESPONSE[typeName][STIMULUS][SOURCE]:
+            continue
+
+        # Grab current dataframe from source
+        tempDf = dataframes[source_key]
+
+        # Make sure sources have same length
+        if len(tempDf) != len(df):
+            # raise Exception(f"Length mismatch due to source '{source_key}'. Length {str(len(tempDf))} vs {str(len(df))}")
+            print(f"WARN: Length mismatch due to source '{source_key}'. Length {str(len(tempDf))} vs {str(len(df))}")
+            #warning = True # Disabled this warning b/c it's not very useful. It's possible to have length mismatch due to missing samples on fixture or mobile
+
+        df = df.join(tempDf, how='outer')
+    
+    return df
+
+# Export CSV
+def export_csv(csv_filepath, df):
+    # True if file conflict exists
+    conflict = False
+
+    # Uncomment the following to prompt file overwrite if it exists
+    if exists(csv_filepath):
+        print("**********************************************************")
+        print(f"WARN: Output CSV filename '{csv_filepath}' already exists!")
+        print("**********************************************************")
+        conflict = True
+        if not IGNORE_OVERWRITE:
+            val = input(f"Overwrite CSV? (Y/n): ")
+            if val != "Y":
+                print("Not overwriting file. Skipping this objective...")
+                return conflict
+
+    try:
+        df.to_csv(csv_filepath)
+        print(f"INFO: Successfully wrote '{csv_filepath}'")
+        return conflict
+    except Exception as e:
+        print(f"ERROR: Failed to write to '{csv_filepath}': {str(e)}")
+        return True
+
 #######################################################
 
-# Opening JSON file
+# Processes a JSON file and returns the number of failures
 def process_file(filename, output_dir):
     print(f"INFO: Processing file '{filename}'...")
 
@@ -197,6 +246,8 @@ def process_file(filename, output_dir):
     # Iterating through the json
     objectives = data["objectives"]
     procedure_objectives = data["procedure"]["objectives"]
+
+    conflicts = 0
 
     # Process each objective
     for i,objective in enumerate(objectives):
@@ -220,19 +271,7 @@ def process_file(filename, output_dir):
         dataframes = align_dataframes(dataframes, typeName)
 
         # Merge this objective's dataframes and export as .csv
-        source_keys_list = list(dataframes)
-        df = dataframes[source_keys_list[0]]
-
-        for source_key in source_keys_list[1:]:
-            tempDf = dataframes[source_key]
-
-            # Make sure sources have same length
-            if len(tempDf) != len(df):
-                # raise Exception(f"Length mismatch due to source '{source_key}'. Length {str(len(tempDf))} vs {str(len(df))}")
-                print(f"WARN: Length mismatch due to source '{source_key}'. Length {str(len(tempDf))} vs {str(len(df))}")
-                #warning = True # Disabled this warning b/c it's not very useful. It's possible to have length mismatch due to missing samples on fixture or mobile
-
-            df = df.join(tempDf, how='outer')
+        df = merge_source_dataframes(dataframes, typeName)
 
         # add latency (difference between stimulus and response values)
         df["latency_us"] = df[TYPENAME_STIMULUS_RESPONSE[typeName][RESPONSE][COLUMN]] - df[TYPENAME_STIMULUS_RESPONSE[typeName][STIMULUS][COLUMN]]
@@ -250,34 +289,29 @@ def process_file(filename, output_dir):
 
         csv_filepath = normpath(output_dir + "/" + csv_filename)
 
-        # Uncomment the following to prompt file overwrite if it exists
-        if exists(csv_filepath):
-            print("**********************************************************")
-            print("WARN: Output CSV filename '{csv_filepath}' already exists!")
-            print("**********************************************************")
-            if not IGNORE_OVERWRITE:
-                val = input(f"Overwrite CSV? (Y/n): ")
-                if val != "Y":
-                    print("Not overwriting file. Skipping this objective...")
-                    continue
-
-        try:
-            df.to_csv(csv_filepath)
-            print(f"INFO: Successfully wrote '{csv_filepath}'")
-        except Exception as e:
-            print(f"ERROR: Failed to write to '{csv_filepath}': {str(e)}")
+        if export_csv(csv_filepath, df):
+            conflicts += 1
+    
+    return conflicts
 
 #######################################################
 # Main program
 #######################################################
 
 files = os.listdir(normpath(INPUT_JSON_DIR))
+conflicts = 0
+num_processed_files = 0
 
 for i,file in enumerate(files):
     print(f"========[{i}/{len(files)}]=======")
     filepath = normpath(INPUT_JSON_DIR + "/" + file)
 
     if file.endswith(".json"):
-        process_file(filepath, OUTPUT_CSV_DIR)
+        conflicts += process_file(filepath, OUTPUT_CSV_DIR)
+        num_processed_files += 1
     else:
         print(f"INFO: Ignoring non-json file '{filepath}'")
+
+print(f"\n\nINFO: Done. Processed {num_processed_files} JSON files with {conflicts} conflicts/failures.")
+if conflicts > 0:
+    print("See 'WARN' flags in log output above to see what went wrong. Conflicts are when the output file already exists.")
