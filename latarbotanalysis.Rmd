@@ -32,6 +32,7 @@ library(gtsummary)
 library(Rmisc)
 library(pander)
 library(ez)
+library(directlabels)
 library(tidyverse)
 ```
 
@@ -86,11 +87,11 @@ solenoiddata <- data
 ```{r}
 # capacitive
 # raw
-ggplot(capacitivedata, aes(x = index_fixture, y = latency_us, color = phone_model)) +
+ggplot(capacitivedata, aes(x = index_fixture, y = latency_us, group = phone_model, color = phone_model)) +
   labs(title = "Raw Capacitive") +
   geom_line(aes(color = phone_model)) +
   geom_point(aes(color = phone_model)) +
-  theme_classic()
+  theme_classic() 
 
 # standardized
 capacitivedata$z_cap_latency_us <- scale(capacitivedata$latency_us)
@@ -176,7 +177,7 @@ tappin_nooutliers_extreme <- subset(tappin_nooutliers, z_sol_latency_us < 0.8)
 ggscatter(tappin_nooutliers_extreme, x = "z_sol_latency_us", y = "z_cap_latency_us", color = "phone_model",
    label = "index_fixture", repel = TRUE,
    add = "reg.line",
-   add.params = list(color = "blue", fill = "lightgray"),
+   add.params = list(color = "black", fill = "lightgray"),
    conf.int = TRUE) +
   stat_cor(method = "pearson", label.x = 0.2, label.y = 3)
 ```
@@ -190,6 +191,7 @@ tappin_nooutliers_extreme %>% subset(., select = c("phone_model", "sol_latency_u
               statistic = list(all_continuous() ~ "{mean} ({sd})")) %>%
   bold_labels()
 
+### raw
 tappin_nooutliers_extreme_bargraph <- subset(tappin_nooutliers_extreme, select = c("index_fixture", "sol_latency_us", "cap_latency_us", "phone_model")) %>%
   gather(., taptype, latency_us, sol_latency_us:cap_latency_us)
 
@@ -210,6 +212,31 @@ geom_bar(position = "dodge",
        y = "Latency (us)") +
   guides(fill = guide_legend(title = "Tap Type")) +
   geom_errorbar(aes (ymin = latency_us - ci, ymax = latency_us + ci),
+                position = position_dodge(0.9), width = .1) +
+  theme_classic() +
+  coord_flip()
+
+### standardized
+tappin_nooutliers_extreme_bargraph_z <- subset(tappin_nooutliers_extreme, select = c("index_fixture", "z_sol_latency_us", "z_cap_latency_us", "phone_model")) %>%
+  gather(., taptype, z_latency_us, z_sol_latency_us:z_cap_latency_us)
+
+means <- summarySE(data = tappin_nooutliers_extreme_bargraph_z,
+                   measurevar = "z_latency_us",
+                   groupvars = c("phone_model", "taptype"),
+                   na.rm = T,
+                   conf.interval = 0.95,
+                   .drop = TRUE)
+
+ggplot(means, aes(x = phone_model,
+                  y = z_latency_us, 
+                  fill = taptype)) +
+geom_bar(position = "dodge",
+         stat = "identity",
+         color = "black") +
+  labs(x = "Phone Model",
+       y = "Standardized Latency (us)") +
+  guides(fill = guide_legend(title = "Tap Type")) +
+  geom_errorbar(aes (ymin = z_latency_us - ci, ymax = z_latency_us + ci),
                 position = position_dodge(0.9), width = .1) +
   theme_classic() +
   coord_flip()
