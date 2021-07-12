@@ -158,5 +158,5 @@
 - get touch sample & screen refresh rates for each phone
 - get CPU frequency for each phone (?)
 - recommendations to researchers: touch latency appears to be pretty consistent across phones and is within the touch sample rate (~16 ms for 60 Hz) --> in rare cases where mean differences/SDs across groups are less than touch sample rate, then phones aren't a good measurement device (but this is probably extremely rare in human behavior data collection and in remote assessments) 
-- Show that CPU can account for tap latencies if using callback time and not action time
-- Can we get the code for the phone apps? Better understanding of what's going on
+- show that CPU can account for tap latencies if using callback time and not action time
+- can we get the code for the phone apps? Better understanding of what's going on
