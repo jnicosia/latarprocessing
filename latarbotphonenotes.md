@@ -26,12 +26,6 @@
 - [x] display
 - [x] solenoid
 
-### iPhone X (Jessica's iPhone)
-
-- [x] capacitive
-- [x] display
-- [ ] solenoid
-
 ### Samsung SM-A525M
 
 - [x] capacitive
@@ -55,6 +49,56 @@
 - [x] capacitive
 - [x] display
 - [x] solenoid
+
+### iPhone 7
+
+- [x] capacitive
+- [x] display
+- [x] solenoid
+
+### iPhone 8
+
+- [x] capacitive
+- [x] display
+- [x] solenoid
+
+### iPhone X
+
+- [x] capacitive
+- [x] display
+- [x] solenoid
+
+### Samsung SM-A515F
+
+- [ ] capacitive
+- [x] display
+- [x] solenoid
+
+### Samsung SM-A5325M
+
+- [x] capacitive
+- [x] display
+- [x] solenoid
+
+### Samsung SM-A102U
+
+- [ ] capacitive
+- [x] display
+- [x] solenoid
+
+### Samsung SM-S111DL
+
+- [x] capacitive
+- [x] display
+- [x] solenoid
+
+### moto e
+
+- unable to get past activation
+
+### nokia 2 v tella
+
+- unable to get past activation
 
 ## Event Timeline
 

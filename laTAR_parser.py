@@ -276,6 +276,9 @@ def process_file(filename, output_dir):
         # add latency (difference between stimulus and response values)
         df["latency_us"] = df[TYPENAME_STIMULUS_RESPONSE[typeName][RESPONSE][COLUMN]] - df[TYPENAME_STIMULUS_RESPONSE[typeName][STIMULUS][COLUMN]]
 
+        # Add metadata as new columns
+        df["phone_model"] = len(df.index) * [phone_name]
+
         # Make sure all elements used in output CSV filename are strings
         csv_filename_elts = [phone_name, typeName, interval, "ms", count, "x"]
         for i,elt in enumerate(csv_filename_elts):
