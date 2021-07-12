@@ -1,7 +1,25 @@
+# OS files
 .DS_Store
+
+# Temp files
 ~*
+*.swp
+*.tmp
+
+# R files
 *.Rproj.user
 .RData
 .Rhistory
+
+# Data files
 *.csv
 *.json
+
+# Archives
+*.zip
+
+# Output files
+*.log
+*.tex
+*.pdf
+*.xlsx
