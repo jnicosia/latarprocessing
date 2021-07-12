@@ -135,7 +135,7 @@ def insert_df_row(df, row_idx):
 # For a stimulus and response to be aligned:
 # - stimulus must be <= response timestamp (increment response until satisfied)
 # - response timestamp must be < next stimulus timestamp (increment stimulus until satisfied)
-def validate_dataframes(dataframes, typeName):
+def align_dataframes(dataframes, typeName):
     # Determine source and destination columns based on objective type
     stimulus = TYPENAME_STIMULUS_RESPONSE[typeName][STIMULUS]
     response = TYPENAME_STIMULUS_RESPONSE[typeName][RESPONSE]
@@ -216,8 +216,8 @@ def process_file(filename, output_dir):
         # Convert each source dictionary to dataframe
         dataframes = convert_sources_dicts_to_dataframes(data, sources)
 
-        # Validate the dataframes
-        dataframes = validate_dataframes(dataframes, typeName)
+        # Align rows between stimulus and response dataframes
+        dataframes = align_dataframes(dataframes, typeName)
 
         # Merge this objective's dataframes and export as .csv
         source_keys_list = list(dataframes)
@@ -234,7 +234,7 @@ def process_file(filename, output_dir):
 
             df = df.join(tempDf, how='outer')
 
-        # Make sure all elements are strings
+        # Make sure all elements used in output CSV filename are strings
         csv_filename_elts = [phone_name, typeName, interval, "ms", count, "x"]
         for i,elt in enumerate(csv_filename_elts):
             csv_filename_elts[i] = str(elt)
@@ -272,5 +272,9 @@ files = os.listdir(normpath(INPUT_JSON_DIR))
 
 for i,file in enumerate(files):
     print(f"========[{i}/{len(files)}]=======")
+    filepath = normpath(INPUT_JSON_DIR + "/" + file)
+
     if file.endswith(".json"):
-        process_file(normpath(INPUT_JSON_DIR + "/" + file), OUTPUT_CSV_DIR)
+        process_file(filepath, OUTPUT_CSV_DIR)
+    else:
+        print(f"INFO: Ignoring non-json file '{filepath}'")
