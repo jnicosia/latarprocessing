@@ -180,6 +180,34 @@ ggscatter(tappin_nooutliers_extreme, x = "z_sol_latency_us", y = "z_cap_latency_
    add.params = list(color = "black", fill = "lightgray"),
    conf.int = TRUE) +
   stat_cor(method = "pearson", label.x = 0.2, label.y = 3)
+
+# w just one point per phone
+# w outliers
+tappin_mean_scatter <- subset(tappin, select = c("index_fixture", "z_sol_latency_us", "z_cap_latency_us", "phone_model")) %>%
+  gather(., taptype, z_latency_us, z_sol_latency_us:z_cap_latency_us) %>%
+  group_by(phone_model, taptype) %>%
+  summarize(mean_z_latency_us = mean(z_latency_us)) %>%
+  spread(., taptype, mean_z_latency_us)
+
+ggscatter(tappin_mean_scatter, x = "z_sol_latency_us", y = "z_cap_latency_us", color = "phone_model",
+   add = "reg.line",
+   add.params = list(color = "black", fill = "lightgray"),
+   conf.int = TRUE) +
+  stat_cor(method = "pearson", label.x = 0.2, label.y = 3)
+
+# outliers removed
+tappin_nooutliers_extreme_mean_scatter <- subset(tappin_nooutliers_extreme, select = c("index_fixture", "z_sol_latency_us", "z_cap_latency_us", "phone_model")) %>%
+  gather(., taptype, z_latency_us, z_sol_latency_us:z_cap_latency_us) %>%
+  group_by(phone_model, taptype) %>%
+  summarize(mean_z_latency_us = mean(z_latency_us)) %>%
+  spread(., taptype, mean_z_latency_us)
+
+ggscatter(tappin_nooutliers_extreme_mean_scatter, x = "z_sol_latency_us", y = "z_cap_latency_us", color = "phone_model",
+   add = "reg.line",
+   add.params = list(color = "black", fill = "lightgray"),
+   conf.int = TRUE) +
+  stat_cor(method = "pearson", label.x = 0, label.y = 3)
+
 ```
 
 ### Bar Graph
