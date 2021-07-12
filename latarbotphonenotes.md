@@ -151,3 +151,10 @@
     - 500 ms X 200
     - 300 ms X 200
     - 100 ms X 200
+    
+## Misc. Notes
+
+- try using prime number for ITI (i.e., instead of 500 ms --> 499/503) to help reduce any touch screen sampling rate
+- get touch sample & screen refresh rates for each phone
+- get CPU frequency for each phone (?)
+- recommendations to researchers: touch latency appears to be pretty consistent across phones and is within the touch sample rate (~16 ms for 60 Hz) --> in rare cases where mean differences/SDs across groups are less than touch sample rate, then phones aren't a good measurement device (but this is probably extremely rare in human behavior data collection and in remote assessments) 
