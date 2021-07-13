@@ -100,6 +100,18 @@
 
 - unable to get past activation
 
+### Wiko Ride 3
+
+- [x] capacitive
+- [x] display
+- [ ] solenoid
+
+### LG Journey
+
+- [x] capacitive
+- [x] display
+- [x] solenoid
+
 ## Event Timeline
 
 1. app decides to display stimulus (dispTime)
@@ -156,5 +168,19 @@
 
 - try using prime number for ITI (i.e., instead of 500 ms --> 499/503) to help reduce any touch screen sampling rate
 - get touch sample & screen refresh rates for each phone
-- get CPU frequency for each phone (?)
-- recommendations to researchers: touch latency appears to be pretty consistent across phones and is within the touch sample rate (~16 ms for 60 Hz) --> in rare cases where mean differences/SDs across groups are less than touch sample rate, then phones aren't a good measurement device (but this is probably extremely rare in human behavior data collection and in remote assessments) 
+- get measure of phone performance. Options:
+  - Worst: CPU frequency for each phone (?). Doesn't factor in other aspects of phone performance.
+  - Better: Get benchmark results available online (eg., Geekbench 5 or 3D Mark). Not available for all phones and is model-specific
+  - Best: Run benchmark on actual phones
+- recommendations to researchers: touch latency appears to be pretty consistent across phones and is within the touch sample rate (~16 ms for 60 Hz) --> in rare cases where mean differences/SDs across groups are less than touch sample rate, then phones aren't a good measurement device (but this is probably extremely rare in human behavior data collection and in remote assessments)
+
+### Screen Refresh Rate
+
+Key: While screen refresh rate defines the minimum variance a phone's screen can provide, the OS decides what the frame rate is and the developer may have options to define it. From [Apple's iOS Device Compatibility Reference](https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Displays/Displays.html):
+
+    Under most circumstances, UIKit handles redrawing and animation for you, adjusting the frame rate as necessary to provide a good viewing experience with reasonable energy usage. However, when you configure a view animation, you can optionally specify a hint when you know that the animation should run at a higher or lower rate. For more information, see UIViewAnimationOptions.
+
+# Sources used for phone_data.csv
+
+- Apple documentation on display refresh and touch sampling rates: https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Displays/Displays.html
+- Some Samsung info in screen refresh rate: https://www.samsung.com/us/support/answer/ANS00086005/
