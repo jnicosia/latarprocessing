@@ -20,41 +20,92 @@ STIMULUS = 0
 RESPONSE = 1
 SOURCE = 2
 COLUMN = 4
+LABEL = 5
 
 # Debug print
 DEBUG = False
 
+# Definitions for merging fixture and mobile data
+# - Must place the primary pair ("real" latency) pair first. longer/secondary latency should appear after the first
 TYPENAME_STIMULUS_RESPONSE = {
-    "Display Latency" : {
-        STIMULUS: {
-            SOURCE: "mobile",
-            COLUMN: "corrected_displayTime_mobile",
+    "Display Latency" : [
+        # Primary latency
+        {
+            LABEL: "display_latency_us",
+            STIMULUS: {
+                SOURCE: "mobile",
+                COLUMN: "corrected_displayTime_mobile",
+            },
+            RESPONSE: {
+                SOURCE: "fixture",
+                COLUMN: "corrected_detectTime_fixture",
+            },
         },
-        RESPONSE: {
-            SOURCE: "fixture",
-            COLUMN: "corrected_detectTime_fixture",
+        # Seconary latencies
+        {
+            LABEL: "callback_latency_us",
+            STIMULUS: {
+                SOURCE: "mobile",
+                COLUMN: "corrected_callbackTime_mobile",
+            },
+            RESPONSE: {
+                SOURCE: "fixture",
+                COLUMN: "corrected_detectTime_fixture",
+            },
         },
-    },
-    "Capacitive Tap Latency" : {
-        STIMULUS: {
-            SOURCE: "fixture",
-            COLUMN: "corrected_timestamp_fixture",
+    ],
+    "Capacitive Tap Latency" : [
+        # Primary latency
+        {
+            LABEL: "action_latency_us",
+            STIMULUS: {
+                SOURCE: "fixture",
+                COLUMN: "corrected_timestamp_fixture",
+            },
+            RESPONSE: {
+                SOURCE: "mobile",
+                COLUMN: "corrected_actionTime_mobile",
+            },
         },
-        RESPONSE: {
-            SOURCE: "mobile",
-            COLUMN: "corrected_actionTime_mobile",
+        # Seconary latencies
+        {
+            LABEL: "callback_latency_us",
+            STIMULUS: {
+                SOURCE: "fixture",
+                COLUMN: "corrected_timestamp_fixture",
+            },
+            RESPONSE: {
+                SOURCE: "mobile",
+                COLUMN: "corrected_callbackTime_mobile",
+            },
         },
-    },
-    "Solenoid Tap Latency" : {
-        STIMULUS: {
-            SOURCE: "fixture",
-            COLUMN: "corrected_timestamp_fixture",
+    ],
+    "Solenoid Tap Latency" : [
+        # Primary latency
+        {
+            LABEL: "action_latency_us",
+            STIMULUS: {
+                SOURCE: "fixture",
+                COLUMN: "corrected_timestamp_fixture",
+            },
+            RESPONSE: {
+                SOURCE: "mobile",
+                COLUMN: "corrected_callbackTime_mobile",
+            },
         },
-        RESPONSE: {
-            SOURCE: "mobile",
-            COLUMN: "corrected_actionTime_mobile",
+        # Seconary latencies
+        {
+            LABEL: "callback_latency_us",
+            STIMULUS: {
+                SOURCE: "fixture",
+                COLUMN: "corrected_timestamp_fixture",
+            },
+            RESPONSE: {
+                SOURCE: "mobile",
+                COLUMN: "corrected_actionTime_mobile",
+            },
         },
-    },
+    ],
 }
 
 # Debug print
@@ -137,8 +188,8 @@ def insert_df_row(df, row_idx):
 # - response timestamp must be < next stimulus timestamp (increment stimulus until satisfied)
 def align_dataframes(dataframes, typeName):
     # Determine source and destination columns based on objective type
-    stimulus = TYPENAME_STIMULUS_RESPONSE[typeName][STIMULUS]
-    response = TYPENAME_STIMULUS_RESPONSE[typeName][RESPONSE]
+    stimulus = TYPENAME_STIMULUS_RESPONSE[typeName][0][STIMULUS]
+    response = TYPENAME_STIMULUS_RESPONSE[typeName][0][RESPONSE]
 
     # Initialize stimulus pointer to first index
     row_idx = 0
@@ -181,11 +232,11 @@ def align_dataframes(dataframes, typeName):
 def merge_source_dataframes(dataframes, typeName):
     # Take the stimulus as the far-left
     source_keys_list = list(dataframes)
-    df = dataframes[TYPENAME_STIMULUS_RESPONSE[typeName][STIMULUS][SOURCE]]
+    df = dataframes[TYPENAME_STIMULUS_RESPONSE[typeName][0][STIMULUS][SOURCE]]
 
     for source_key in source_keys_list:
         # Skip the source dataframe when it shows up again
-        if source_key == TYPENAME_STIMULUS_RESPONSE[typeName][STIMULUS][SOURCE]:
+        if source_key == TYPENAME_STIMULUS_RESPONSE[typeName][0][STIMULUS][SOURCE]:
             continue
 
         # Grab current dataframe from source
@@ -274,7 +325,8 @@ def process_file(filename, output_dir):
         df = merge_source_dataframes(dataframes, typeName)
 
         # add latency (difference between stimulus and response values)
-        df["latency_us"] = df[TYPENAME_STIMULUS_RESPONSE[typeName][RESPONSE][COLUMN]] - df[TYPENAME_STIMULUS_RESPONSE[typeName][STIMULUS][COLUMN]]
+        for stim_resp in TYPENAME_STIMULUS_RESPONSE[typeName]:
+            df[stim_resp[LABEL]] = df[stim_resp[RESPONSE][COLUMN]] - df[stim_resp[STIMULUS][COLUMN]]
 
         # Add metadata as new columns
         df["phone_model"] = len(df.index) * [phone_name]

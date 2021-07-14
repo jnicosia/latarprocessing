@@ -1,0 +1,5421 @@
+{
+    "calibration": {
+        "displayData": {
+            "maxValue": 32907,
+            "minValue": 51
+        },
+        "displayThreshold": 3336,
+        "touchData": {
+            "occurences": [
+                13087989,
+                13594221,
+                14093999,
+                14593941,
+                15093541,
+                17593492,
+                18092009,
+                18591775,
+                19091628,
+                19591473,
+                22093694,
+                22594089,
+                23093550,
+                23593262,
+                24093244,
+                26597798,
+                27090959,
+                27590486,
+                28090441,
+                28595722,
+                31093249,
+                31594088,
+                32093453,
+                32593408,
+                33093251,
+                35594956,
+                36091236,
+                36591053,
+                37090514,
+                37590305
+            ],
+            "settings": [
+                {
+                    "count": 4,
+                    "setting": 0,
+                    "valid": false
+                },
+                {
+                    "count": 4,
+                    "setting": 1,
+                    "valid": false
+                },
+                {
+                    "count": 4,
+                    "setting": 2,
+                    "valid": false
+                },
+                {
+                    "count": 4,
+                    "setting": 3,
+                    "valid": false
+                },
+                {
+                    "count": 4,
+                    "setting": 4,
+                    "valid": false
+                },
+                {
+                    "count": 5,
+                    "setting": 5,
+                    "valid": true
+                },
+                {
+                    "count": 5,
+                    "setting": 6,
+                    "valid": true
+                }
+            ],
+            "startTime": 11077424,
+            "stopTime": 39083944
+        },
+        "touchSetting": 5,
+        "type": 1,
+        "typeName": "Calibration"
+    },
+    "clockSync": {
+        "fixture": {
+            "avgTcs": 2032,
+            "offset": 2032,
+            "roundTrips": [
+                {
+                    "localRecv": 957570,
+                    "localSend": 954413,
+                    "remote": 954002
+                },
+                {
+                    "localRecv": 1950314,
+                    "localSend": 1947623,
+                    "remote": 1946731
+                },
+                {
+                    "localRecv": 2950124,
+                    "localSend": 2947485,
+                    "remote": 2946624
+                },
+                {
+                    "localRecv": 3951528,
+                    "localSend": 3948602,
+                    "remote": 3948000
+                },
+                {
+                    "localRecv": 4951543,
+                    "localSend": 4947994,
+                    "remote": 4948002
+                },
+                {
+                    "localRecv": 5949819,
+                    "localSend": 5947175,
+                    "remote": 5946318
+                },
+                {
+                    "localRecv": 6950267,
+                    "localSend": 6947623,
+                    "remote": 6946788
+                },
+                {
+                    "localRecv": 7950087,
+                    "localSend": 7947427,
+                    "remote": 7946620
+                },
+                {
+                    "localRecv": 8951477,
+                    "localSend": 8948329,
+                    "remote": 8948002
+                },
+                {
+                    "localRecv": 9951486,
+                    "localSend": 9947951,
+                    "remote": 9948000
+                }
+            ],
+            "stdDevTcs": 173,
+            "t0": 1626062724114931,
+            "t1": 1626062724118524
+        },
+        "mobile": {
+            "avgTcs": 2818,
+            "offset": 2881,
+            "roundTrips": [
+                {
+                    "localRecv": 9172,
+                    "localSend": 4706,
+                    "remote": 4914
+                },
+                {
+                    "localRecv": 11347,
+                    "localSend": 9196,
+                    "remote": 7512
+                },
+                {
+                    "localRecv": 14254,
+                    "localSend": 11359,
+                    "remote": 9882
+                },
+                {
+                    "localRecv": 16774,
+                    "localSend": 14266,
+                    "remote": 12438
+                },
+                {
+                    "localRecv": 21708,
+                    "localSend": 16810,
+                    "remote": 16482
+                },
+                {
+                    "localRecv": 24810,
+                    "localSend": 21733,
+                    "remote": 20439
+                },
+                {
+                    "localRecv": 27714,
+                    "localSend": 24842,
+                    "remote": 23206
+                },
+                {
+                    "localRecv": 31172,
+                    "localSend": 27739,
+                    "remote": 26713
+                },
+                {
+                    "localRecv": 37402,
+                    "localSend": 31198,
+                    "remote": 33155
+                },
+                {
+                    "localRecv": 41235,
+                    "localSend": 37427,
+                    "remote": 35878
+                },
+                {
+                    "localRecv": 49182,
+                    "localSend": 41262,
+                    "remote": 41286
+                },
+                {
+                    "localRecv": 63195,
+                    "localSend": 49211,
+                    "remote": 54070
+                },
+                {
+                    "localRecv": 77399,
+                    "localSend": 63238,
+                    "remote": 62679
+                },
+                {
+                    "localRecv": 96815,
+                    "localSend": 77474,
+                    "remote": 90276
+                },
+                {
+                    "localRecv": 103719,
+                    "localSend": 96889,
+                    "remote": 96235
+                },
+                {
+                    "localRecv": 107016,
+                    "localSend": 103793,
+                    "remote": 102448
+                },
+                {
+                    "localRecv": 109511,
+                    "localSend": 107090,
+                    "remote": 105070
+                },
+                {
+                    "localRecv": 113569,
+                    "localSend": 109574,
+                    "remote": 108910
+                },
+                {
+                    "localRecv": 116312,
+                    "localSend": 113644,
+                    "remote": 111857
+                },
+                {
+                    "localRecv": 119127,
+                    "localSend": 116386,
+                    "remote": 114805
+                }
+            ],
+            "stdDevTcs": 1819,
+            "t0": 1626062724166105,
+            "t1": 1626062724170764
+        },
+        "type": 2,
+        "typeName": "Clock Sync"
+    },
+    "description": "",
+    "fixture": {
+        "id": "0001",
+        "metadata": {
+        },
+        "name": "Puck B1",
+        "occupied": false,
+        "type": "Puck"
+    },
+    "id": 2,
+    "mobile": {
+        "id": "fdc8ee652826f17f",
+        "metadata": {
+            "app": {
+                "id": "com.healthymedium.latar",
+                "versionCode": 10000,
+                "versionName": "0.1.0"
+            },
+            "hardware": {
+                "brand": "samsung",
+                "id": "RP1A.200720.012",
+                "manufacturer": "samsung",
+                "model": "SM-A325M",
+                "name": "Samsung SM-A325M"
+            },
+            "os": {
+                "name": "Android",
+                "release": "11",
+                "sdk": 30,
+                "securityPatch": "2021-02-01"
+            },
+            "uuid": "fdc8ee652826f17f"
+        },
+        "name": "Samsung SM-A325M",
+        "occupied": false,
+        "type": "Android"
+    },
+    "objectives": [
+        {
+            "data": [
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 43700790,
+                    "callbackTime": 43703759,
+                    "index": 0,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 0,
+                    "source": "fixture",
+                    "timestamp": 43736012
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 44202077,
+                    "callbackTime": 44203631,
+                    "index": 1,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 1,
+                    "source": "fixture",
+                    "timestamp": 44236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 44702002,
+                    "callbackTime": 44703545,
+                    "index": 2,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 2,
+                    "source": "fixture",
+                    "timestamp": 44737002
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 45201666,
+                    "callbackTime": 45203412,
+                    "index": 3,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 3,
+                    "source": "fixture",
+                    "timestamp": 45236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 45700890,
+                    "callbackTime": 45702586,
+                    "index": 4,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 4,
+                    "source": "fixture",
+                    "timestamp": 45736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 46201068,
+                    "callbackTime": 46202929,
+                    "index": 5,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 5,
+                    "source": "fixture",
+                    "timestamp": 46236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 46700338,
+                    "callbackTime": 46701792,
+                    "index": 6,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 6,
+                    "source": "fixture",
+                    "timestamp": 46737001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 47206002,
+                    "callbackTime": 47207671,
+                    "index": 7,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 7,
+                    "source": "fixture",
+                    "timestamp": 47236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 47705801,
+                    "callbackTime": 47707349,
+                    "index": 8,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 8,
+                    "source": "fixture",
+                    "timestamp": 47736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 48205640,
+                    "callbackTime": 48207434,
+                    "index": 9,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 9,
+                    "source": "fixture",
+                    "timestamp": 48236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 48705545,
+                    "callbackTime": 48707454,
+                    "index": 10,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 10,
+                    "source": "fixture",
+                    "timestamp": 48737001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 49205085,
+                    "callbackTime": 49206858,
+                    "index": 11,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 11,
+                    "source": "fixture",
+                    "timestamp": 49237002
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 49704703,
+                    "callbackTime": 49706541,
+                    "index": 12,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 12,
+                    "source": "fixture",
+                    "timestamp": 49736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 50203864,
+                    "callbackTime": 50205335,
+                    "index": 13,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 13,
+                    "source": "fixture",
+                    "timestamp": 50236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 50703771,
+                    "callbackTime": 50705496,
+                    "index": 14,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 14,
+                    "source": "fixture",
+                    "timestamp": 50737002
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 51203782,
+                    "callbackTime": 51205603,
+                    "index": 15,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 15,
+                    "source": "fixture",
+                    "timestamp": 51237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 51703411,
+                    "callbackTime": 51704972,
+                    "index": 16,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 16,
+                    "source": "fixture",
+                    "timestamp": 51736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 52203149,
+                    "callbackTime": 52205252,
+                    "index": 17,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 17,
+                    "source": "fixture",
+                    "timestamp": 52236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 52702846,
+                    "callbackTime": 52704406,
+                    "index": 18,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 18,
+                    "source": "fixture",
+                    "timestamp": 52737001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 53202668,
+                    "callbackTime": 53204781,
+                    "index": 19,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 19,
+                    "source": "fixture",
+                    "timestamp": 53237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 53702466,
+                    "callbackTime": 53703987,
+                    "index": 20,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 20,
+                    "source": "fixture",
+                    "timestamp": 53736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 54202320,
+                    "callbackTime": 54204086,
+                    "index": 21,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 21,
+                    "source": "fixture",
+                    "timestamp": 54236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 54702687,
+                    "callbackTime": 54704363,
+                    "index": 22,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 22,
+                    "source": "fixture",
+                    "timestamp": 54737001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 55201894,
+                    "callbackTime": 55203534,
+                    "index": 23,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 23,
+                    "source": "fixture",
+                    "timestamp": 55237002
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 55701529,
+                    "callbackTime": 55703342,
+                    "index": 24,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 24,
+                    "source": "fixture",
+                    "timestamp": 55736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 56201965,
+                    "callbackTime": 56203767,
+                    "index": 25,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 25,
+                    "source": "fixture",
+                    "timestamp": 56236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 56700910,
+                    "callbackTime": 56702489,
+                    "index": 26,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 26,
+                    "source": "fixture",
+                    "timestamp": 56737001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 57200666,
+                    "callbackTime": 57202117,
+                    "index": 27,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 27,
+                    "source": "fixture",
+                    "timestamp": 57237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 57706396,
+                    "callbackTime": 57708247,
+                    "index": 28,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 28,
+                    "source": "fixture",
+                    "timestamp": 57736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 58206240,
+                    "callbackTime": 58208015,
+                    "index": 29,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 29,
+                    "source": "fixture",
+                    "timestamp": 58236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 58705172,
+                    "callbackTime": 58706885,
+                    "index": 30,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 30,
+                    "source": "fixture",
+                    "timestamp": 58737000
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 59205025,
+                    "callbackTime": 59206557,
+                    "index": 31,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 31,
+                    "source": "fixture",
+                    "timestamp": 59237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 59704537,
+                    "callbackTime": 59706380,
+                    "index": 32,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 32,
+                    "source": "fixture",
+                    "timestamp": 59736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 60205307,
+                    "callbackTime": 60207209,
+                    "index": 33,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 33,
+                    "source": "fixture",
+                    "timestamp": 60236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 60704295,
+                    "callbackTime": 60706107,
+                    "index": 34,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 34,
+                    "source": "fixture",
+                    "timestamp": 60737000
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 61204139,
+                    "callbackTime": 61206211,
+                    "index": 35,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 35,
+                    "source": "fixture",
+                    "timestamp": 61237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 61703793,
+                    "callbackTime": 61705697,
+                    "index": 36,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 36,
+                    "source": "fixture",
+                    "timestamp": 61736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 62203583,
+                    "callbackTime": 62205244,
+                    "index": 37,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 37,
+                    "source": "fixture",
+                    "timestamp": 62236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 62703356,
+                    "callbackTime": 62705131,
+                    "index": 38,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 38,
+                    "source": "fixture",
+                    "timestamp": 62737000
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 63203866,
+                    "callbackTime": 63205593,
+                    "index": 39,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 39,
+                    "source": "fixture",
+                    "timestamp": 63237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 63702608,
+                    "callbackTime": 63704355,
+                    "index": 40,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 40,
+                    "source": "fixture",
+                    "timestamp": 63736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 64202426,
+                    "callbackTime": 64204098,
+                    "index": 41,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 41,
+                    "source": "fixture",
+                    "timestamp": 64236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 64701825,
+                    "callbackTime": 64703377,
+                    "index": 42,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 42,
+                    "source": "fixture",
+                    "timestamp": 64736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 65201631,
+                    "callbackTime": 65203367,
+                    "index": 43,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 43,
+                    "source": "fixture",
+                    "timestamp": 65237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 65701600,
+                    "callbackTime": 65703165,
+                    "index": 44,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 44,
+                    "source": "fixture",
+                    "timestamp": 65736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 66201367,
+                    "callbackTime": 66203150,
+                    "index": 45,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 45,
+                    "source": "fixture",
+                    "timestamp": 66236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 66700949,
+                    "callbackTime": 66702631,
+                    "index": 46,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 46,
+                    "source": "fixture",
+                    "timestamp": 66736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 67200688,
+                    "callbackTime": 67202224,
+                    "index": 47,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 47,
+                    "source": "fixture",
+                    "timestamp": 67237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 67700451,
+                    "callbackTime": 67702200,
+                    "index": 48,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 48,
+                    "source": "fixture",
+                    "timestamp": 67736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 68200446,
+                    "callbackTime": 68202228,
+                    "index": 49,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 49,
+                    "source": "fixture",
+                    "timestamp": 68236999
+                }
+            ],
+            "dataPreprocessed": [
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 43700790,
+                    "callbackTime": 43703759,
+                    "index": 0,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 0,
+                    "source": "fixture",
+                    "timestamp": 43736012
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 44202077,
+                    "callbackTime": 44203631,
+                    "index": 1,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 1,
+                    "source": "fixture",
+                    "timestamp": 44236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 44702002,
+                    "callbackTime": 44703545,
+                    "index": 2,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 2,
+                    "source": "fixture",
+                    "timestamp": 44737002
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 45201666,
+                    "callbackTime": 45203412,
+                    "index": 3,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 3,
+                    "source": "fixture",
+                    "timestamp": 45236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 45700890,
+                    "callbackTime": 45702586,
+                    "index": 4,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 4,
+                    "source": "fixture",
+                    "timestamp": 45736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 46201068,
+                    "callbackTime": 46202929,
+                    "index": 5,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 5,
+                    "source": "fixture",
+                    "timestamp": 46236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 46700338,
+                    "callbackTime": 46701792,
+                    "index": 6,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 6,
+                    "source": "fixture",
+                    "timestamp": 46737001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 47206002,
+                    "callbackTime": 47207671,
+                    "index": 7,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 7,
+                    "source": "fixture",
+                    "timestamp": 47236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 47705801,
+                    "callbackTime": 47707349,
+                    "index": 8,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 8,
+                    "source": "fixture",
+                    "timestamp": 47736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 48205640,
+                    "callbackTime": 48207434,
+                    "index": 9,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 9,
+                    "source": "fixture",
+                    "timestamp": 48236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 48705545,
+                    "callbackTime": 48707454,
+                    "index": 10,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 10,
+                    "source": "fixture",
+                    "timestamp": 48737001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 49205085,
+                    "callbackTime": 49206858,
+                    "index": 11,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 11,
+                    "source": "fixture",
+                    "timestamp": 49237002
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 49704703,
+                    "callbackTime": 49706541,
+                    "index": 12,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 12,
+                    "source": "fixture",
+                    "timestamp": 49736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 50203864,
+                    "callbackTime": 50205335,
+                    "index": 13,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 13,
+                    "source": "fixture",
+                    "timestamp": 50236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 50703771,
+                    "callbackTime": 50705496,
+                    "index": 14,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 14,
+                    "source": "fixture",
+                    "timestamp": 50737002
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 51203782,
+                    "callbackTime": 51205603,
+                    "index": 15,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 15,
+                    "source": "fixture",
+                    "timestamp": 51237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 51703411,
+                    "callbackTime": 51704972,
+                    "index": 16,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 16,
+                    "source": "fixture",
+                    "timestamp": 51736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 52203149,
+                    "callbackTime": 52205252,
+                    "index": 17,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 17,
+                    "source": "fixture",
+                    "timestamp": 52236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 52702846,
+                    "callbackTime": 52704406,
+                    "index": 18,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 18,
+                    "source": "fixture",
+                    "timestamp": 52737001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 53202668,
+                    "callbackTime": 53204781,
+                    "index": 19,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 19,
+                    "source": "fixture",
+                    "timestamp": 53237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 53702466,
+                    "callbackTime": 53703987,
+                    "index": 20,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 20,
+                    "source": "fixture",
+                    "timestamp": 53736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 54202320,
+                    "callbackTime": 54204086,
+                    "index": 21,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 21,
+                    "source": "fixture",
+                    "timestamp": 54236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 54702687,
+                    "callbackTime": 54704363,
+                    "index": 22,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 22,
+                    "source": "fixture",
+                    "timestamp": 54737001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 55201894,
+                    "callbackTime": 55203534,
+                    "index": 23,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 23,
+                    "source": "fixture",
+                    "timestamp": 55237002
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 55701529,
+                    "callbackTime": 55703342,
+                    "index": 24,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 24,
+                    "source": "fixture",
+                    "timestamp": 55736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 56201965,
+                    "callbackTime": 56203767,
+                    "index": 25,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 25,
+                    "source": "fixture",
+                    "timestamp": 56236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 56700910,
+                    "callbackTime": 56702489,
+                    "index": 26,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 26,
+                    "source": "fixture",
+                    "timestamp": 56737001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 57200666,
+                    "callbackTime": 57202117,
+                    "index": 27,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 27,
+                    "source": "fixture",
+                    "timestamp": 57237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 57706396,
+                    "callbackTime": 57708247,
+                    "index": 28,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 28,
+                    "source": "fixture",
+                    "timestamp": 57736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 58206240,
+                    "callbackTime": 58208015,
+                    "index": 29,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 29,
+                    "source": "fixture",
+                    "timestamp": 58236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 58705172,
+                    "callbackTime": 58706885,
+                    "index": 30,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 30,
+                    "source": "fixture",
+                    "timestamp": 58737000
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 59205025,
+                    "callbackTime": 59206557,
+                    "index": 31,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 31,
+                    "source": "fixture",
+                    "timestamp": 59237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 59704537,
+                    "callbackTime": 59706380,
+                    "index": 32,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 32,
+                    "source": "fixture",
+                    "timestamp": 59736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 60205307,
+                    "callbackTime": 60207209,
+                    "index": 33,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 33,
+                    "source": "fixture",
+                    "timestamp": 60236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 60704295,
+                    "callbackTime": 60706107,
+                    "index": 34,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 34,
+                    "source": "fixture",
+                    "timestamp": 60737000
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 61204139,
+                    "callbackTime": 61206211,
+                    "index": 35,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 35,
+                    "source": "fixture",
+                    "timestamp": 61237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 61703793,
+                    "callbackTime": 61705697,
+                    "index": 36,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 36,
+                    "source": "fixture",
+                    "timestamp": 61736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 62203583,
+                    "callbackTime": 62205244,
+                    "index": 37,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 37,
+                    "source": "fixture",
+                    "timestamp": 62236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 62703356,
+                    "callbackTime": 62705131,
+                    "index": 38,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 38,
+                    "source": "fixture",
+                    "timestamp": 62737000
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 63203866,
+                    "callbackTime": 63205593,
+                    "index": 39,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 39,
+                    "source": "fixture",
+                    "timestamp": 63237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 63702608,
+                    "callbackTime": 63704355,
+                    "index": 40,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 40,
+                    "source": "fixture",
+                    "timestamp": 63736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 64202426,
+                    "callbackTime": 64204098,
+                    "index": 41,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 41,
+                    "source": "fixture",
+                    "timestamp": 64236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 64701825,
+                    "callbackTime": 64703377,
+                    "index": 42,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 42,
+                    "source": "fixture",
+                    "timestamp": 64736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 65201631,
+                    "callbackTime": 65203367,
+                    "index": 43,
+                    "source": "mobile",
+                    "touchMajor": 0.029959152,
+                    "touchMinor": 0.021788474
+                },
+                {
+                    "index": 43,
+                    "source": "fixture",
+                    "timestamp": 65237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 65701600,
+                    "callbackTime": 65703165,
+                    "index": 44,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 44,
+                    "source": "fixture",
+                    "timestamp": 65736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 66201367,
+                    "callbackTime": 66203150,
+                    "index": 45,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 45,
+                    "source": "fixture",
+                    "timestamp": 66236999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 66700949,
+                    "callbackTime": 66702631,
+                    "index": 46,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 46,
+                    "source": "fixture",
+                    "timestamp": 66736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 67200688,
+                    "callbackTime": 67202224,
+                    "index": 47,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 47,
+                    "source": "fixture",
+                    "timestamp": 67237001
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 67700451,
+                    "callbackTime": 67702200,
+                    "index": 48,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 48,
+                    "source": "fixture",
+                    "timestamp": 67736999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 68200446,
+                    "callbackTime": 68202228,
+                    "index": 49,
+                    "source": "mobile",
+                    "touchMajor": 0.03268271,
+                    "touchMinor": 0.024512032
+                },
+                {
+                    "index": 49,
+                    "source": "fixture",
+                    "timestamp": 68236999
+                }
+            ],
+            "loadResults": {
+            },
+            "notes": [
+                "results processing found 50 valid entries"
+            ],
+            "parameters": {
+                "count": 50,
+                "interval": 500,
+                "load": "",
+                "loadMinInterval": 0,
+                "loadThreadCount": 0
+            },
+            "results": [
+                {
+                    "index": 0,
+                    "latency": 18072
+                },
+                {
+                    "index": 1,
+                    "latency": 16957
+                },
+                {
+                    "index": 2,
+                    "latency": 16868
+                },
+                {
+                    "index": 3,
+                    "latency": 16738
+                },
+                {
+                    "index": 4,
+                    "latency": 15912
+                },
+                {
+                    "index": 5,
+                    "latency": 16255
+                },
+                {
+                    "index": 6,
+                    "latency": 15116
+                },
+                {
+                    "index": 7,
+                    "latency": 20997
+                },
+                {
+                    "index": 8,
+                    "latency": 20675
+                },
+                {
+                    "index": 9,
+                    "latency": 20760
+                },
+                {
+                    "index": 10,
+                    "latency": 20778
+                },
+                {
+                    "index": 11,
+                    "latency": 20181
+                },
+                {
+                    "index": 12,
+                    "latency": 19867
+                },
+                {
+                    "index": 13,
+                    "latency": 18661
+                },
+                {
+                    "index": 14,
+                    "latency": 18819
+                },
+                {
+                    "index": 15,
+                    "latency": 18927
+                },
+                {
+                    "index": 16,
+                    "latency": 18298
+                },
+                {
+                    "index": 17,
+                    "latency": 18578
+                },
+                {
+                    "index": 18,
+                    "latency": 17730
+                },
+                {
+                    "index": 19,
+                    "latency": 18105
+                },
+                {
+                    "index": 20,
+                    "latency": 17313
+                },
+                {
+                    "index": 21,
+                    "latency": 17412
+                },
+                {
+                    "index": 22,
+                    "latency": 17687
+                },
+                {
+                    "index": 23,
+                    "latency": 16857
+                },
+                {
+                    "index": 24,
+                    "latency": 16668
+                },
+                {
+                    "index": 25,
+                    "latency": 17093
+                },
+                {
+                    "index": 26,
+                    "latency": 15813
+                },
+                {
+                    "index": 27,
+                    "latency": 15441
+                },
+                {
+                    "index": 28,
+                    "latency": 21573
+                },
+                {
+                    "index": 29,
+                    "latency": 21341
+                },
+                {
+                    "index": 30,
+                    "latency": 20210
+                },
+                {
+                    "index": 31,
+                    "latency": 19881
+                },
+                {
+                    "index": 32,
+                    "latency": 19706
+                },
+                {
+                    "index": 33,
+                    "latency": 20535
+                },
+                {
+                    "index": 34,
+                    "latency": 19432
+                },
+                {
+                    "index": 35,
+                    "latency": 19535
+                },
+                {
+                    "index": 36,
+                    "latency": 19023
+                },
+                {
+                    "index": 37,
+                    "latency": 18570
+                },
+                {
+                    "index": 38,
+                    "latency": 18456
+                },
+                {
+                    "index": 39,
+                    "latency": 18917
+                },
+                {
+                    "index": 40,
+                    "latency": 17681
+                },
+                {
+                    "index": 41,
+                    "latency": 17424
+                },
+                {
+                    "index": 42,
+                    "latency": 16703
+                },
+                {
+                    "index": 43,
+                    "latency": 16691
+                },
+                {
+                    "index": 44,
+                    "latency": 16491
+                },
+                {
+                    "index": 45,
+                    "latency": 16476
+                },
+                {
+                    "index": 46,
+                    "latency": 15957
+                },
+                {
+                    "index": 47,
+                    "latency": 15548
+                },
+                {
+                    "index": 48,
+                    "latency": 15526
+                },
+                {
+                    "index": 49,
+                    "latency": 15554
+                }
+            ],
+            "type": 3,
+            "typeName": "Capacitive Tap Latency"
+        },
+        {
+            "data": [
+                {
+                    "callbackTime": 70898383,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 70899839,
+                    "index": 0,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 71529268,
+                    "index": 1,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 71399528,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 71400708,
+                    "index": 1,
+                    "source": "mobile"
+                },
+                {
+                    "callbackTime": 71900105,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 71900964,
+                    "index": 2,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 72013107,
+                    "index": 2,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 72400890,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 72401718,
+                    "index": 3,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 72532788,
+                    "index": 3,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 72901779,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 72902542,
+                    "index": 4,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 73016627,
+                    "index": 4,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 73403052,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 73403987,
+                    "index": 5,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 73536308,
+                    "index": 5,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 73903277,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 73904110,
+                    "index": 6,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 74002227,
+                    "index": 6,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 74403883,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 74404943,
+                    "index": 7,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 74539829,
+                    "index": 7,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 74904198,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 74905080,
+                    "index": 8,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 75005747,
+                    "index": 8,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 75406931,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 75407834,
+                    "index": 9,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 75543348,
+                    "index": 9,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 75908449,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 75909314,
+                    "index": 10,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 76027187,
+                    "index": 10,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 76408742,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 76409551,
+                    "index": 11,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 76546867,
+                    "index": 11,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 76909619,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 76910403,
+                    "index": 12,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 77030707,
+                    "index": 12,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 77410351,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 77411180,
+                    "index": 13,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 77550388,
+                    "index": 13,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 77911369,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 77912139,
+                    "index": 14,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 78034227,
+                    "index": 14,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 78411582,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 78412394,
+                    "index": 15,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 78535987,
+                    "index": 15,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 78912179,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 78913210,
+                    "index": 16,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 79019827,
+                    "index": 16,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 79413835,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 79414705,
+                    "index": 17,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 79539508,
+                    "index": 17,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 79915486,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 79916257,
+                    "index": 18,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 80041268,
+                    "index": 18,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 80416419,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 80417313,
+                    "index": 19,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 80560947,
+                    "index": 19,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 80916881,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 80917601,
+                    "index": 20,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 81044787,
+                    "index": 20,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 81417294,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 81418044,
+                    "index": 21,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 81546548,
+                    "index": 21,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 81917702,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 81918490,
+                    "index": 22,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 82030387,
+                    "index": 22,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 82417275,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 82418021,
+                    "index": 23,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 82550068,
+                    "index": 23,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 82917788,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 82918486,
+                    "index": 24,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 83033907,
+                    "index": 24,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 83418220,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 83418993,
+                    "index": 25,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 83553587,
+                    "index": 25,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 83919546,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 83920262,
+                    "index": 26,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 84037427,
+                    "index": 26,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 84421258,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 84422135,
+                    "index": 27,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 84557108,
+                    "index": 27,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 84922011,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 84922791,
+                    "index": 28,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 85040947,
+                    "index": 28,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 85423551,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 85424454,
+                    "index": 29,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 85560629,
+                    "index": 29,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 85924900,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 85925687,
+                    "index": 30,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 86044469,
+                    "index": 30,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 86425879,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 86426634,
+                    "index": 31,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 86564148,
+                    "index": 31,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 86927197,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 86927884,
+                    "index": 32,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 87047987,
+                    "index": 32,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 87428725,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 87429496,
+                    "index": 33,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 87567667,
+                    "index": 33,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 87930286,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 87931168,
+                    "index": 34,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 88051507,
+                    "index": 34,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 88431394,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 88432160,
+                    "index": 35,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 88553268,
+                    "index": 35,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 88932076,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 88932957,
+                    "index": 36,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 89037107,
+                    "index": 36,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 89432927,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 89433683,
+                    "index": 37,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 89574707,
+                    "index": 37,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 89933131,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 89933885,
+                    "index": 38,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 90058547,
+                    "index": 38,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 90434532,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 90435340,
+                    "index": 39,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 90578229,
+                    "index": 39,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 90936486,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 90937383,
+                    "index": 40,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 91062068,
+                    "index": 40,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 91436947,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 91437705,
+                    "index": 41,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 91563827,
+                    "index": 41,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 91938592,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 91939443,
+                    "index": 42,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 92047669,
+                    "index": 42,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 92439194,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 92439939,
+                    "index": 43,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 92549428,
+                    "index": 43,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 92940362,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 92941299,
+                    "index": 44,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 93051187,
+                    "index": 44,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 93442725,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 93443548,
+                    "index": 45,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 93570867,
+                    "index": 45,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 93943788,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 93944526,
+                    "index": 46,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 94072627,
+                    "index": 46,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 94445067,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 94445835,
+                    "index": 47,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 94574388,
+                    "index": 47,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 94946524,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 94947264,
+                    "index": 48,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 95058227,
+                    "index": 48,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 95447710,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 95448490,
+                    "index": 49,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 95559987,
+                    "index": 49,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 95948639,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 95949471,
+                    "index": 50,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 96061747,
+                    "index": 50,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "detectTime": 97065269,
+                    "index": 51,
+                    "source": "fixture",
+                    "value": "DARK"
+                }
+            ],
+            "dataPreprocessed": [
+                {
+                    "callbackTime": 71399528,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 71400708,
+                    "index": 0,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 71529268,
+                    "index": 0,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 71900105,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 71900964,
+                    "index": 1,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 72013107,
+                    "index": 1,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 72400890,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 72401718,
+                    "index": 2,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 72532788,
+                    "index": 2,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 72901779,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 72902542,
+                    "index": 3,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 73016627,
+                    "index": 3,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 73403052,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 73403987,
+                    "index": 4,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 73536308,
+                    "index": 4,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 73903277,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 73904110,
+                    "index": 5,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 74002227,
+                    "index": 5,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 74403883,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 74404943,
+                    "index": 6,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 74539829,
+                    "index": 6,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 74904198,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 74905080,
+                    "index": 7,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 75005747,
+                    "index": 7,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 75406931,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 75407834,
+                    "index": 8,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 75543348,
+                    "index": 8,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 75908449,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 75909314,
+                    "index": 9,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 76027187,
+                    "index": 9,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 76408742,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 76409551,
+                    "index": 10,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 76546867,
+                    "index": 10,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 76909619,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 76910403,
+                    "index": 11,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 77030707,
+                    "index": 11,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 77410351,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 77411180,
+                    "index": 12,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 77550388,
+                    "index": 12,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 77911369,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 77912139,
+                    "index": 13,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 78034227,
+                    "index": 13,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 78411582,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 78412394,
+                    "index": 14,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 78535987,
+                    "index": 14,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 78912179,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 78913210,
+                    "index": 15,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 79019827,
+                    "index": 15,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 79413835,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 79414705,
+                    "index": 16,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 79539508,
+                    "index": 16,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 79915486,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 79916257,
+                    "index": 17,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 80041268,
+                    "index": 17,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 80416419,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 80417313,
+                    "index": 18,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 80560947,
+                    "index": 18,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 80916881,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 80917601,
+                    "index": 19,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 81044787,
+                    "index": 19,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 81417294,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 81418044,
+                    "index": 20,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 81546548,
+                    "index": 20,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 81917702,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 81918490,
+                    "index": 21,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 82030387,
+                    "index": 21,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 82417275,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 82418021,
+                    "index": 22,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 82550068,
+                    "index": 22,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 82917788,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 82918486,
+                    "index": 23,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 83033907,
+                    "index": 23,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 83418220,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 83418993,
+                    "index": 24,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 83553587,
+                    "index": 24,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 83919546,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 83920262,
+                    "index": 25,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 84037427,
+                    "index": 25,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 84421258,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 84422135,
+                    "index": 26,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 84557108,
+                    "index": 26,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 84922011,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 84922791,
+                    "index": 27,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 85040947,
+                    "index": 27,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 85423551,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 85424454,
+                    "index": 28,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 85560629,
+                    "index": 28,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 85924900,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 85925687,
+                    "index": 29,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 86044469,
+                    "index": 29,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 86425879,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 86426634,
+                    "index": 30,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 86564148,
+                    "index": 30,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 86927197,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 86927884,
+                    "index": 31,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 87047987,
+                    "index": 31,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 87428725,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 87429496,
+                    "index": 32,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 87567667,
+                    "index": 32,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 87930286,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 87931168,
+                    "index": 33,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 88051507,
+                    "index": 33,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 88431394,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 88432160,
+                    "index": 34,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 88553268,
+                    "index": 34,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 88932076,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 88932957,
+                    "index": 35,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 89037107,
+                    "index": 35,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 89432927,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 89433683,
+                    "index": 36,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 89574707,
+                    "index": 36,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 89933131,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 89933885,
+                    "index": 37,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 90058547,
+                    "index": 37,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 90434532,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 90435340,
+                    "index": 38,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 90578229,
+                    "index": 38,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 90936486,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 90937383,
+                    "index": 39,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 91062068,
+                    "index": 39,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 91436947,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 91437705,
+                    "index": 40,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 91563827,
+                    "index": 40,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 91938592,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 91939443,
+                    "index": 41,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 92047669,
+                    "index": 41,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 92439194,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 92439939,
+                    "index": 42,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 92549428,
+                    "index": 42,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 92940362,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 92941299,
+                    "index": 43,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 93051187,
+                    "index": 43,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 93442725,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 93443548,
+                    "index": 44,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 93570867,
+                    "index": 44,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 93943788,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 93944526,
+                    "index": 45,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 94072627,
+                    "index": 45,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 94445067,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 94445835,
+                    "index": 46,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 94574388,
+                    "index": 46,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 94946524,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 94947264,
+                    "index": 47,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 95058227,
+                    "index": 47,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 95447710,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 95448490,
+                    "index": 48,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 95559987,
+                    "index": 48,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 95948639,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 95949471,
+                    "index": 49,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 96061747,
+                    "index": 49,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                }
+            ],
+            "loadResults": {
+            },
+            "notes": [
+                "preprocessing removed 1 similar mobile entry",
+                "preprocessing found 1 missing fixture entry",
+                "preprocessing discarded 1 mobile entry",
+                "preprocessing discarded 1 fixture entry",
+                "results processing found 50 valid entries"
+            ],
+            "parameters": {
+                "count": 50,
+                "interval": 500,
+                "load": "",
+                "loadMinInterval": 0,
+                "loadThreadCount": 0
+            },
+            "results": [
+                {
+                    "index": 0,
+                    "latency": 78235
+                },
+                {
+                    "index": 1,
+                    "latency": 61818
+                },
+                {
+                    "index": 2,
+                    "latency": 80745
+                },
+                {
+                    "index": 3,
+                    "latency": 63760
+                },
+                {
+                    "index": 4,
+                    "latency": 81996
+                },
+                {
+                    "index": 5,
+                    "latency": 47792
+                },
+                {
+                    "index": 6,
+                    "latency": 84561
+                },
+                {
+                    "index": 7,
+                    "latency": 50342
+                },
+                {
+                    "index": 8,
+                    "latency": 85189
+                },
+                {
+                    "index": 9,
+                    "latency": 67548
+                },
+                {
+                    "index": 10,
+                    "latency": 86991
+                },
+                {
+                    "index": 11,
+                    "latency": 69979
+                },
+                {
+                    "index": 12,
+                    "latency": 88883
+                },
+                {
+                    "index": 13,
+                    "latency": 71763
+                },
+                {
+                    "index": 14,
+                    "latency": 73268
+                },
+                {
+                    "index": 15,
+                    "latency": 56292
+                },
+                {
+                    "index": 16,
+                    "latency": 74478
+                },
+                {
+                    "index": 17,
+                    "latency": 74686
+                },
+                {
+                    "index": 18,
+                    "latency": 93309
+                },
+                {
+                    "index": 19,
+                    "latency": 76861
+                },
+                {
+                    "index": 20,
+                    "latency": 78179
+                },
+                {
+                    "index": 21,
+                    "latency": 61572
+                },
+                {
+                    "index": 22,
+                    "latency": 81722
+                },
+                {
+                    "index": 23,
+                    "latency": 65096
+                },
+                {
+                    "index": 24,
+                    "latency": 84269
+                },
+                {
+                    "index": 25,
+                    "latency": 66840
+                },
+                {
+                    "index": 26,
+                    "latency": 84648
+                },
+                {
+                    "index": 27,
+                    "latency": 67831
+                },
+                {
+                    "index": 28,
+                    "latency": 85850
+                },
+                {
+                    "index": 29,
+                    "latency": 68457
+                },
+                {
+                    "index": 30,
+                    "latency": 87189
+                },
+                {
+                    "index": 31,
+                    "latency": 69778
+                },
+                {
+                    "index": 32,
+                    "latency": 87846
+                },
+                {
+                    "index": 33,
+                    "latency": 70014
+                },
+                {
+                    "index": 34,
+                    "latency": 70783
+                },
+                {
+                    "index": 35,
+                    "latency": 53825
+                },
+                {
+                    "index": 36,
+                    "latency": 90699
+                },
+                {
+                    "index": 37,
+                    "latency": 74337
+                },
+                {
+                    "index": 38,
+                    "latency": 92564
+                },
+                {
+                    "index": 39,
+                    "latency": 74360
+                },
+                {
+                    "index": 40,
+                    "latency": 75797
+                },
+                {
+                    "index": 41,
+                    "latency": 57901
+                },
+                {
+                    "index": 42,
+                    "latency": 59164
+                },
+                {
+                    "index": 43,
+                    "latency": 59563
+                },
+                {
+                    "index": 44,
+                    "latency": 76994
+                },
+                {
+                    "index": 45,
+                    "latency": 77776
+                },
+                {
+                    "index": 46,
+                    "latency": 78228
+                },
+                {
+                    "index": 47,
+                    "latency": 60638
+                },
+                {
+                    "index": 48,
+                    "latency": 61172
+                },
+                {
+                    "index": 49,
+                    "latency": 61951
+                }
+            ],
+            "type": 4,
+            "typeName": "Display Latency"
+        },
+        {
+            "data": [
+                {
+                    "index": 0,
+                    "source": "fixture",
+                    "timestamp": 99493792
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 99456225,
+                    "callbackTime": 99458498,
+                    "index": 0,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 99967918,
+                    "callbackTime": 99969530,
+                    "index": 1,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 1,
+                    "source": "fixture",
+                    "timestamp": 100009959
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 100484526,
+                    "callbackTime": 100486038,
+                    "index": 2,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 2,
+                    "source": "fixture",
+                    "timestamp": 100527215
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 101000918,
+                    "callbackTime": 101002681,
+                    "index": 3,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 3,
+                    "source": "fixture",
+                    "timestamp": 101044471
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 101516967,
+                    "callbackTime": 101518627,
+                    "index": 4,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 4,
+                    "source": "fixture",
+                    "timestamp": 101559628
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 102033092,
+                    "callbackTime": 102034675,
+                    "index": 5,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 5,
+                    "source": "fixture",
+                    "timestamp": 102075230
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 102550235,
+                    "callbackTime": 102551884,
+                    "index": 6,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 6,
+                    "source": "fixture",
+                    "timestamp": 102590400
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 103066138,
+                    "callbackTime": 103067692,
+                    "index": 7,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 7,
+                    "source": "fixture",
+                    "timestamp": 103107250
+                },
+                {
+                    "index": 8,
+                    "source": "fixture",
+                    "timestamp": 103622420
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 103582408,
+                    "callbackTime": 103584168,
+                    "index": 8,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 104098645,
+                    "callbackTime": 104100294,
+                    "index": 9,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 9,
+                    "source": "fixture",
+                    "timestamp": 104138429
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 104615051,
+                    "callbackTime": 104616900,
+                    "index": 10,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 10,
+                    "source": "fixture",
+                    "timestamp": 104654019
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 105131579,
+                    "callbackTime": 105133290,
+                    "index": 11,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 11,
+                    "source": "fixture",
+                    "timestamp": 105172429
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 105647670,
+                    "callbackTime": 105649307,
+                    "index": 12,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 12,
+                    "source": "fixture",
+                    "timestamp": 105694199
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 106163920,
+                    "callbackTime": 106165342,
+                    "index": 13,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 13,
+                    "source": "fixture",
+                    "timestamp": 106210996
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 106685934,
+                    "callbackTime": 106687677,
+                    "index": 14,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 14,
+                    "source": "fixture",
+                    "timestamp": 106728999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 107201939,
+                    "callbackTime": 107203623,
+                    "index": 15,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 15,
+                    "source": "fixture",
+                    "timestamp": 107240692
+                },
+                {
+                    "index": 16,
+                    "source": "fixture",
+                    "timestamp": 107758723
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 107718544,
+                    "callbackTime": 107719971,
+                    "index": 16,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 17,
+                    "source": "fixture",
+                    "timestamp": 108276713
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 108234372,
+                    "callbackTime": 108236030,
+                    "index": 17,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 108756355,
+                    "callbackTime": 108757811,
+                    "index": 18,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 18,
+                    "source": "fixture",
+                    "timestamp": 108794704
+                },
+                {
+                    "index": 19,
+                    "source": "fixture",
+                    "timestamp": 109312682
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 109272885,
+                    "callbackTime": 109274373,
+                    "index": 19,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 109789148,
+                    "callbackTime": 109790779,
+                    "index": 20,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 20,
+                    "source": "fixture",
+                    "timestamp": 109836130
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 110305646,
+                    "callbackTime": 110307319,
+                    "index": 21,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 21,
+                    "source": "fixture",
+                    "timestamp": 110353347
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 110822078,
+                    "callbackTime": 110823511,
+                    "index": 22,
+                    "source": "mobile",
+                    "touchMajor": 0.010894237,
+                    "touchMinor": 0.010894237
+                },
+                {
+                    "index": 22,
+                    "source": "fixture",
+                    "timestamp": 110870078
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 111344051,
+                    "callbackTime": 111346011,
+                    "index": 23,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 23,
+                    "source": "fixture",
+                    "timestamp": 111381364
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 111861456,
+                    "callbackTime": 111863171,
+                    "index": 24,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 24,
+                    "source": "fixture",
+                    "timestamp": 111904013
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 112376691,
+                    "callbackTime": 112378351,
+                    "index": 25,
+                    "source": "mobile",
+                    "touchMajor": 0.010894237,
+                    "touchMinor": 0.010894237
+                },
+                {
+                    "index": 25,
+                    "source": "fixture",
+                    "timestamp": 112420810
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 112893439,
+                    "callbackTime": 112895086,
+                    "index": 26,
+                    "source": "mobile",
+                    "touchMajor": 0.010894237,
+                    "touchMinor": 0.010894237
+                },
+                {
+                    "index": 26,
+                    "source": "fixture",
+                    "timestamp": 112933355
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 113409271,
+                    "callbackTime": 113411030,
+                    "index": 27,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 27,
+                    "source": "fixture",
+                    "timestamp": 113456004
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 113926895,
+                    "callbackTime": 113928778,
+                    "index": 28,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 28,
+                    "source": "fixture",
+                    "timestamp": 113967763
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 114443342,
+                    "callbackTime": 114445157,
+                    "index": 29,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 29,
+                    "source": "fixture",
+                    "timestamp": 114485793
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 114964469,
+                    "callbackTime": 114965959,
+                    "index": 30,
+                    "source": "mobile",
+                    "touchMajor": 0.010894237,
+                    "touchMinor": 0.010894237
+                },
+                {
+                    "index": 30,
+                    "source": "fixture",
+                    "timestamp": 115004203
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 115480706,
+                    "callbackTime": 115482103,
+                    "index": 31,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 31,
+                    "source": "fixture",
+                    "timestamp": 115520501
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 115997103,
+                    "callbackTime": 115998542,
+                    "index": 32,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 32,
+                    "source": "fixture",
+                    "timestamp": 116042704
+                },
+                {
+                    "index": 33,
+                    "source": "fixture",
+                    "timestamp": 116560340
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 116513850,
+                    "callbackTime": 116515487,
+                    "index": 33,
+                    "source": "mobile",
+                    "touchMajor": 0.010894237,
+                    "touchMinor": 0.010894237
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 117030009,
+                    "callbackTime": 117031389,
+                    "index": 34,
+                    "source": "mobile",
+                    "touchMajor": 0.010894237,
+                    "touchMinor": 0.010894237
+                },
+                {
+                    "index": 34,
+                    "source": "fixture",
+                    "timestamp": 117072873
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 117552115,
+                    "callbackTime": 117553981,
+                    "index": 35,
+                    "source": "mobile",
+                    "touchMajor": 0.010894237,
+                    "touchMinor": 0.010894237
+                },
+                {
+                    "index": 35,
+                    "source": "fixture",
+                    "timestamp": 117595941
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 118068271,
+                    "callbackTime": 118069880,
+                    "index": 36,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 36,
+                    "source": "fixture",
+                    "timestamp": 118113997
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 118584446,
+                    "callbackTime": 118586149,
+                    "index": 37,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 37,
+                    "source": "fixture",
+                    "timestamp": 118626950
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 119101184,
+                    "callbackTime": 119102703,
+                    "index": 38,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 38,
+                    "source": "fixture",
+                    "timestamp": 119144980
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 119623008,
+                    "callbackTime": 119624636,
+                    "index": 39,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 39,
+                    "source": "fixture",
+                    "timestamp": 119667996
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 120139414,
+                    "callbackTime": 120141392,
+                    "index": 40,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 40,
+                    "source": "fixture",
+                    "timestamp": 120186052
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 120655889,
+                    "callbackTime": 120657687,
+                    "index": 41,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 41,
+                    "source": "fixture",
+                    "timestamp": 120702783
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 121172380,
+                    "callbackTime": 121174157,
+                    "index": 42,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 42,
+                    "source": "fixture",
+                    "timestamp": 121216156
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 121694632,
+                    "callbackTime": 121696257,
+                    "index": 43,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 43,
+                    "source": "fixture",
+                    "timestamp": 121737545
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 122211083,
+                    "callbackTime": 122212713,
+                    "index": 44,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 44,
+                    "source": "fixture",
+                    "timestamp": 122256034
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 122727169,
+                    "callbackTime": 122728625,
+                    "index": 45,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 45,
+                    "source": "fixture",
+                    "timestamp": 122771912
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 123243798,
+                    "callbackTime": 123245507,
+                    "index": 46,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 46,
+                    "source": "fixture",
+                    "timestamp": 123291176
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 123759943,
+                    "callbackTime": 123761831,
+                    "index": 47,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 47,
+                    "source": "fixture",
+                    "timestamp": 123802856
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 124281946,
+                    "callbackTime": 124283617,
+                    "index": 48,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 48,
+                    "source": "fixture",
+                    "timestamp": 124325937
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 124799016,
+                    "callbackTime": 124800881,
+                    "index": 49,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 49,
+                    "source": "fixture",
+                    "timestamp": 124843980
+                }
+            ],
+            "dataPreprocessed": [
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 99456225,
+                    "callbackTime": 99458498,
+                    "index": 0,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 0,
+                    "source": "fixture",
+                    "timestamp": 99493792
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 99967918,
+                    "callbackTime": 99969530,
+                    "index": 1,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 1,
+                    "source": "fixture",
+                    "timestamp": 100009959
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 100484526,
+                    "callbackTime": 100486038,
+                    "index": 2,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 2,
+                    "source": "fixture",
+                    "timestamp": 100527215
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 101000918,
+                    "callbackTime": 101002681,
+                    "index": 3,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 3,
+                    "source": "fixture",
+                    "timestamp": 101044471
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 101516967,
+                    "callbackTime": 101518627,
+                    "index": 4,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 4,
+                    "source": "fixture",
+                    "timestamp": 101559628
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 102033092,
+                    "callbackTime": 102034675,
+                    "index": 5,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 5,
+                    "source": "fixture",
+                    "timestamp": 102075230
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 102550235,
+                    "callbackTime": 102551884,
+                    "index": 6,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 6,
+                    "source": "fixture",
+                    "timestamp": 102590400
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 103066138,
+                    "callbackTime": 103067692,
+                    "index": 7,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 7,
+                    "source": "fixture",
+                    "timestamp": 103107250
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 103582408,
+                    "callbackTime": 103584168,
+                    "index": 8,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 8,
+                    "source": "fixture",
+                    "timestamp": 103622420
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 104098645,
+                    "callbackTime": 104100294,
+                    "index": 9,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 9,
+                    "source": "fixture",
+                    "timestamp": 104138429
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 104615051,
+                    "callbackTime": 104616900,
+                    "index": 10,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 10,
+                    "source": "fixture",
+                    "timestamp": 104654019
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 105131579,
+                    "callbackTime": 105133290,
+                    "index": 11,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 11,
+                    "source": "fixture",
+                    "timestamp": 105172429
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 105647670,
+                    "callbackTime": 105649307,
+                    "index": 12,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 12,
+                    "source": "fixture",
+                    "timestamp": 105694199
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 106163920,
+                    "callbackTime": 106165342,
+                    "index": 13,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 13,
+                    "source": "fixture",
+                    "timestamp": 106210996
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 106685934,
+                    "callbackTime": 106687677,
+                    "index": 14,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 14,
+                    "source": "fixture",
+                    "timestamp": 106728999
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 107201939,
+                    "callbackTime": 107203623,
+                    "index": 15,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 15,
+                    "source": "fixture",
+                    "timestamp": 107240692
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 107718544,
+                    "callbackTime": 107719971,
+                    "index": 16,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 16,
+                    "source": "fixture",
+                    "timestamp": 107758723
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 108234372,
+                    "callbackTime": 108236030,
+                    "index": 17,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 17,
+                    "source": "fixture",
+                    "timestamp": 108276713
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 108756355,
+                    "callbackTime": 108757811,
+                    "index": 18,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 18,
+                    "source": "fixture",
+                    "timestamp": 108794704
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 109272885,
+                    "callbackTime": 109274373,
+                    "index": 19,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 19,
+                    "source": "fixture",
+                    "timestamp": 109312682
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 109789148,
+                    "callbackTime": 109790779,
+                    "index": 20,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 20,
+                    "source": "fixture",
+                    "timestamp": 109836130
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 110305646,
+                    "callbackTime": 110307319,
+                    "index": 21,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 21,
+                    "source": "fixture",
+                    "timestamp": 110353347
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 110822078,
+                    "callbackTime": 110823511,
+                    "index": 22,
+                    "source": "mobile",
+                    "touchMajor": 0.010894237,
+                    "touchMinor": 0.010894237
+                },
+                {
+                    "index": 22,
+                    "source": "fixture",
+                    "timestamp": 110870078
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 111344051,
+                    "callbackTime": 111346011,
+                    "index": 23,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 23,
+                    "source": "fixture",
+                    "timestamp": 111381364
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 111861456,
+                    "callbackTime": 111863171,
+                    "index": 24,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 24,
+                    "source": "fixture",
+                    "timestamp": 111904013
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 112376691,
+                    "callbackTime": 112378351,
+                    "index": 25,
+                    "source": "mobile",
+                    "touchMajor": 0.010894237,
+                    "touchMinor": 0.010894237
+                },
+                {
+                    "index": 25,
+                    "source": "fixture",
+                    "timestamp": 112420810
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 112893439,
+                    "callbackTime": 112895086,
+                    "index": 26,
+                    "source": "mobile",
+                    "touchMajor": 0.010894237,
+                    "touchMinor": 0.010894237
+                },
+                {
+                    "index": 26,
+                    "source": "fixture",
+                    "timestamp": 112933355
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 113409271,
+                    "callbackTime": 113411030,
+                    "index": 27,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 27,
+                    "source": "fixture",
+                    "timestamp": 113456004
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 113926895,
+                    "callbackTime": 113928778,
+                    "index": 28,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 28,
+                    "source": "fixture",
+                    "timestamp": 113967763
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 114443342,
+                    "callbackTime": 114445157,
+                    "index": 29,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 29,
+                    "source": "fixture",
+                    "timestamp": 114485793
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 114964469,
+                    "callbackTime": 114965959,
+                    "index": 30,
+                    "source": "mobile",
+                    "touchMajor": 0.010894237,
+                    "touchMinor": 0.010894237
+                },
+                {
+                    "index": 30,
+                    "source": "fixture",
+                    "timestamp": 115004203
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 115480706,
+                    "callbackTime": 115482103,
+                    "index": 31,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 31,
+                    "source": "fixture",
+                    "timestamp": 115520501
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 115997103,
+                    "callbackTime": 115998542,
+                    "index": 32,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 32,
+                    "source": "fixture",
+                    "timestamp": 116042704
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 116513850,
+                    "callbackTime": 116515487,
+                    "index": 33,
+                    "source": "mobile",
+                    "touchMajor": 0.010894237,
+                    "touchMinor": 0.010894237
+                },
+                {
+                    "index": 33,
+                    "source": "fixture",
+                    "timestamp": 116560340
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 117030009,
+                    "callbackTime": 117031389,
+                    "index": 34,
+                    "source": "mobile",
+                    "touchMajor": 0.010894237,
+                    "touchMinor": 0.010894237
+                },
+                {
+                    "index": 34,
+                    "source": "fixture",
+                    "timestamp": 117072873
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 117552115,
+                    "callbackTime": 117553981,
+                    "index": 35,
+                    "source": "mobile",
+                    "touchMajor": 0.010894237,
+                    "touchMinor": 0.010894237
+                },
+                {
+                    "index": 35,
+                    "source": "fixture",
+                    "timestamp": 117595941
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 118068271,
+                    "callbackTime": 118069880,
+                    "index": 36,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 36,
+                    "source": "fixture",
+                    "timestamp": 118113997
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 118584446,
+                    "callbackTime": 118586149,
+                    "index": 37,
+                    "source": "mobile",
+                    "touchMajor": 0.008170677,
+                    "touchMinor": 0.008170677
+                },
+                {
+                    "index": 37,
+                    "source": "fixture",
+                    "timestamp": 118626950
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 119101184,
+                    "callbackTime": 119102703,
+                    "index": 38,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 38,
+                    "source": "fixture",
+                    "timestamp": 119144980
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 119623008,
+                    "callbackTime": 119624636,
+                    "index": 39,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 39,
+                    "source": "fixture",
+                    "timestamp": 119667996
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 120139414,
+                    "callbackTime": 120141392,
+                    "index": 40,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 40,
+                    "source": "fixture",
+                    "timestamp": 120186052
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 120655889,
+                    "callbackTime": 120657687,
+                    "index": 41,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 41,
+                    "source": "fixture",
+                    "timestamp": 120702783
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 121172380,
+                    "callbackTime": 121174157,
+                    "index": 42,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 42,
+                    "source": "fixture",
+                    "timestamp": 121216156
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 121694632,
+                    "callbackTime": 121696257,
+                    "index": 43,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 43,
+                    "source": "fixture",
+                    "timestamp": 121737545
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 122211083,
+                    "callbackTime": 122212713,
+                    "index": 44,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 44,
+                    "source": "fixture",
+                    "timestamp": 122256034
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 122727169,
+                    "callbackTime": 122728625,
+                    "index": 45,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 45,
+                    "source": "fixture",
+                    "timestamp": 122771912
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 123243798,
+                    "callbackTime": 123245507,
+                    "index": 46,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 46,
+                    "source": "fixture",
+                    "timestamp": 123291176
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 123759943,
+                    "callbackTime": 123761831,
+                    "index": 47,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 47,
+                    "source": "fixture",
+                    "timestamp": 123802856
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 124281946,
+                    "callbackTime": 124283617,
+                    "index": 48,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 48,
+                    "source": "fixture",
+                    "timestamp": 124325937
+                },
+                {
+                    "action": 0,
+                    "actionName": "DOWN",
+                    "actionTime": 124799016,
+                    "callbackTime": 124800881,
+                    "index": 49,
+                    "source": "mobile",
+                    "touchMajor": 0.0054471185,
+                    "touchMinor": 0.0027235593
+                },
+                {
+                    "index": 49,
+                    "source": "fixture",
+                    "timestamp": 124843980
+                }
+            ],
+            "loadResults": {
+            },
+            "notes": [
+                "results processing found 50 valid entries"
+            ],
+            "parameters": {
+                "count": 50,
+                "interval": 500,
+                "load": "",
+                "loadMinInterval": 0,
+                "loadThreadCount": 0
+            },
+            "results": [
+                {
+                    "index": 0,
+                    "latency": 15031
+                },
+                {
+                    "index": 1,
+                    "latency": 9896
+                },
+                {
+                    "index": 2,
+                    "latency": 9148
+                },
+                {
+                    "index": 3,
+                    "latency": 8535
+                },
+                {
+                    "index": 4,
+                    "latency": 9324
+                },
+                {
+                    "index": 5,
+                    "latency": 9770
+                },
+                {
+                    "index": 6,
+                    "latency": 11809
+                },
+                {
+                    "index": 7,
+                    "latency": 10767
+                },
+                {
+                    "index": 8,
+                    "latency": 12073
+                },
+                {
+                    "index": 9,
+                    "latency": 12190
+                },
+                {
+                    "index": 10,
+                    "latency": 13206
+                },
+                {
+                    "index": 11,
+                    "latency": 11186
+                },
+                {
+                    "index": 12,
+                    "latency": 5433
+                },
+                {
+                    "index": 13,
+                    "latency": 4671
+                },
+                {
+                    "index": 14,
+                    "latency": 9003
+                },
+                {
+                    "index": 15,
+                    "latency": 13256
+                },
+                {
+                    "index": 16,
+                    "latency": 11573
+                },
+                {
+                    "index": 17,
+                    "latency": 9642
+                },
+                {
+                    "index": 18,
+                    "latency": 13432
+                },
+                {
+                    "index": 19,
+                    "latency": 12016
+                },
+                {
+                    "index": 20,
+                    "latency": 4974
+                },
+                {
+                    "index": 21,
+                    "latency": 4297
+                },
+                {
+                    "index": 22,
+                    "latency": 3758
+                },
+                {
+                    "index": 23,
+                    "latency": 14972
+                },
+                {
+                    "index": 24,
+                    "latency": 9483
+                },
+                {
+                    "index": 25,
+                    "latency": 7866
+                },
+                {
+                    "index": 26,
+                    "latency": 12056
+                },
+                {
+                    "index": 27,
+                    "latency": 5351
+                },
+                {
+                    "index": 28,
+                    "latency": 11340
+                },
+                {
+                    "index": 29,
+                    "latency": 9689
+                },
+                {
+                    "index": 30,
+                    "latency": 12081
+                },
+                {
+                    "index": 31,
+                    "latency": 11927
+                },
+                {
+                    "index": 32,
+                    "latency": 6163
+                },
+                {
+                    "index": 33,
+                    "latency": 5472
+                },
+                {
+                    "index": 34,
+                    "latency": 8841
+                },
+                {
+                    "index": 35,
+                    "latency": 8365
+                },
+                {
+                    "index": 36,
+                    "latency": 6208
+                },
+                {
+                    "index": 37,
+                    "latency": 9524
+                },
+                {
+                    "index": 38,
+                    "latency": 8048
+                },
+                {
+                    "index": 39,
+                    "latency": 6965
+                },
+                {
+                    "index": 40,
+                    "latency": 5665
+                },
+                {
+                    "index": 41,
+                    "latency": 5229
+                },
+                {
+                    "index": 42,
+                    "latency": 8326
+                },
+                {
+                    "index": 43,
+                    "latency": 9037
+                },
+                {
+                    "index": 44,
+                    "latency": 7004
+                },
+                {
+                    "index": 45,
+                    "latency": 7038
+                },
+                {
+                    "index": 46,
+                    "latency": 4656
+                },
+                {
+                    "index": 47,
+                    "latency": 9300
+                },
+                {
+                    "index": 48,
+                    "latency": 8005
+                },
+                {
+                    "index": 49,
+                    "latency": 7226
+                }
+            ],
+            "type": 5,
+            "typeName": "Solenoid Tap Latency"
+        }
+    ],
+    "procedure": {
+        "id": 34,
+        "name": "test",
+        "objectives": [
+            {
+                "parameters": {
+                    "count": 50,
+                    "interval": 500,
+                    "load": "",
+                    "loadMinInterval": 0,
+                    "loadThreadCount": 0
+                },
+                "type": 3,
+                "typeName": "Capacitive Tap Latency"
+            },
+            {
+                "parameters": {
+                    "count": 50,
+                    "interval": 500,
+                    "load": "",
+                    "loadMinInterval": 0,
+                    "loadThreadCount": 0
+                },
+                "type": 4,
+                "typeName": "Display Latency"
+            },
+            {
+                "parameters": {
+                    "count": 50,
+                    "interval": 500,
+                    "load": "",
+                    "loadMinInterval": 0,
+                    "loadThreadCount": 0
+                },
+                "type": 5,
+                "typeName": "Solenoid Tap Latency"
+            }
+        ]
+    },
+    "startTime": "2021-07-12T04:05:24.114Z",
+    "stopTime": "2021-07-12T04:07:31.480Z"
+}
