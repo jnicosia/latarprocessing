@@ -187,5 +187,6 @@ Key: While screen refresh rate defines the minimum variance a phone's screen can
 
 # Sources used for phone_data.csv
 
+- Geekbench 5 CPU workloads documentation: https://www.geekbench.com/doc/geekbench5-cpu-workloads.pdf
 - Apple documentation on display refresh and touch sampling rates: https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Displays/Displays.html
 - Some Samsung info in screen refresh rate: https://www.samsung.com/us/support/answer/ANS00086005/
