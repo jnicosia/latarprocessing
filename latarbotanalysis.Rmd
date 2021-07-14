@@ -87,14 +87,14 @@ solenoiddata <- data
 ```{r}
 # capacitive
 # raw
-ggplot(capacitivedata, aes(x = index_fixture, y = latency_us, group = phone_model, color = phone_model)) +
+ggplot(capacitivedata, aes(x = index_fixture, y = action_latency_us, group = phone_model, color = phone_model)) +
   labs(title = "Raw Capacitive") +
   geom_line(aes(color = phone_model)) +
   geom_point(aes(color = phone_model)) +
   theme_classic() 
 
 # standardized
-capacitivedata$z_cap_latency_us <- scale(capacitivedata$latency_us)
+capacitivedata$z_cap_latency_us <- scale(capacitivedata$action_latency_us)
 ggplot(capacitivedata, aes(x = index_fixture, y = z_cap_latency_us, color = phone_model)) +
   labs(title = "Standardized Capacitive") +
   geom_line(aes(color = phone_model)) +
@@ -103,14 +103,14 @@ ggplot(capacitivedata, aes(x = index_fixture, y = z_cap_latency_us, color = phon
 
 # display
 # raw
-ggplot(displaydata, aes(x = index_fixture, y = latency_us, color = phone_model)) +
+ggplot(displaydata, aes(x = index_fixture, y = display_latency_us, color = phone_model)) +
   labs(title = "Raw Display") +
   geom_line(aes(color = phone_model)) +
   geom_point(aes(color = phone_model)) + 
   theme_classic()
 
 # standardized
-displaydata$z_latency_us <- scale(displaydata$latency_us)
+displaydata$z_latency_us <- scale(displaydata$display_latency_us)
 ggplot(displaydata, aes(x = index_fixture, y = z_latency_us, color = phone_model)) +
   labs(title = "Standardized Display") +
   geom_line(aes(color = phone_model)) +
@@ -119,28 +119,51 @@ ggplot(displaydata, aes(x = index_fixture, y = z_latency_us, color = phone_model
 
 # solenoid
 # raw
-ggplot(solenoiddata, aes(x = index_fixture, y = latency_us, color = phone_model)) +
+ggplot(solenoiddata, aes(x = index_fixture, y = action_latency_us, color = phone_model)) +
   labs(title = "Raw Solenoid") +
   geom_line(aes(color = phone_model)) +
   geom_point(aes(color = phone_model)) + 
   theme_classic()
 
 # standardized
-solenoiddata$z_sol_latency_us <- scale(solenoiddata$latency_us)
+solenoiddata$z_sol_latency_us <- scale(solenoiddata$action_latency_us)
 solenoiddata$z_sol_latency_us <- with(solenoiddata, ifelse(abs(solenoiddata$z_sol_latency_us) > 3, NA, solenoiddata$z_sol_latency_us))
 ggplot(solenoiddata, aes(x = index_fixture, y = z_sol_latency_us, color = phone_model)) +
   labs(title = "Standardized Solenoid") +
   geom_line(aes(color = phone_model)) +
   geom_point(aes(color = phone_model)) + 
   theme_classic()
-
 ```
+
+## Action vs. Callback Histograms
+```{r}
+phone_data <- read.csv("./02-CSV_data/phone_data.csv") %>% subset(., select = c("phone_model", "OS_binary")) %>% drop_na(.)
+
+# capacitive
+capacitivedata_forhist <- full_join(capacitivedata, phone_data, by = "phone_model")
+
+ggplot(capacitivedata_forhist, aes(x = action_latency_us, fill = OS_binary, color = OS_binary)) +
+  geom_histogram(position = "identity", alpha = 0.5) + theme_classic()
+
+# solenoid
+solenoiddata_forhist <- full_join(solenoiddata, phone_data, by = "phone_model")
+
+ggplot(solenoiddata_forhist, aes(x = action_latency_us, fill = OS_binary, color = OS_binary)) +
+  geom_histogram(position = "identity", alpha = 0.5) + theme_classic()
+
+# display
+displaydata_forhist <- full_join(displaydata, phone_data, by = "phone_model")
+
+ggplot(displaydata_forhist, aes(x = display_latency_us, fill = OS_binary, color = OS_binary)) +
+  geom_histogram(position = "identity", alpha = 0.5) + theme_classic()
+```
+
 ## Capacitive ~ Solenoid
 ### Scatterplot
 ```{r}
 # relationship between capacitive and solenoid
-solenoiddata$sol_latency_us <- solenoiddata$latency_us
-capacitivedata$cap_latency_us <- capacitivedata$latency_us
+solenoiddata$sol_latency_us <- solenoiddata$action_latency_us
+capacitivedata$cap_latency_us <- capacitivedata$action_latency_us
 
 tappin <- full_join(solenoiddata, capacitivedata, by = c("index_fixture", "phone_model")) %>% 
   subset(., select = c("index_fixture", "z_sol_latency_us", "z_cap_latency_us", "sol_latency_us", "cap_latency_us", "phone_model")) 
@@ -206,8 +229,7 @@ ggscatter(tappin_nooutliers_extreme_mean_scatter, x = "z_sol_latency_us", y = "z
    add = "reg.line",
    add.params = list(color = "black", fill = "lightgray"),
    conf.int = TRUE) +
-  stat_cor(method = "pearson", label.x = 0, label.y = 3)
-
+  stat_cor(method = "pearson", label.x = -0.4, label.y = 3)
 ```
 
 ### Bar Graph
@@ -269,6 +291,184 @@ geom_bar(position = "dodge",
   theme_classic() +
   coord_flip()
 ```
+
+## Action ~ Callback
+```{r}
+solenoiddata$sol_call_latency_us <- solenoiddata$callback_latency_us
+capacitivedata$cap_call_latency_us <- capacitivedata$callback_latency_us
+
+action_v_callback <- full_join(solenoiddata, capacitivedata, by = c("index_fixture", "phone_model")) %>% 
+  subset(., select = c("index_fixture", "phone_model", "sol_latency_us", "cap_latency_us", "sol_call_latency_us", "cap_call_latency_us")) %>%
+  mutate(cap_diff = cap_call_latency_us - cap_latency_us,
+         sol_diff = sol_call_latency_us - sol_latency_us)
+
+phone_data <- read.csv("./02-CSV_data/phone_data.csv") %>% subset(., select = c("phone_model", "OS_binary", "Geekbench_5_single_core", "Geekbench_5_multiple_core")) %>% drop_na(.)
+
+action_v_callback <- full_join(action_v_callback, phone_data, by = "phone_model") %>% 
+  group_by(phone_model, OS_binary, Geekbench_5_single_core, Geekbench_5_multiple_core) %>%
+  summarize(mean_cap_diff = mean(cap_diff, na.rm = T),
+            mean_call_cap_latency_us = mean(cap_call_latency_us, na.rm = T),
+            mean_cap_latency_us = mean(cap_latency_us, na.rm = T))
+
+ggscatter(action_v_callback, x = "Geekbench_5_single_core", y = "mean_sol_diff", color = "phone_model",
+   add = "reg.line",
+   add.params = list(color = "black", fill = "lightgray"),
+   conf.int = TRUE) +
+  stat_cor(method = "pearson", label.x = 0, label.y = -150000)
+
+ggscatter(action_v_callback, x = "Geekbench_5_multiple_core", y = "mean_sol_diff", color = "phone_model",
+   add = "reg.line",
+   add.params = list(color = "black", fill = "lightgray"),
+   conf.int = TRUE) +
+  stat_cor(method = "pearson", label.x = 0, label.y = -150000)
+```
+
+# Multiple Regressions
+## Phone-Level
+```{r}
+# predicting difference
+mod1 <- lm(mean_cap_diff ~ OS_binary, data = action_v_callback) %>%
+  tbl_regression(exponentiate = F, 
+                 pvalue_fun = function(x) style_pvalue(x, digits = 2),
+                 estimate_fun = function(x) style_ratio(x, digits = 3)) %>%
+  bold_p(t = 0.05) %>%
+  add_glance_table(include = c(r.squared, AIC, BIC))
+
+mod2 <- lm(mean_cap_diff ~ OS_binary + Geekbench_5_single_core, data = action_v_callback) %>% # suppression happening here
+  tbl_regression(exponentiate = F, 
+                 pvalue_fun = function(x) style_pvalue(x, digits = 2),
+                 estimate_fun = function(x) style_ratio(x, digits = 3)) %>%
+  bold_p(t = 0.05) %>%
+  add_glance_table(include = c(r.squared, AIC, BIC))
+
+# predicting action cap latency
+mod3 <- lm(mean_cap_latency_us ~ OS_binary, data = action_v_callback) %>%
+  tbl_regression(exponentiate = F, 
+                 pvalue_fun = function(x) style_pvalue(x, digits = 2),
+                 estimate_fun = function(x) style_ratio(x, digits = 3)) %>%
+  bold_p(t = 0.05) %>%
+  add_glance_table(include = c(r.squared, AIC, BIC))
+
+mod4 <- lm(mean_cap_latency_us ~ OS_binary + Geekbench_5_single_core, data = action_v_callback) %>%
+  tbl_regression(exponentiate = F, 
+                 pvalue_fun = function(x) style_pvalue(x, digits = 2),
+                 estimate_fun = function(x) style_ratio(x, digits = 3)) %>%
+  bold_p(t = 0.05) %>%
+  add_glance_table(include = c(r.squared, AIC, BIC))
+
+# predicting cal cap latency
+mod5 <- lm(mean_call_cap_latency_us ~ OS_binary, data = action_v_callback) %>%
+  tbl_regression(exponentiate = F, 
+                 pvalue_fun = function(x) style_pvalue(x, digits = 2),
+                 estimate_fun = function(x) style_ratio(x, digits = 3)) %>%
+  bold_p(t = 0.05) %>%
+  add_glance_table(include = c(r.squared, AIC, BIC))
+
+mod6 <- lm(mean_call_cap_latency_us ~ OS_binary + Geekbench_5_single_core, data = action_v_callback) %>%
+  tbl_regression(exponentiate = F, 
+                 pvalue_fun = function(x) style_pvalue(x, digits = 2),
+                 estimate_fun = function(x) style_ratio(x, digits = 3)) %>%
+  bold_p(t = 0.05) %>%
+  add_glance_table(include = c(r.squared, AIC, BIC))
+
+# merge tables 
+library(gtsummary)
+tbl_merge(tbls = list(mod1, mod2, mod3, mod4, mod5, mod6),
+          tab_spanner = c("**Callback-Action Difference**", "**Callback-Action Difference**", "**Callback**", "**Callback**", "**Action**", "**Action**")) %>%
+  modify_header(label = "**Predictor**") %>%
+  bold_labels() %>%
+  modify_table_body(~.x %>% arrange(row_type == "glance_statistic")) %>%
+  as_gt() 
+```
+
+## Trial-Level
+### Capacitive Tap
+```{r}
+library(lme4)
+library(broom.mixed)
+
+action_v_callback_triallevel <- full_join(solenoiddata, capacitivedata, by = c("index_fixture", "phone_model")) %>% 
+  subset(., select = c("index_fixture", "phone_model", "sol_latency_us", "cap_latency_us", "sol_call_latency_us", "cap_call_latency_us")) %>%
+  mutate(cap_diff = cap_call_latency_us - cap_latency_us,
+         sol_diff = sol_call_latency_us - sol_latency_us) %>%
+  full_join(., phone_data, by = "phone_model")
+
+#RT  ̃ Age × Trial Type + (1|Participant) + (1|Dataset)
+#rawrtlme2 <-lmer(rt.trim2 ~ Age_binary*Congruency_binary  + (1 | uniquesubjno) + (1 | Experiment), data = triallevelmod, na.action = na.exclude, REML = FALSE)
+
+# predicting difference
+mod1 <- lmer(cap_diff ~  OS_binary + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE) 
+mod2 <- lmer(cap_diff ~ Geekbench_5_single_core + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+
+# predicting action cap latency
+mod3 <- lmer(cap_latency_us ~ OS_binary + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+mod4 <- lmer(cap_latency_us ~ Geekbench_5_single_core + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+
+# predicting cal cap latency
+mod5 <- lmer(cap_call_latency_us ~ OS_binary + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+mod6 <- lmer(cap_call_latency_us ~ Geekbench_5_single_core + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+
+tab_model(mod1, mod3, mod5)
+tab_model(mod2, mod4, mod6)
+```
+
+### Solenoid Tap
+```{r}
+# predicting difference
+mod1 <- lmer(sol_diff ~  OS_binary + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE) 
+mod2 <- lmer(sol_diff ~ OS_binary + Geekbench_5_single_core + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+
+# predicting action cap latency
+mod3 <- lmer(sol_latency_us ~ OS_binary + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+mod4 <- lmer(sol_latency_us ~ OS_binary + Geekbench_5_single_core + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+
+# predicting cal cap latency
+mod5 <- lmer(sol_call_latency_us ~ OS_binary + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+mod6 <- lmer(sol_call_latency_us ~ OS_binary + Geekbench_5_single_core + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+
+tab_model(mod1, mod3, mod5)
+tab_model(mod2, mod4, mod6)
+```
+
+### Display Tap
+```{r}
+display_action_v_callback_triallevel <- subset(displaydata, select = c("phone_model", "index_mobile", "display_latency_us", "callback_latency_us")) %>%
+  mutate(display_diff = callback_latency_us - display_latency_us) %>%
+  full_join(., phone_data, by = "phone_model")
+
+# predicting difference
+mod1 <- lmer(display_diff ~  OS_binary + (1|phone_model), data = display_action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+mod2 <- lmer(display_diff ~ OS_binary + Geekbench_5_single_core + (1|phone_model), data = display_action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+
+# predicting action cap latency
+mod3 <- lmer(display_latency_us ~ OS_binary + (1|phone_model), data = display_action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+mod4 <- lmer(display_latency_us ~ OS_binary + Geekbench_5_single_core + (1|phone_model), data = display_action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+
+# predicting cal cap latency
+mod5 <- lmer(callback_latency_us ~ OS_binary + (1|phone_model), data = display_action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+mod6 <- lmer(callback_latency_us ~ OS_binary + Geekbench_5_single_core + (1|phone_model), data = display_action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+
+tab_model(mod1, mod2, mod3, mod4, mod5, mod6)
+```
+
+# ANOVA
+```{r}
+foranova <- subset(action_v_callback, select = c("phone_model", "OS_binary", "mean_call_cap_latency_us", "mean_cap_latency_us")) %>%
+  gather(., latencyType, latency, mean_call_cap_latency_us:mean_cap_latency_us)
+
+aov <- aov(latency ~ OS_binary*latencyType, data = foranova)
+pander(summary(aov))
+
+foranova2 <- subset(action_v_callback_triallevel, select = c("phone_model", "index_fixture", "OS_binary", "cap_call_latency_us", "cap_latency_us")) %>%
+  gather(., latencyType, latency, cap_call_latency_us:cap_latency_us)
+
+aov <- aov(latency ~ OS_binary*latencyType + index_fixture, data = foranova2)
+pander(summary(aov))
+```
+
+
+
+
 
 
 
