@@ -38,6 +38,8 @@ library(tidyverse)
 
 # Load Data
 ```{r}
+setwd("~/CTRLab/LaTARBot/latarprocessing/")
+
 ##### CAPACITIVE
 wd <- "./02-CSV_data/Capacitive_Tap_Latency/"
 N <- paste(wd, list.files(wd), sep = "")
