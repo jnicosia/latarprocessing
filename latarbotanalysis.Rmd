@@ -308,35 +308,36 @@ phone_data <- read.csv("./02-CSV_data/phone_data.csv") %>% subset(., select = c(
 
 action_v_callback <- full_join(action_v_callback, phone_data, by = "phone_model") %>% 
   group_by(phone_model, OS_binary, Geekbench_5_single_core, Geekbench_5_multiple_core) %>%
-  summarize(mean_cap_diff = mean(cap_diff, na.rm = T),
+  summarize(mean_cap_diff_us = mean(cap_diff, na.rm = T),
             mean_call_cap_latency_us = mean(cap_call_latency_us, na.rm = T),
             mean_cap_latency_us = mean(cap_latency_us, na.rm = T))
 
-ggscatter(action_v_callback, x = "Geekbench_5_single_core", y = "mean_sol_diff", color = "phone_model",
+ggscatter(action_v_callback, x = "Geekbench_5_single_core", y = "mean_cap_diff_us", color = "phone_model",
    add = "reg.line",
    add.params = list(color = "black", fill = "lightgray"),
    conf.int = TRUE) +
-  stat_cor(method = "pearson", label.x = 0, label.y = -150000)
+  stat_cor(method = "pearson")
 
-ggscatter(action_v_callback, x = "Geekbench_5_multiple_core", y = "mean_sol_diff", color = "phone_model",
-   add = "reg.line",
-   add.params = list(color = "black", fill = "lightgray"),
-   conf.int = TRUE) +
-  stat_cor(method = "pearson", label.x = 0, label.y = -150000)
+ggscatter(action_v_callback, x = "Geekbench_5_single_core", y = "mean_cap_diff_us",
+   color = "OS_binary", palette = c("blue", "black"),
+   add = "reg.line", conf.int = TRUE) + 
+  stat_cor(aes(color = OS_binary), label.x = 18, size = 5) 
+
+t.test(action_v_callback$Geekbench_5_single_core[which(action_v_callback$OS_binary == "iOS")], action_v_callback$Geekbench_5_single_core[which(action_v_callback$OS_binary == "Android")])
 ```
 
 # Multiple Regressions
 ## Phone-Level
 ```{r}
 # predicting difference
-mod1 <- lm(mean_cap_diff ~ OS_binary, data = action_v_callback) %>%
+mod1 <- lm(mean_cap_diff_us ~ Geekbench_5_single_core, data = action_v_callback) %>%
   tbl_regression(exponentiate = F, 
                  pvalue_fun = function(x) style_pvalue(x, digits = 2),
                  estimate_fun = function(x) style_ratio(x, digits = 3)) %>%
   bold_p(t = 0.05) %>%
   add_glance_table(include = c(r.squared, AIC, BIC))
 
-mod2 <- lm(mean_cap_diff ~ OS_binary + Geekbench_5_single_core, data = action_v_callback) %>% # suppression happening here
+mod2 <- lm(mean_cap_diff_us ~ Geekbench_5_single_core + OS_binary, data = action_v_callback) %>% # suppression happening here
   tbl_regression(exponentiate = F, 
                  pvalue_fun = function(x) style_pvalue(x, digits = 2),
                  estimate_fun = function(x) style_ratio(x, digits = 3)) %>%
@@ -344,14 +345,14 @@ mod2 <- lm(mean_cap_diff ~ OS_binary + Geekbench_5_single_core, data = action_v_
   add_glance_table(include = c(r.squared, AIC, BIC))
 
 # predicting action cap latency
-mod3 <- lm(mean_cap_latency_us ~ OS_binary, data = action_v_callback) %>%
+mod3 <- lm(mean_cap_latency_us ~ Geekbench_5_single_core, data = action_v_callback) %>%
   tbl_regression(exponentiate = F, 
                  pvalue_fun = function(x) style_pvalue(x, digits = 2),
                  estimate_fun = function(x) style_ratio(x, digits = 3)) %>%
   bold_p(t = 0.05) %>%
   add_glance_table(include = c(r.squared, AIC, BIC))
 
-mod4 <- lm(mean_cap_latency_us ~ OS_binary + Geekbench_5_single_core, data = action_v_callback) %>%
+mod4 <- lm(mean_cap_latency_us ~ Geekbench_5_single_core + OS_binary, data = action_v_callback) %>%
   tbl_regression(exponentiate = F, 
                  pvalue_fun = function(x) style_pvalue(x, digits = 2),
                  estimate_fun = function(x) style_ratio(x, digits = 3)) %>%
@@ -359,14 +360,14 @@ mod4 <- lm(mean_cap_latency_us ~ OS_binary + Geekbench_5_single_core, data = act
   add_glance_table(include = c(r.squared, AIC, BIC))
 
 # predicting cal cap latency
-mod5 <- lm(mean_call_cap_latency_us ~ OS_binary, data = action_v_callback) %>%
+mod5 <- lm(mean_call_cap_latency_us ~ Geekbench_5_single_core, data = action_v_callback) %>%
   tbl_regression(exponentiate = F, 
                  pvalue_fun = function(x) style_pvalue(x, digits = 2),
                  estimate_fun = function(x) style_ratio(x, digits = 3)) %>%
   bold_p(t = 0.05) %>%
   add_glance_table(include = c(r.squared, AIC, BIC))
 
-mod6 <- lm(mean_call_cap_latency_us ~ OS_binary + Geekbench_5_single_core, data = action_v_callback) %>%
+mod6 <- lm(mean_call_cap_latency_us ~ Geekbench_5_single_core + OS_binary, data = action_v_callback) %>%
   tbl_regression(exponentiate = F, 
                  pvalue_fun = function(x) style_pvalue(x, digits = 2),
                  estimate_fun = function(x) style_ratio(x, digits = 3)) %>%
@@ -418,15 +419,15 @@ tab_model(mod2, mod4, mod6)
 ```{r}
 # predicting difference
 mod1 <- lmer(sol_diff ~  OS_binary + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE) 
-mod2 <- lmer(sol_diff ~ OS_binary + Geekbench_5_single_core + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+mod2 <- lmer(sol_diff ~ Geekbench_5_single_core + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
 
 # predicting action cap latency
 mod3 <- lmer(sol_latency_us ~ OS_binary + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
-mod4 <- lmer(sol_latency_us ~ OS_binary + Geekbench_5_single_core + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+mod4 <- lmer(sol_latency_us ~ Geekbench_5_single_core + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
 
 # predicting cal cap latency
 mod5 <- lmer(sol_call_latency_us ~ OS_binary + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
-mod6 <- lmer(sol_call_latency_us ~ OS_binary + Geekbench_5_single_core + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
+mod6 <- lmer(sol_call_latency_us ~ Geekbench_5_single_core + (1|phone_model), data = action_v_callback_triallevel, na.action = na.exclude, REML = FALSE)
 
 tab_model(mod1, mod3, mod5)
 tab_model(mod2, mod4, mod6)
@@ -468,7 +469,29 @@ aov <- aov(latency ~ OS_binary*latencyType + index_fixture, data = foranova2)
 pander(summary(aov))
 ```
 
+# Display
+## Action ~ Callback
+```{r}
+displaydata$callback_display_diff <- displaydata$callback_latency_us - displaydata$display_latency_us
 
+ggplot(displaydata, aes(x = index_fixture, y = display_latency_us, group = phone_model, color = phone_model)) +
+  labs(title = "Display Latency") +
+  geom_line(aes(color = phone_model)) +
+  geom_point(aes(color = phone_model)) +
+  theme_classic() 
+
+ggplot(displaydata, aes(x = index_fixture, y = callback_latency_us, group = phone_model, color = phone_model)) +
+  labs(title = "Callback Latency") +
+  geom_line(aes(color = phone_model)) +
+  geom_point(aes(color = phone_model)) +
+  theme_classic() 
+
+ggplot(displaydata, aes(x = index_fixture, y = callback_display_diff, group = phone_model, color = phone_model)) +
+  labs(title = "Display - Callback Latency") +
+  geom_line(aes(color = phone_model)) +
+  geom_point(aes(color = phone_model)) +
+  theme_classic() 
+```
 
 
 

@@ -114,11 +114,13 @@
 
 ## Event Timeline
 
-1. app decides to display stimulus (dispTime)
-2. app displays stimulus (detectTime)
-3. human input response to stimulus (timestamp)
-4. os recognizes tap (actionTime)
-5. app processes touch (callbackTime)
+| Event | Typical latency |
+|-------|-----------------|
+| app decides to display stimulus (dispTime) | ? |
+| app displays stimulus (detectTime) | ? |
+| human input response to stimulus (timestamp) |  |
+| os recognizes tap (actionTime) | 5-50ms |
+| app processes touch (callbackTime) | 1-5ms |
 
 ## Procedure(s)
 
