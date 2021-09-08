@@ -1,6 +1,6 @@
 # LaTAR Bot Notes
 
-## Phone Testing
+## Pilot Phone Testing
 
 ### Samsung SM-A305G
 
@@ -138,48 +138,52 @@
 
 ### Experimental
 
-- capacitive
-  - no load
-    - 500 ms X 200
-    - 300 ms X 200
-    - 100 ms X 200
-  - w load (decide which option)
-    - 500 ms X 200
-    - 300 ms X 200
-    - 100 ms X 200
 - display
   - no load
-    - 500 ms X 200
-    - 300 ms X 200
-    - 100 ms X 200
-  - w load (decide which option)
-    - 500 ms X 200
-    - 300 ms X 200
-    - 100 ms X 200
+    - 199 ms X 100
+    - 503 ms X 100
+    - 997 ms X 100
+  - w "Object Serialization" load (thread count = 1; min load interval = 0 ms)
+    - 199 ms X 100
+    - 503 ms X 100
+    - 997 ms X 100
 - solenoid
   - no load
-    - 500 ms X 200
-    - 300 ms X 200
-    - 100 ms X 200
-  - w load (decide which option)
-    - 500 ms X 200
-    - 300 ms X 200
-    - 100 ms X 200
+    - 199 ms X 100
+    - 503 ms X 100
+    - 997 ms X 100
+  - w "Object Serialization" load (thread count = 1; min load interval = 0 ms)
+    - 199 ms X 100
+    - 503 ms X 100
+    - 997 ms X 100
+- capacitive
+  - no load
+    - 199 ms X 100
+    - 503 ms X 100
+    - 997 ms X 100
+  - w "Object Serialization" load (thread count = 1; min load interval = 0 ms)
+    - 199 ms X 100
+    - 503 ms X 100
+    - 997 ms X 100
+    
+## Experimental Phone Testing
+
+### Samsung SM-A305G
+
+- [x] capacitive
+- [x] display
+- [x] solenoid
+
+### 
     
 ## Misc. Notes
 
 - try using prime number for ITI (i.e., instead of 500 ms --> 499/503) to help reduce any touch screen sampling rate
 - get touch sample & screen refresh rates for each phone
-- get measure of phone performance. Options:
-  - Worst: CPU frequency for each phone (?). Doesn't factor in other aspects of phone performance.
-  - Better: Get benchmark results available online (eg., Geekbench 5 or 3D Mark). Not available for all phones and is model-specific
-  - Best: Run benchmark on actual phones
 - recommendations to researchers: touch latency appears to be pretty consistent across phones and is within the touch sample rate (~16 ms for 60 Hz) --> in rare cases where mean differences/SDs across groups are less than touch sample rate, then phones aren't a good measurement device (but this is probably extremely rare in human behavior data collection and in remote assessments)
 - show that CPU can account for tap latencies if using callback time and not action time
   - callback_latency ~ OS + geekbench_single_core vs. action_latency ~ OS + geekbench_single_core --> os/CPU should account for sig var for callback but not action
   - action/callback_latency ~ OS + geekbench_multiple_core (should replicate above)
-- can we get the code for the phone apps? Better understanding of what's going on
-- get OS for each phone
 
 ### Screen Refresh Rate
 
