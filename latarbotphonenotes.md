@@ -165,25 +165,13 @@
     - 199 ms X 100
     - 503 ms X 100
     - 997 ms X 100
-    
-## Experimental Phone Testing
 
-### Samsung SM-A305G
+## To Do
 
-- [x] capacitive
-- [x] display
-- [x] solenoid
-
-### 
-    
-## Misc. Notes
-
-- try using prime number for ITI (i.e., instead of 500 ms --> 499/503) to help reduce any touch screen sampling rate
 - get touch sample & screen refresh rates for each phone
 - recommendations to researchers: touch latency appears to be pretty consistent across phones and is within the touch sample rate (~16 ms for 60 Hz) --> in rare cases where mean differences/SDs across groups are less than touch sample rate, then phones aren't a good measurement device (but this is probably extremely rare in human behavior data collection and in remote assessments)
 - show that CPU can account for tap latencies if using callback time and not action time
   - callback_latency ~ OS + geekbench_single_core vs. action_latency ~ OS + geekbench_single_core --> os/CPU should account for sig var for callback but not action
-  - action/callback_latency ~ OS + geekbench_multiple_core (should replicate above)
 
 ### Screen Refresh Rate
 
@@ -194,5 +182,5 @@ Key: While screen refresh rate defines the minimum variance a phone's screen can
 # Sources used for phone_data.csv
 
 - Geekbench 5 CPU workloads documentation: https://www.geekbench.com/doc/geekbench5-cpu-workloads.pdf
-- Apple documentation on display refresh and touch sampling rates: https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Displays/Displays.html
+- Apple documentation on display refresh and touch sampling rates: 1
 - Some Samsung info in screen refresh rate: https://www.samsung.com/us/support/answer/ANS00086005/
