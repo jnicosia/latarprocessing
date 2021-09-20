@@ -34,6 +34,8 @@ library(pander)
 library(ez)
 library(directlabels)
 library(tidyverse)
+
+library(skimr)
 ```
 
 # Load Data
@@ -96,15 +98,15 @@ capacitivedata1 <- capacitivedata %>%
          callback_latency_us_mean = mean(callback_latency_us, na.rm = T),
          callback_latency_us_sd = mean(callback_latency_us, na.rm = T),
          callback_latency_us_z = (callback_latency_us-callback_latency_us_mean)/callback_latency_us_sd,
-         action_latency_us_otlrsrmvd = ifelse(abs(action_latency_us_z) > 3, NA, action_latency_us),
-         callback_latency_us_otlrsrmvd = ifelse(abs(callback_latency_us_z) > 3, NA, callback_latency_us))
+         action_latency_us_otlrsrmvd = ifelse(abs(action_latency_us_z) > 1.5, NA, action_latency_us),
+         callback_latency_us_otlrsrmvd = ifelse(abs(callback_latency_us_z) > 1.5, NA, callback_latency_us))
 
 displaydata1 <- displaydata %>%
   group_by(phone_model, load, procedure) %>%
   mutate(display_latency_us_mean = mean(display_latency_us, na.rm = T),
          display_latency_us_sd = mean(display_latency_us, na.rm = T),
          display_latency_us_z = (display_latency_us-display_latency_us_mean)/display_latency_us_sd,
-         display_latency_us_otlrsrmvd = ifelse(abs(display_latency_us_z) > 3, NA, display_latency_us))
+         display_latency_us_otlrsrmvd = ifelse(abs(display_latency_us_z) > 1.5, NA, display_latency_us))
 ```
 
 ## Line Graphs
@@ -119,8 +121,7 @@ ggplot(capacitivedata1_noload, aes(x = index_fixture, y = action_latency_us_otlr
   geom_point(aes(color = phone_model, shape = procedure)) + 
   facet_wrap(~procedure) +
   theme_classic() +
-  theme(strip.background = element_blank())
-#+ coord_cartesian(ylim = c(0, 80000))
+  theme(strip.background = element_blank()) + coord_cartesian(ylim = c(0, 60000))
 
 # display
 # raw
@@ -261,8 +262,6 @@ phonedata <- read.csv("~/CTRLab/LaTARBot/latarprocessing/phone_data.csv")
 capacitivedatafull <- full_join(capacitivedata1_noload, phonedata)
 
 summary(lmer(action_latency_us_otlrsrmvd ~ Geekbench_5_single_core + Touch_refresh_Hz + (index_fixture|phone_model), data = capacitivedatafull))
-
-summary(lmer(callback_latency_us_otlrsrmvd ~ Geekbench_5_single_core + Touch_refresh_Hz + (index_fixture|phone_model), data = capacitivedatafull))
 ```
 
 
