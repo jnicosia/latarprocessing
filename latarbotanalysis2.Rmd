@@ -123,6 +123,23 @@ ggplot(capacitivedata1_noload, aes(x = index_fixture, y = action_latency_us_otlr
   theme_classic() +
   theme(strip.background = element_blank()) + coord_cartesian(ylim = c(0, 60000))
 
+# exemplar (Samsung SM-G960U/iPhone12_1 (120Hz example))
+capacitivedata1_noload_exemplar <- subset(capacitivedata1_noload, phone_model == "iPhone12_1" & procedure == "199")
+
+ggplot(capacitivedata1_noload_exemplar, aes(x = index_fixture, y = action_latency_us_otlrsrmvd)) +
+  labs(title = "(A) iPhone 11 (120 Hz Touch Sample Rate)",
+       x = "Capacitive Tap Sample Number",
+       y = "Capacitive Tap Latency (μs)") +
+  geom_line() +
+  geom_point() + 
+  geom_hline(aes(yintercept = max(action_latency_us_otlrsrmvd, na.rm = T)), color = "grey", linetype = "dashed", size = 1) +
+  geom_hline(aes(yintercept = min(action_latency_us_otlrsrmvd, na.rm = T)), color = "grey", linetype = "dashed", size = 1) +
+  annotate("text", x = 90, y = 18500, size = 5.5, label = "Actual Difference = 9,118 μs") + 
+  annotate("text", x = 90, y = 17500, size = 5.5, label = "Theoretical Difference = 8,333 μs") + 
+  theme_classic() +
+  theme(text = element_text(size = 20), 
+        strip.background = element_blank()) + coord_cartesian(xlim = c(0, 100), ylim = c(0, 20000))
+
 # display
 # raw
 displaydata1_noload <- subset(displaydata1, load == "none")
@@ -134,6 +151,23 @@ ggplot(displaydata1_noload, aes(x = index_fixture, y = display_latency_us_otlrsr
   facet_wrap(~procedure) +
   theme_classic() +
   theme(strip.background = element_blank())
+
+# exemplar (Samsung SM-G960U/iPhone12_1 (120Hz example))
+displaydata1_noload_exemplar <- subset(displaydata1_noload, phone_model == "iPhone12_1" & procedure == "199")
+
+ggplot(displaydata1_noload_exemplar, aes(x = index_fixture, y = display_latency_us_otlrsrmvd)) +
+  labs(title = "(B) iPhone 11 (60 Hz Display Refresh Rate)",
+       x = "Display Stimulus Number",
+       y = "Display Latency (μs)") +
+  geom_line() +
+  geom_point() + 
+  geom_hline(aes(yintercept = max(display_latency_us_otlrsrmvd, na.rm = T)), color = "grey", linetype = "dashed", size = 1) +
+  geom_hline(aes(yintercept = min(display_latency_us_otlrsrmvd, na.rm = T)), color = "grey", linetype = "dashed", size = 1) +
+  annotate("text", x = 90, y = 35000, size = 5.5, label = "Actual Difference = 45,904 μs") + 
+  annotate("text", x = 90, y = 30000, size = 5.5, label = "Theoretical Difference = ##,### μs") + 
+  theme_classic() +
+  theme(text = element_text(size = 20), 
+        strip.background = element_blank()) + coord_cartesian(xlim = c(0, 100), ylim = c(0, 80000))
 ```
 
 ## Bar Graphs
@@ -193,7 +227,57 @@ geom_bar(position = "dodge",
   theme_classic() +
   theme(text = element_text(size = 9), 
         strip.background = element_blank())  + 
-  theme(text = element_text(size = 9)) 
+  theme(text = element_text(size = 9)) + coord_cartesian(xlim = c(0, 100), ylim = c(0, 80000))
+```
+
+### Line Range Plots
+```{r}
+# capacitive
+capacitivedata1_noload_199 <- subset(capacitivedata1_noload, procedure == "199")
+phonedata <- read.csv("~/CTRLab/LaTARBot/latarprocessing/phone_data.csv")
+capacitivedata1_noload_199 <- full_join(capacitivedata1_noload_199, phonedata)
+
+capacitivemeans <- summarySE(data = capacitivedata1_noload_199,
+                             measurevar = "action_latency_us_otlrsrmvd",
+                             groupvars = c("Model"),
+                             na.rm = T,
+                             conf.interval = 0.95,
+                             .drop = F)
+
+capacitivemeans$Model <- factor(capacitivemeans$Model, levels = c("iPhone 7", "iPhone 8", "iPhone X", "Samsung Galaxy S9", "iPhone XR", "iPhone XS", "Samsung A30", "Samsung A10", "iPhone 11", "LG Journey", "Samsung A51", "Samsung A01", "Wiko Ride 3", "Samsung A12", "Motorola moto g stylus", "Samsung A32", "Samsung A52"))
+
+ggplot(capacitivemeans, aes(x = Model, y = action_latency_us_otlrsrmvd, color = Model)) +
+  geom_linerange(aes(ymin = action_latency_us_otlrsrmvd - ci, ymax = action_latency_us_otlrsrmvd + ci), 
+                 size = 4, alpha = 0.5, position = position_dodge(0.9)) +
+  geom_point(aes(color = Model), size = 4, position = position_dodge(0.9)) +
+  labs(y = "Mean Capacitive Tap Latency (μs)",
+       x = "Phone Model") + 
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+        text = element_text(size = 20)) + theme(legend.position = "none") + coord_cartesian(ylim = c(0, 40000))
+
+# display
+displaydata1_noload_199 <- subset(displaydata1_noload, procedure == "199")
+displaydata1_noload_199 <- full_join(displaydata1_noload_199, phonedata)
+
+displaymeans <- summarySE(data = displaydata1_noload_199,
+                             measurevar = "display_latency_us_otlrsrmvd",
+                             groupvars = c("Model"),
+                             na.rm = T,
+                             conf.interval = 0.95,
+                             .drop = F)
+
+displaymeans$Model <- factor(displaymeans$Model, levels = c("iPhone 7", "iPhone 8", "iPhone X", "Samsung Galaxy S9", "iPhone XR", "iPhone XS", "Samsung A30", "Samsung A10", "iPhone 11", "LG Journey", "Samsung A51", "Samsung A01", "Wiko Ride 3", "Samsung A12", "Motorola moto g stylus", "Samsung A32", "Samsung A52"))
+
+ggplot(displaymeans, aes(x = Model, y = display_latency_us_otlrsrmvd, color = Model)) +
+  geom_linerange(aes(ymin = display_latency_us_otlrsrmvd - ci, ymax = display_latency_us_otlrsrmvd + ci), 
+                 size = 4, alpha = 0.5, position = position_dodge(0.9)) +
+  geom_point(aes(color = Model), size = 4, position = position_dodge(0.9)) +
+  labs(y = "Display Latency (μs)",
+       x = "Phone Model") + 
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+        text = element_text(size = 20)) + theme(legend.position = "none") + coord_cartesian(ylim = c(0, 100000))
 ```
 
 ### Across Phones
@@ -255,7 +339,7 @@ geom_bar(position = "dodge",
   theme(text = element_text(size = 9))
 ```
 
-# Regressions
+# Regression(s)
 ## What matters?
 ```{r}
 phonedata <- read.csv("~/CTRLab/LaTARBot/latarprocessing/phone_data.csv")
