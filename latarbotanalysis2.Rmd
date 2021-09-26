@@ -250,7 +250,8 @@ ggplot(capacitivemeans, aes(x = Model, y = action_latency_us_otlrsrmvd, color = 
   geom_linerange(aes(ymin = action_latency_us_otlrsrmvd - ci, ymax = action_latency_us_otlrsrmvd + ci), 
                  size = 4, alpha = 0.5, position = position_dodge(0.9)) +
   geom_point(aes(color = Model), size = 4, position = position_dodge(0.9)) +
-  labs(y = "Mean Capacitive Tap Latency (μs)",
+  labs(title = "(B) Mean Device Tap Latencies",
+       y = "Mean Capacitive Tap Latency (μs)",
        x = "Phone Model") + 
   theme_classic() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1), 
@@ -273,7 +274,8 @@ ggplot(displaymeans, aes(x = Model, y = display_latency_us_otlrsrmvd, color = Mo
   geom_linerange(aes(ymin = display_latency_us_otlrsrmvd - ci, ymax = display_latency_us_otlrsrmvd + ci), 
                  size = 4, alpha = 0.5, position = position_dodge(0.9)) +
   geom_point(aes(color = Model), size = 4, position = position_dodge(0.9)) +
-  labs(y = "Display Latency (μs)",
+  labs(title = "(A) Mean Device Display Latencies",
+       y = "Display Latency (μs)",
        x = "Phone Model") + 
   theme_classic() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1), 
