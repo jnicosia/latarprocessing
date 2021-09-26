@@ -1,0 +1,538 @@
+Microsoft Windows [Version 10.0.19042.1110]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\wbaen>adb devices
+List of devices attached
+R58R34FHWJR     device
+
+
+C:\Users\wbaen>adb shell getevent -r -t -l
+add device 1: /dev/input/event4
+  name:     "grip_sensor"
+add device 2: /dev/input/event5
+  name:     "grip_sensor_sub"
+add device 3: /dev/input/event0
+  name:     "ACCDET"
+add device 4: /dev/input/event1
+  name:     "mtk-kpd"
+add device 5: /dev/input/event3
+  name:     "sec_touchproximity"
+add device 6: /dev/input/event2
+  name:     "sec_touchscreen"
+[     202.288365] /dev/input/event2: EV_KEY       BTN_TOUCH            DOWN
+[     202.288365] /dev/input/event2: EV_ABS       ABS_MT_TRACKING_ID   0000001b
+[     202.288365] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000016f
+[     202.288365] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001fe
+[     202.288365] /dev/input/event2: EV_KEY       BTN_TOOL_FINGER      DOWN
+[     202.288365] /dev/input/event2: EV_SYN       SYN_REPORT           00000000
+[     202.306141] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000016d
+[     202.306141] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 56
+[     202.322971] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000014d
+[     202.322971] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001fa
+[     202.322971] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.339553] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000132
+[     202.339553] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001f9
+[     202.339553] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     202.356296] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000011d
+[     202.356296] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.372815] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000010a
+[     202.372815] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     202.389570] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000fc
+[     202.389570] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.406060] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000f4
+[     202.406060] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     202.422806] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000f2
+[     202.422806] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.456148] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000f3
+[     202.456148] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 29
+[     202.472862] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000102
+[     202.472862] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.489502] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000011d
+[     202.489502] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     202.506131] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000013f
+[     202.506131] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     202.522898] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000165
+[     202.522898] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.539540] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000018d
+[     202.539540] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     202.555943] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001b3
+[     202.555943] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     202.572842] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001d4
+[     202.572842] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.589368] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001f1
+[     202.589368] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     202.606158] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000209
+[     202.606158] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.622696] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000021e
+[     202.622696] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001fb
+[     202.622696] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     202.639349] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000022e
+[     202.639349] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001fd
+[     202.639349] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     202.656101] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000237
+[     202.656101] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000200
+[     202.656101] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.672828] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000239
+[     202.672828] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000201
+[     202.672828] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.706051] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000231
+[     202.706051] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000202
+[     202.706051] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 30
+[     202.722997] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000021e
+[     202.722997] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000203
+[     202.722997] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.739510] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000203
+[     202.739510] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     202.755875] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001e0
+[     202.755875] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 61
+[     202.772793] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001b7
+[     202.772793] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000202
+[     202.772793] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.789251] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000018e
+[     202.789251] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001fe
+[     202.789251] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     202.806046] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000016a
+[     202.806046] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001fb
+[     202.806046] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.822500] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000014c
+[     202.822500] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001fa
+[     202.822500] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     202.839188] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000136
+[     202.839188] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001f8
+[     202.839188] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.855972] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000126
+[     202.855972] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001f7
+[     202.855972] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.872371] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000011e
+[     202.872371] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     202.889167] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000011b
+[     202.889167] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.955772] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000121
+[     202.955772] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001f5
+[     202.955772] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 15
+[     202.972535] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000135
+[     202.972535] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001f4
+[     202.972535] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     202.989214] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000153
+[     202.989214] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     203.005761] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000017a
+[     203.005761] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     203.022326] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001a3
+[     203.022326] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     203.039142] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001c9
+[     203.039142] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001f6
+[     203.039142] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     203.055592] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001e9
+[     203.055592] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     203.072311] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000204
+[     203.072311] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001f7
+[     203.072311] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     203.088944] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000021c
+[     203.088944] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001f9
+[     203.088944] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     203.105654] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000022d
+[     203.105654] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001fb
+[     203.105654] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     203.122231] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000237
+[     203.122231] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     203.138994] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000023a
+[     203.138994] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001fc
+[     203.138994] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     203.172333] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000237
+[     203.172333] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001fd
+[     203.172333] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 29
+[     203.189048] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000227
+[     203.189048] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001fe
+[     203.189048] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     203.205670] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000020b
+[     203.205670] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     203.222218] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001e6
+[     203.222218] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001ff
+[     203.222218] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     203.238946] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001ba
+[     203.238946] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     203.255552] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000018f
+[     203.255552] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     203.272397] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000016b
+[     203.272397] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     203.288957] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000151
+[     203.288957] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     203.305607] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000140
+[     203.305607] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     203.322187] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000139
+[     203.322187] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001fe
+[     203.322187] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     203.338852] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000137
+[     203.338852] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     203.355389] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000134
+[     203.355389] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000001fc
+[     203.355389] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     203.388441] /dev/input/event2: EV_ABS       ABS_MT_TRACKING_ID   ffffffff
+[     203.388441] /dev/input/event2: EV_KEY       BTN_TOUCH            UP
+[     203.388441] /dev/input/event2: EV_KEY       BTN_TOOL_FINGER      UP
+[     203.388441] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 30
+^C
+C:\Users\wbaen>
+
+C:\Users\wbaen>
+
+C:\Users\wbaen>adb shell dumpsys display
+DISPLAY MANAGER (dumpsys display)
+  mOnlyCode=false
+  mSafeMode=false
+  mPendingTraversal=false
+  mGlobalDisplayState=ON
+  mNextNonDefaultDisplayId=2
+  mViewports=[DisplayViewport{type=INTERNAL, valid=true, displayId=0, uniqueId='local:0', physicalPort=0, orientation=0, logicalFrame=Rect(0, 0 - 720, 1600), physicalFrame=Rect(0, 0 - 720, 1600), deviceWidth=720, deviceHeight=1600}]
+  mDefaultDisplayDefaultColorMode=0
+  mSingleDisplayDemoMode=false
+  mWifiDisplayScanRequestCount=0
+  mStableDisplaySize=Point(720, 1600)
+  mMinimumBrightnessCurve=[(0.0, 0.0), (2000.0, 50.0), (4000.0, 90.0)]
+
+Display Adapters: size=4
+  LocalDisplayAdapter
+  VirtualDisplayAdapter
+  OverlayDisplayAdapter
+    mCurrentOverlaySetting=
+    mOverlays: size=0
+  MagnifierDisplayAdapter
+
+Display Devices: size=1
+  DisplayDeviceInfo{"Built-in Screen": uniqueId="local:0", 720 x 1600, modeId 1, defaultModeId 1, supportedModes [{id=1, width=720, height=1600, fps=59.970005}], colorMode 0, supportedColorModes [0], HdrCapabilities android.view.Display$HdrCapabilities@40f16308, density 300, 268.941 x 269.139 dpi, appVsyncOff 0, presDeadline 17675003, cutout DisplayCutout{insets=Rect(0, 45 - 0, 0) boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(272, 0 - 448, 45), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}, touch INTERNAL, rotation 0, type BUILT_IN, address {port=0}, state ON, FLAG_DEFAULT_DISPLAY, FLAG_ROTATES_WITH_CONTENT, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS}
+    mAdapter=LocalDisplayAdapter
+    mUniqueId=local:0
+    mDisplayToken=android.os.BinderProxy@3390bfa
+    mCurrentLayerStack=0
+    mCurrentOrientation=0
+    mCurrentLayerStackRect=Rect(0, 0 - 720, 1600)
+    mCurrentDisplayRect=Rect(0, 0 - 720, 1600)
+    mCurrentSurface=null
+    mPhysicalDisplayId=0
+    mAllowedPhysIndexes=[0]
+    mAllowedModeIds=[1]
+    mAllowedModeIdsInvalid=false
+    mActivePhysIndex=0
+    mActiveModeId=1
+    mActiveColorMode=0
+    mDefaultModeId=1
+    mState=ON
+    mBrightness=6
+    mBacklight=com.android.server.lights.LightsService$LightImpl@e4c75ab
+    mDisplayInfos=
+      PhysicalDisplayInfo{720 x 1600, 59.970005 fps, density 1.875, 268.941 x 269.139 dpi, secure true, appVsyncOffset 0, bufferDeadline 17675003}
+    mSupportedModes=
+      DisplayModeRecord{mMode={id=1, width=720, height=1600, fps=59.970005}}
+    mSupportedColorModes=[0]
+
+Logical Displays: size=1
+  Display 0:
+    mDisplayId=0
+    mLayerStack=0
+    mHasContent=true
+    mAllowedDisplayModes=[1]
+    mRequestedColorMode=0
+    mDisplayOffset=(0, 0)
+    mDisplayScalingDisabled=false
+    mPrimaryDisplayDevice=Built-in Screen
+    mBaseDisplayInfo=DisplayInfo{"Built-in Screen, displayId 0", uniqueId "local:0", app 720 x 1600, real 720 x 1600, largest app 720 x 1600, smallest app 720 x 1600, mode 1, defaultMode 1, modes [{id=1, width=720, height=1600, fps=59.970005}], colorMode 0, supportedColorModes [0], hdrCapabilities android.view.Display$HdrCapabilities@40f16308, rotation 0, density 300 (268.941 x 269.139) dpi, layerStack 0, appVsyncOff 0, presDeadline 17675003, type BUILT_IN, address {port=0}, state ON, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS, removeMode 0}
+    mOverrideDisplayInfo=DisplayInfo{"Built-in Screen, displayId 0", uniqueId "local:0", app 720 x 1465, real 720 x 1600, largest app 1465 x 1465, smallest app 720 x 675, mode 1, defaultMode 1, modes [{id=1, width=720, height=1600, fps=59.970005}], colorMode 0, supportedColorModes [0], hdrCapabilities android.view.Display$HdrCapabilities@40f16308, rotation 0, density 300 (268.941 x 269.139) dpi, layerStack 0, appVsyncOff 0, presDeadline 17675003, type BUILT_IN, address {port=0}, state ON, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS, removeMode 0}
+
+DisplayModeDirector
+  mSupportedModesByDisplay:
+    0 -> [{id=1, width=720, height=1600, fps=59.970005}]
+  mDefaultModeByDisplay:
+    0 -> {id=1, width=720, height=1600, fps=59.970005}
+  mVotesByDisplay:
+    -1:
+      PRIORITY_USER_SETTING_PEAK_REFRESH_RATE -> Vote{width=-1, height=-1, minRefreshRate=0.0, maxRefreshRate=120.0}
+      PRIORITY_USER_SETTING_MIN_REFRESH_RATE -> Vote{width=-1, height=-1, minRefreshRate=0.0, maxRefreshRate=Infinity}
+      PRIORITY_LOW_BRIGHTNESS -> Vote{width=-1, height=-1, minRefreshRate=0.0, maxRefreshRate=0.0}
+  SettingsObserver
+    mDefaultPeakRefreshRate: 120.0
+  AppRequestObserver
+    mAppRequestedModeByDisplay:
+  BrightnessObserver
+    mRefreshRateInZone: 0
+    mDisplayBrightnessThreshold: 20
+    mDisplayBrightnessThreshold: 255
+    mAmbientBrightnessThreshold: 40
+    mAmbientBrightnessThreshold: 7400
+
+Callbacks: size=64
+  0: mPid=1232, mWifiDisplayScanRequested=false
+  1: mPid=1547, mWifiDisplayScanRequested=false
+  2: mPid=1564, mWifiDisplayScanRequested=false
+  3: mPid=1586, mWifiDisplayScanRequested=false
+  4: mPid=1611, mWifiDisplayScanRequested=false
+  5: mPid=1711, mWifiDisplayScanRequested=false
+  6: mPid=1826, mWifiDisplayScanRequested=false
+  7: mPid=1849, mWifiDisplayScanRequested=false
+  8: mPid=1859, mWifiDisplayScanRequested=false
+  9: mPid=1884, mWifiDisplayScanRequested=false
+  10: mPid=2025, mWifiDisplayScanRequested=false
+  11: mPid=2119, mWifiDisplayScanRequested=false
+  12: mPid=2338, mWifiDisplayScanRequested=false
+  13: mPid=2371, mWifiDisplayScanRequested=false
+  14: mPid=2768, mWifiDisplayScanRequested=false
+  15: mPid=2792, mWifiDisplayScanRequested=false
+  16: mPid=2819, mWifiDisplayScanRequested=false
+  17: mPid=2865, mWifiDisplayScanRequested=false
+  18: mPid=3696, mWifiDisplayScanRequested=false
+  19: mPid=3912, mWifiDisplayScanRequested=false
+  20: mPid=4287, mWifiDisplayScanRequested=false
+  21: mPid=5108, mWifiDisplayScanRequested=false
+  22: mPid=5323, mWifiDisplayScanRequested=false
+  23: mPid=5422, mWifiDisplayScanRequested=false
+  24: mPid=5578, mWifiDisplayScanRequested=false
+  25: mPid=6751, mWifiDisplayScanRequested=false
+  26: mPid=6780, mWifiDisplayScanRequested=false
+  27: mPid=6991, mWifiDisplayScanRequested=false
+  28: mPid=7157, mWifiDisplayScanRequested=false
+  29: mPid=7225, mWifiDisplayScanRequested=false
+  30: mPid=7268, mWifiDisplayScanRequested=false
+  31: mPid=7339, mWifiDisplayScanRequested=false
+  32: mPid=8528, mWifiDisplayScanRequested=false
+  33: mPid=8742, mWifiDisplayScanRequested=false
+  34: mPid=10668, mWifiDisplayScanRequested=false
+  35: mPid=10738, mWifiDisplayScanRequested=false
+  36: mPid=12806, mWifiDisplayScanRequested=false
+  37: mPid=12901, mWifiDisplayScanRequested=false
+  38: mPid=13111, mWifiDisplayScanRequested=false
+  39: mPid=13638, mWifiDisplayScanRequested=false
+  40: mPid=13665, mWifiDisplayScanRequested=false
+  41: mPid=13693, mWifiDisplayScanRequested=false
+  42: mPid=13737, mWifiDisplayScanRequested=false
+  43: mPid=13786, mWifiDisplayScanRequested=false
+  44: mPid=13859, mWifiDisplayScanRequested=false
+  45: mPid=14072, mWifiDisplayScanRequested=false
+  46: mPid=14160, mWifiDisplayScanRequested=false
+  47: mPid=14200, mWifiDisplayScanRequested=false
+  48: mPid=14250, mWifiDisplayScanRequested=false
+  49: mPid=14293, mWifiDisplayScanRequested=false
+  50: mPid=14356, mWifiDisplayScanRequested=false
+  51: mPid=14442, mWifiDisplayScanRequested=false
+  52: mPid=14468, mWifiDisplayScanRequested=false
+  53: mPid=14501, mWifiDisplayScanRequested=false
+  54: mPid=14535, mWifiDisplayScanRequested=false
+  55: mPid=14595, mWifiDisplayScanRequested=false
+  56: mPid=14682, mWifiDisplayScanRequested=false
+  57: mPid=14756, mWifiDisplayScanRequested=false
+  58: mPid=14814, mWifiDisplayScanRequested=false
+  59: mPid=15085, mWifiDisplayScanRequested=false
+  60: mPid=15105, mWifiDisplayScanRequested=false
+  61: mPid=15183, mWifiDisplayScanRequested=false
+  62: mPid=15333, mWifiDisplayScanRequested=false
+  63: mPid=15450, mWifiDisplayScanRequested=false
+
+Display Power Controller Locked State:
+  mDisplayReadyLocked=true
+  mPendingRequestLocked=policy=DIM, useProximitySensor=false, screenBrightnessOverride=-1, useAutoBrightness=false, screenAutoBrightnessAdjustmentOverride=NaN, screenLowPowerBrightnessFactor=1.0, blockScreenOn=false, lowPowerMode=false, boostScreenBrightness=false, dozeScreenBrightness=-1, dozeScreenState=UNKNOWN, autoBrightnessLowerLimit=-1, autoBrightnessUpperLimit=-1, forceSlowChange=false, maxBrightness=-1, minBrightness=-1, lastGoToSleepReason=2, wakeUpEvenThoughProximityPositive=false, proximityPositiveDebounce=-1, proximityNegativeDebounce=-1, coverClosed=false, coverType=2, brightnessLimitByCover=-1, FTAMode=false, batteryLevel = 88, internalDisplayOff =false, dualScreenPolicy =-1, lcdFlashMode= false, isOutdoorMode= false, screenBrightnessScaleFactor=-1.0, forceLcdBacklightOffEnabled=false, batteryLevelCritical=false, isPowered=true, hbmBlock=false, earlyWakeUp=false, dexDualViewMode= false
+  mPendingRequestChangedLocked=false
+  mPendingWaitForNegativeProximityLocked=false
+  mPendingUpdatePowerStateLocked=false
+
+Display Power Controller Configuration:
+  mScreenBrightnessDozeConfig=1
+  mScreenBrightnessDimConfig=6
+  mScreenBrightnessRangeMinimum=1
+  mScreenBrightnessRangeMaximum=255
+  mScreenBrightnessDefault=128
+  mScreenBrightnessForVrRangeMinimum=1
+  mScreenBrightnessForVrRangeMaximum=255
+  mScreenBrightnessForVrDefault=180
+  mScreenBrightnessForDozeMaximum=97
+  mScreenExtendedBrightnessRangeMaximum=306
+  mUseSoftwareAutoBrightnessConfig=true
+  mAllowAutoBrightnessWhileDozingConfig=false
+  mBrightnessRampRateFast=180
+  mBrightnessRampRateSlow=60
+  mSkipScreenOnBrightnessRamp=false
+  mColorFadeFadesConfig=false
+  mColorFadeEnabled=true
+  mDisplayBlanksAfterDozeConfig=false
+  mBrightnessBucketsInDozeConfig=false
+  --SEC_PMS
+  AUTO_BRIGHTNESS_TYPE=2
+  mIsEarsenseProximity=true
+  mIsProximitySensorOnFoldingSide=false
+
+Display Power Controller Thread State:
+  mPowerRequest=policy=DIM, useProximitySensor=false, screenBrightnessOverride=-1, useAutoBrightness=false, screenAutoBrightnessAdjustmentOverride=NaN, screenLowPowerBrightnessFactor=1.0, blockScreenOn=false, lowPowerMode=false, boostScreenBrightness=false, dozeScreenBrightness=-1, dozeScreenState=UNKNOWN, autoBrightnessLowerLimit=-1, autoBrightnessUpperLimit=-1, forceSlowChange=false, maxBrightness=-1, minBrightness=-1, lastGoToSleepReason=2, wakeUpEvenThoughProximityPositive=false, proximityPositiveDebounce=-1, proximityNegativeDebounce=-1, coverClosed=false, coverType=2, brightnessLimitByCover=-1, FTAMode=false, batteryLevel = 88, internalDisplayOff =false, dualScreenPolicy =-1, lcdFlashMode= false, isOutdoorMode= false, screenBrightnessScaleFactor=-1.0, forceLcdBacklightOffEnabled=false, batteryLevelCritical=false, isPowered=true, hbmBlock=false, earlyWakeUp=false, dexDualViewMode= false
+  mUnfinishedBusiness=false
+  mWaitingForNegativeProximity=false
+  mProximitySensor={Sensor name="Ear Hover Proximity Lite Sensor (ProToS Lite)", vendor="Samsung Electronics.", version=1, type=8, maxRange=5.0, resolution=5.0, power=0.75, minDelay=0}
+  mProximitySensorEnabled=false
+  mProximityThreshold=5.0
+  mProximity=Unknown
+  mPendingProximity=Unknown
+  mPendingProximityDebounceTime=-1 (228523 ms ago)
+  mScreenOffBecauseOfProximity=false
+  mScreenOnEvenThoughProximityPositive=false
+  mScreenTurnedOnWhileProximityPositive=false
+  mLastUserSetScreenBrightness=0
+  mCurrentScreenBrightnessSetting=128
+  mPendingScreenBrightnessSetting=-1
+  mTemporaryScreenBrightness=-1
+  mAutoBrightnessAdjustment=0.0
+  mBrightnessReason=manual [ dim ]
+  mTemporaryAutoBrightnessAdjustment=NaN
+  mPendingAutoBrightnessAdjustment=NaN
+  mScreenBrightnessForVr=180
+  mAppliedAutoBrightness=false
+  mAppliedDimming=true
+  mAppliedLowPower=false
+  mAppliedScreenBrightnessOverride=false
+  mAppliedTemporaryBrightness=false
+  mDozing=false
+  mSkipRampState=RAMP_STATE_SKIP_NONE
+  mInitialAutoBrightness=0
+  mScreenOnBlockStartRealTime=113171
+  mScreenOffBlockStartRealTime=96207
+  mPendingScreenOnUnblocker=null
+  mPendingScreenOffUnblocker=null
+  mPendingScreenOff=false
+  mReportedToPolicy=REPORTED_TO_POLICY_SCREEN_ON
+  mReportedToPolicy(internal)=REPORTED_TO_POLICY_SCREEN_ON
+  mScreenBrightnessRampAnimator.isAnimating()=false
+  mColorFadeOnAnimator.isStarted()=false
+  mColorFadeOffAnimator.isStarted()=false
+  mLastBrightnessConfigurationTime=22952
+  mPendingForceUpdateAb=false
+
+Display Power State:
+  mScreenState=ON
+  mScreenStateInternal=ON
+  mScreenBrightness=6
+  mScreenReady=true
+  mScreenUpdatePending=false
+  mColorFadePrepared=false
+  mColorFadeLevel=1.0
+  mColorFadeReady=true
+  mColorFadeDrawPending=false
+
+Photonic Modulator State:
+  mPendingState=ON
+  mPendingBacklight=6
+  mActualState=ON
+  mActualBacklight=6
+  mStateChangeInProgress=false
+  mBacklightChangeInProgress=false
+
+Color Fade State:
+  mPrepared=false
+  mMode=3
+  mDisplayLayerStack=0
+  mDisplayWidth=720
+  mDisplayHeight=1600
+  mSurfaceVisible=false
+  mSurfaceAlpha=0.0
+
+Automatic Brightness Controller Configuration:
+  mScreenBrightnessRangeMinimum=1
+  mScreenBrightnessRangeMaximum=306
+  mDozeScaleFactor=1.0
+  mInitialLightSensorRate=50
+  mNormalLightSensorRate=250
+  mLightSensorWarmUpTimeConfig=0
+  mBrighteningLightDebounceConfig=0
+  mDarkeningLightDebounceConfig=0
+  mResetAmbientLuxAfterWarmUpConfig=true
+  mAmbientLightHorizon=2500
+  mWeightingIntercept=2500
+  mHbmLux=3000
+  mUseLuxErrorCorrection=false
+  mLuxErrorCorrectionStartBrightness=-1
+  mLuxErrorCorrectionEndBrightness=-1
+  mLuxErrorCorrectionMaxError=-1
+
+Automatic Brightness Controller State:
+  mLightSensor={Sensor name="Camera Light Sensor", vendor="Samsung", version=1, type=65604, maxRange=60000.0, resolution=1.0, power=0.75, minDelay=200000}
+  mLightSensorCct=null
+  mLightSensorEnabled=false
+  mLightSensorEnableTime=0 (228525 ms ago)
+  mCurrentLightSensorRate=-1
+  mAmbientLux=500.0
+  mAmbientLuxValid=true
+  mAmbientBrighteningThreshold=0.0
+  mAmbientDarkeningThreshold=0.0
+  mScreenBrighteningThreshold=0.0
+  mScreenDarkeningThreshold=0.0
+  mLastObservedLux=0.0
+  mLastObservedLuxTime=0 (228525 ms ago)
+  mRecentLightSamples=0
+  mAmbientLightRingBuffer=[]
+  mScreenAutoBrightness=155
+  mDisplayPolicy=DIM
+  mShortTermModelTimeout=600000
+  mShortTermModelAnchor=-1.0
+  mShortTermModelValid=true
+  mBrightnessAdjustmentSamplePending=false
+  mBrightnessAdjustmentSampleOldLux=0.0
+  mBrightnessAdjustmentSampleOldBrightness=0
+  mForegroundAppPackageName=null
+  mPendingForegroundAppPackageName=null
+  mForegroundAppCategory=-1
+  mPendingForegroundAppCategory=-1
+  mPreventShortTermResetByNetwork=false
+  mIsLightSensorOnFoldingSide=false
+  SEC_FEATURE_LIGHT_SENSOR_BLOCKING_PREVENTION=false
+  mProximity=-1
+
+SimpleMappingStrategy
+  mSpline=MonotoneCubicSpline{[(0.0, 0.023529412: 0.003006536), (30.0, 0.11372549: 0.0038562093), (50.0, 0.20784314: 0.0045098043), (70.0, 0.29411766: 0.0032026146), (100.0, 0.35686275: 0.001359477), (200.0, 0.41960785: 8.431374E-4), (300.0, 0.5254902: 7.3529425E-4), (500.0, 0.60784316: 3.72549E-4), (700.0, 0.6745098: 4.2156858E-4), (1000.0, 0.827451: 4.2745096E-4), (1500.0, 1.0: 2.392157E-4), (3000.0, 1.2: 1.3333336E-4)]}
+  mMaxGamma=3.0
+  mAutoBrightnessAdjustment=0.0
+UserOffsetManager:
+
+  sDebugLogging: false
+  mAutoBrightnessScaleFactorSetting=100
+  mAutoBrightnessScaleFactorValue=1.0
+  mUserBrightnessOffset=0.0
+
+HysteresisLevels
+  mHysteresisBrightSpline=MonotoneCubicSpline{[(0.0, 70.0: 0.94868326), (30.0, 100.0: 2.8460498), (50.0, 200.0: 5.0), (70.0, 300.0: 5.833333), (100.0, 500.0: 4.333333), (200.0, 700.0: 2.5), (300.0, 1000.0: 2.75), (500.0, 1500.0: 0.0), (700.0, 1500.0: 0.0), (1000.0, 1500.0: 0.0), (1500.0, 3000.0: 9.0), (3000.0, 99999.0: 64.666)]}
+  mHysteresisDarkSpline=MonotoneCubicSpline{[(0.0, 0.0: 0.0), (30.0, 0.0: 0.0), (50.0, 0.0: 0.0), (70.0, 30.0: 0.0), (100.0, 30.0: 0.0), (200.0, 50.0: 0.2), (300.0, 70.0: 0.17500001), (500.0, 100.0: 0.325), (700.0, 200.0: 0.4166667), (1000.0, 300.0: 0.36666667), (1500.0, 500.0: 0.36666667), (3000.0, 1000.0: 0.33333334)]}
+
+BrightnessTracker state:
+  mStarted=false
+  mLastBatteryLevel=NaN
+  mLastBrightness=-1.0
+  mLastSensorReadings.size=0
+  mEventsDirty=false
+  mEvents.size=0
+  mWriteBrightnessTrackerStateScheduled=false
+  mSensorRegistered=false
+  mColorSamplingEnabled=false
+  mNoFramesToSample=0
+  mFrameRate=0.0
+
+  SEC_FEATURE_EARLY_WAKEUP=true
+
+[ew] EarlyWakeUpManager:
+  mAppliedLocked=false
+  mEarlyLightSensorEnabled=false
+  mEarlyDisplayEnabled=false
+  mLastEnableRequestedTime=0
+  now=228527
+  mHoldingSuspendBlocker=false
+    mEarlyLightSensorReadyLocked=true
+    mEarlyDisplayReadyLocked=true
+
+PersistentDataStore
+  mLoaded=true
+  mDirty=true
+  RememberedWifiDisplays:
+  DisplayStates:
+  StableDeviceValues:
+      StableDisplayWidth=720
+      StableDisplayHeight=1600
+  BrightnessConfigurations:
+
+
+ dumpSetBrightnessConfiguration_1
+
+
+ dumpSetBrightnessConfiguration_2
+
+C:\Users\wbaen>adb shell dumpsys display adb shell dumpsys display

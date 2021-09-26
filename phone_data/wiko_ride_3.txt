@@ -1,0 +1,1308 @@
+Microsoft Windows [Version 10.0.19042.1110]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\wbaen>adb
+Android Debug Bridge version 1.0.41
+Version 31.0.2-7242960
+Installed as C:\Users\wbaen\AppData\Local\Android\sdk\platform-tools\adb.exe
+
+global options:
+ -a         listen on all network interfaces, not just localhost
+ -d         use USB device (error if multiple devices connected)
+ -e         use TCP/IP device (error if multiple TCP/IP devices available)
+ -s SERIAL  use device with given serial (overrides $ANDROID_SERIAL)
+ -t ID      use device with given transport id
+ -H         name of adb server host [default=localhost]
+ -P         port of adb server [default=5037]
+ -L SOCKET  listen on given socket for adb server [default=tcp:localhost:5037]
+
+general commands:
+ devices [-l]             list connected devices (-l for long output)
+ help                     show this help message
+ version                  show version num
+
+networking:
+ connect HOST[:PORT]      connect to a device via TCP/IP [default port=5555]
+ disconnect [HOST[:PORT]]
+     disconnect from given TCP/IP device [default port=5555], or all
+ pair HOST[:PORT] [PAIRING CODE]
+     pair with a device for secure TCP/IP communication
+ forward --list           list all forward socket connections
+ forward [--no-rebind] LOCAL REMOTE
+     forward socket connection using:
+       tcp:<port> (<local> may be "tcp:0" to pick any open port)
+       localabstract:<unix domain socket name>
+       localreserved:<unix domain socket name>
+       localfilesystem:<unix domain socket name>
+       dev:<character device name>
+       jdwp:<process pid> (remote only)
+       vsock:<CID>:<port> (remote only)
+       acceptfd:<fd> (listen only)
+ forward --remove LOCAL   remove specific forward socket connection
+ forward --remove-all     remove all forward socket connections
+ ppp TTY [PARAMETER...]   run PPP over USB
+ reverse --list           list all reverse socket connections from device
+ reverse [--no-rebind] REMOTE LOCAL
+     reverse socket connection using:
+       tcp:<port> (<remote> may be "tcp:0" to pick any open port)
+       localabstract:<unix domain socket name>
+       localreserved:<unix domain socket name>
+       localfilesystem:<unix domain socket name>
+ reverse --remove REMOTE  remove specific reverse socket connection
+ reverse --remove-all     remove all reverse socket connections from device
+ mdns check               check if mdns discovery is available
+ mdns services            list all discovered services
+
+file transfer:
+ push [--sync] [-z ALGORITHM] [-Z] LOCAL... REMOTE
+     copy local files/directories to device
+     --sync: only push files that are newer on the host than the device
+     -n: dry run: push files to device without storing to the filesystem
+     -z: enable compression with a specified algorithm (any, none, brotli)
+     -Z: disable compression
+ pull [-a] [-z ALGORITHM] [-Z] REMOTE... LOCAL
+     copy files/dirs from device
+     -a: preserve file timestamp and mode
+     -z: enable compression with a specified algorithm (any, none, brotli)
+     -Z: disable compression
+ sync [-l] [-z ALGORITHM] [-Z] [all|data|odm|oem|product|system|system_ext|vendor]
+     sync a local build from $ANDROID_PRODUCT_OUT to the device (default all)
+     -n: dry run: push files to device without storing to the filesystem
+     -l: list files that would be copied, but don't copy them
+     -z: enable compression with a specified algorithm (any, none, brotli)
+     -Z: disable compression
+
+shell:
+ shell [-e ESCAPE] [-n] [-Tt] [-x] [COMMAND...]
+     run remote shell command (interactive shell if no command given)
+     -e: choose escape character, or "none"; default '~'
+     -n: don't read from stdin
+     -T: disable pty allocation
+     -t: allocate a pty if on a tty (-tt: force pty allocation)
+     -x: disable remote exit codes and stdout/stderr separation
+ emu COMMAND              run emulator console command
+
+app installation (see also `adb shell cmd package help`):
+ install [-lrtsdg] [--instant] PACKAGE
+     push a single package to the device and install it
+ install-multiple [-lrtsdpg] [--instant] PACKAGE...
+     push multiple APKs to the device for a single package and install them
+ install-multi-package [-lrtsdpg] [--instant] PACKAGE...
+     push one or more packages to the device and install them atomically
+     -r: replace existing application
+     -t: allow test packages
+     -d: allow version code downgrade (debuggable packages only)
+     -p: partial application install (install-multiple only)
+     -g: grant all runtime permissions
+     --abi ABI: override platform's default ABI
+     --instant: cause the app to be installed as an ephemeral install app
+     --no-streaming: always push APK to device and invoke Package Manager as separate steps
+     --streaming: force streaming APK directly into Package Manager
+     --fastdeploy: use fast deploy
+     --no-fastdeploy: prevent use of fast deploy
+     --force-agent: force update of deployment agent when using fast deploy
+     --date-check-agent: update deployment agent when local version is newer and using fast deploy
+     --version-check-agent: update deployment agent when local version has different version code and using fast deploy
+     (See also `adb shell pm help` for more options.)
+ uninstall [-k] PACKAGE
+     remove this app package from the device
+     '-k': keep the data and cache directories
+
+debugging:
+ bugreport [PATH]
+     write bugreport to given PATH [default=bugreport.zip];
+     if PATH is a directory, the bug report is saved in that directory.
+     devices that don't support zipped bug reports output to stdout.
+ jdwp                     list pids of processes hosting a JDWP transport
+ logcat                   show device log (logcat --help for more)
+
+security:
+ disable-verity           disable dm-verity checking on userdebug builds
+ enable-verity            re-enable dm-verity checking on userdebug builds
+ keygen FILE
+     generate adb public/private key; private key stored in FILE,
+
+scripting:
+ wait-for[-TRANSPORT]-STATE...
+     wait for device to be in a given state
+     STATE: device, recovery, rescue, sideload, bootloader, or disconnect
+     TRANSPORT: usb, local, or any [default=any]
+ get-state                print offline | bootloader | device
+ get-serialno             print <serial-number>
+ get-devpath              print <device-path>
+ remount [-R]
+      remount partitions read-write. if a reboot is required, -R will
+      will automatically reboot the device.
+ reboot [bootloader|recovery|sideload|sideload-auto-reboot]
+     reboot the device; defaults to booting system image but
+     supports bootloader and recovery too. sideload reboots
+     into recovery and automatically starts sideload mode,
+     sideload-auto-reboot is the same but reboots after sideloading.
+ sideload OTAPACKAGE      sideload the given full OTA package
+ root                     restart adbd with root permissions
+ unroot                   restart adbd without root permissions
+ usb                      restart adbd listening on USB
+ tcpip PORT               restart adbd listening on TCP on PORT
+
+internal debugging:
+ start-server             ensure that there is a server running
+ kill-server              kill the server if it is running
+ reconnect                kick connection from host side to force reconnect
+ reconnect device         kick connection from device side to force reconnect
+ reconnect offline        reset offline/unauthorized devices to force reconnect
+
+environment variables:
+ $ADB_TRACE
+     comma-separated list of debug info to log:
+     all,adb,sockets,packets,rwx,usb,sync,sysdeps,transport,jdwp
+ $ADB_VENDOR_KEYS         colon-separated list of keys (files or directories)
+ $ANDROID_SERIAL          serial number to connect to (see -s)
+ $ANDROID_LOG_TAGS        tags to be used by logcat (see logcat --help)
+ $ADB_LOCAL_TRANSPORT_MAX_PORT max emulator scan port (default 5585, 16 emus)
+ $ADB_MDNS_AUTO_CONNECT   comma-separated list of mdns services to allow auto-connect (default adb-tls-connect)
+
+C:\Users\wbaen>adb devices
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+List of devices attached
+
+
+C:\Users\wbaen>adb devices
+List of devices attached
+
+
+C:\Users\wbaen>adb devices
+List of devices attached
+
+
+C:\Users\wbaen>adb devices
+List of devices attached
+
+
+C:\Users\wbaen>adb devices
+List of devices attached
+JRO7FU4THQZPHUXG        device
+
+
+C:\Users\wbaen>adb shell getevent -r -t -l
+add device 1: /dev/input/event4
+  name:     "mt63xx-accdet Headset"
+add device 2: /dev/input/event2
+  name:     "himax-touchscreen"
+add device 3: /dev/input/event3
+  name:     "mtk-tpd"
+add device 4: /dev/input/event1
+  name:     "mtk-pmic-keys"
+add device 5: /dev/input/event0
+  name:     "mtk-kpd"
+[     143.399934] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000064
+[     143.399934] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000064
+[     143.399934] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000064
+[     143.399934] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000169
+[     143.399934] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000060f
+[     143.399934] /dev/input/event2: EV_ABS       ABS_MT_TRACKING_ID   00000018
+[     143.399934] /dev/input/event2: EV_KEY       BTN_TOUCH            DOWN
+[     143.399934] /dev/input/event2: EV_SYN       SYN_REPORT           00000000
+[     143.440870] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000000
+[     143.440870] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000000
+[     143.440870] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000000
+[     143.440870] /dev/input/event2: EV_ABS       ABS_MT_TRACKING_ID   ffffffff
+[     143.440870] /dev/input/event2: EV_KEY       BTN_TOUCH            UP
+[     143.440870] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 24
+[     146.960974] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000000f
+[     146.960974] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000000f
+[     146.960974] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000000f
+[     146.960974] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000227
+[     146.960974] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000033f
+[     146.960974] /dev/input/event2: EV_ABS       ABS_MT_TRACKING_ID   00000019
+[     146.960974] /dev/input/event2: EV_KEY       BTN_TOUCH            DOWN
+[     146.960974] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 0
+[     146.968133] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000001c
+[     146.968133] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000001c
+[     146.968133] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000001c
+[     146.968133] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 139
+[     146.976160] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000027
+[     146.976160] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000027
+[     146.976160] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000027
+[     146.976160] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     146.984389] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000031
+[     146.984389] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000031
+[     146.984389] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000031
+[     146.984389] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     146.992748] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000039
+[     146.992748] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000039
+[     146.992748] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000039
+[     146.992748] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     147.001492] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000040
+[     147.001492] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000040
+[     147.001492] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000040
+[     147.001492] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 114
+[     147.009802] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000047
+[     147.009802] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000047
+[     147.009802] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000047
+[     147.009802] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     147.018052] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000004d
+[     147.018052] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000004d
+[     147.018052] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000004d
+[     147.018052] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     147.026429] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000052
+[     147.026429] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000052
+[     147.026429] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000052
+[     147.026429] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000021b
+[     147.026429] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000033e
+[     147.026429] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     147.034223] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000056
+[     147.034223] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000056
+[     147.034223] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000056
+[     147.034223] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000212
+[     147.034223] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000033d
+[     147.034223] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 128
+[     147.042691] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000005a
+[     147.042691] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000005a
+[     147.042691] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000005a
+[     147.042691] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000201
+[     147.042691] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     147.050750] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000005d
+[     147.050750] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000005d
+[     147.050750] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000005d
+[     147.050750] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001f4
+[     147.050750] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000033c
+[     147.050750] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     147.059164] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000060
+[     147.059164] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000060
+[     147.059164] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000060
+[     147.059164] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001e7
+[     147.059164] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000033d
+[     147.059164] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     147.067671] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000063
+[     147.067671] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000063
+[     147.067671] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000063
+[     147.067671] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001da
+[     147.067671] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000033e
+[     147.067671] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     147.076086] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000065
+[     147.076086] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000065
+[     147.076086] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000065
+[     147.076086] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001ca
+[     147.076086] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000033f
+[     147.076086] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     147.084353] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000067
+[     147.084353] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000067
+[     147.084353] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000067
+[     147.084353] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001b8
+[     147.084353] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000340
+[     147.084353] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     147.092438] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000069
+[     147.092438] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000069
+[     147.092438] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000069
+[     147.092438] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001a6
+[     147.092438] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000342
+[     147.092438] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 123
+[     147.101674] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000006a
+[     147.101674] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000006a
+[     147.101674] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000006a
+[     147.101674] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000194
+[     147.101674] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000343
+[     147.101674] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 108
+[     147.109216] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000006b
+[     147.109216] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000006b
+[     147.109216] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000006b
+[     147.109216] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000183
+[     147.109216] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000345
+[     147.109216] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 132
+[     147.117613] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000006c
+[     147.117613] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000006c
+[     147.117613] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000006c
+[     147.117613] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000173
+[     147.117613] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000347
+[     147.117613] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     147.125771] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000006d
+[     147.125771] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000006d
+[     147.125771] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000006d
+[     147.125771] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000165
+[     147.125771] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000349
+[     147.125771] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     147.134251] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000006e
+[     147.134251] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000006e
+[     147.134251] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000006e
+[     147.134251] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000158
+[     147.134251] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000034b
+[     147.134251] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     147.142354] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000006f
+[     147.142354] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000006f
+[     147.142354] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000006f
+[     147.142354] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000014d
+[     147.142354] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000034c
+[     147.142354] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 123
+[     147.150660] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000070
+[     147.150660] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000070
+[     147.150660] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000070
+[     147.150660] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000141
+[     147.150660] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000034e
+[     147.150660] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     147.159071] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000071
+[     147.159071] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000071
+[     147.159071] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000071
+[     147.159071] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000139
+[     147.159071] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000350
+[     147.159071] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     147.167277] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000012e
+[     147.167277] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000352
+[     147.167277] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     147.175622] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000125
+[     147.175622] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000353
+[     147.175622] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     147.183842] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000011b
+[     147.183842] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000355
+[     147.183842] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     147.192589] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000112
+[     147.192589] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000357
+[     147.192589] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 114
+[     147.200423] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000108
+[     147.200423] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000359
+[     147.200423] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 127
+[     147.208794] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000101
+[     147.208794] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000035b
+[     147.208794] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     147.217047] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000f8
+[     147.217047] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000035d
+[     147.217047] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     147.225291] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000f1
+[     147.225291] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000035f
+[     147.225291] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     147.233601] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000ea
+[     147.233601] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000360
+[     147.233601] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     147.242085] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000e1
+[     147.242085] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000362
+[     147.242085] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     147.250242] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000d9
+[     147.250242] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000363
+[     147.250242] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     147.258732] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000d3
+[     147.258732] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000364
+[     147.258732] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     147.266746] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000cb
+[     147.266746] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000366
+[     147.266746] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     147.275073] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000c8
+[     147.275073] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     147.283529] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000c4
+[     147.283529] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000367
+[     147.283529] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     147.291604] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000c0
+[     147.291604] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000368
+[     147.291604] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 123
+[     147.299962] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000bc
+[     147.299962] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000369
+[     147.299962] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     147.308296] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000b7
+[     147.308296] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     147.316467] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000b3
+[     147.316467] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036a
+[     147.316467] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     147.325320] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000ae
+[     147.325320] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 112
+[     147.333327] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000aa
+[     147.333327] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036b
+[     147.333327] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     147.341413] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000a8
+[     147.341413] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 123
+[     147.349853] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000a6
+[     147.349853] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036c
+[     147.349853] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     147.358130] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000a4
+[     147.358130] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     147.366544] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000a1
+[     147.366544] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036d
+[     147.366544] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     147.382888] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000a0
+[     147.382888] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 61
+[     147.399906] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000a1
+[     147.399906] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 58
+[     147.508255] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000a4
+[     147.508255] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 9
+[     147.515909] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000a6
+[     147.515909] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036e
+[     147.515909] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 130
+[     147.524336] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000af
+[     147.524336] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     147.533027] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000b7
+[     147.533027] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036f
+[     147.533027] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 115
+[     147.541029] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000c2
+[     147.541029] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     147.549148] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000cc
+[     147.549148] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 123
+[     147.558045] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000d5
+[     147.558045] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 112
+[     147.565929] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000df
+[     147.565929] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 126
+[     147.573966] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000e8
+[     147.573966] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     147.582218] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000f2
+[     147.582218] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     147.590715] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000fb
+[     147.590715] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     147.598998] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000104
+[     147.598998] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     147.607489] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000010c
+[     147.607489] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     147.615629] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000115
+[     147.615629] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036e
+[     147.615629] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     147.624077] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000011b
+[     147.624077] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     147.632313] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000122
+[     147.632313] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     147.640247] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000012c
+[     147.640247] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036d
+[     147.640247] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 126
+[     147.648963] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000134
+[     147.648963] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 114
+[     147.656845] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000013e
+[     147.656845] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 126
+[     147.665301] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000146
+[     147.665301] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     147.673469] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000014f
+[     147.673469] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     147.681795] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000158
+[     147.681795] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     147.690395] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000160
+[     147.690395] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 116
+[     147.698553] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000168
+[     147.698553] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036c
+[     147.698553] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     147.706708] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000016d
+[     147.706708] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     147.715091] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000173
+[     147.715091] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     147.723352] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000017a
+[     147.723352] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036b
+[     147.723352] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     147.731660] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000182
+[     147.731660] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     147.740099] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000018a
+[     147.740099] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     147.748314] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000191
+[     147.748314] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     147.756835] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000196
+[     147.756835] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036a
+[     147.756835] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     147.765005] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000019c
+[     147.765005] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     147.773490] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001a2
+[     147.773490] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     147.781336] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001a8
+[     147.781336] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000369
+[     147.781336] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 127
+[     147.789723] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001ae
+[     147.789723] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     147.798306] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001b4
+[     147.798306] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 116
+[     147.806382] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001b7
+[     147.806382] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000368
+[     147.806382] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 123
+[     147.814696] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001bc
+[     147.814696] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     147.822934] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001c0
+[     147.822934] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     147.831130] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001c3
+[     147.831130] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000367
+[     147.831130] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     147.839532] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001c9
+[     147.839532] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     147.847754] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001cd
+[     147.847754] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     147.856275] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001d3
+[     147.856275] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000366
+[     147.856275] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     147.864706] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001d8
+[     147.864706] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     147.872726] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001db
+[     147.872726] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000365
+[     147.872726] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     147.881190] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001de
+[     147.881190] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     147.889512] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001e1
+[     147.889512] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     147.897588] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001e6
+[     147.897588] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 123
+[     147.905982] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001e9
+[     147.905982] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000364
+[     147.905982] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     147.914307] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001ed
+[     147.914307] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     147.922593] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001ef
+[     147.922593] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     147.930927] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001f2
+[     147.930927] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000363
+[     147.930927] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     147.939607] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001f7
+[     147.939607] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 115
+[     147.947369] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001fb
+[     147.947369] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 128
+[     147.955899] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000200
+[     147.955899] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000362
+[     147.955899] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     147.964348] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000204
+[     147.964348] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     147.972680] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000206
+[     147.972680] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     147.980574] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000209
+[     147.980574] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 126
+[     147.989070] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000020b
+[     147.989070] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     147.997425] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000020e
+[     147.997425] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     148.005444] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000210
+[     148.005444] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     148.014262] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000213
+[     148.014262] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 113
+[     148.021850] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000215
+[     148.021850] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 131
+[     148.030558] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000216
+[     148.030558] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 114
+[     148.237978] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000214
+[     148.237978] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 4
+[     148.246230] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000212
+[     148.246230] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000363
+[     148.246230] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     148.254712] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000020c
+[     148.254712] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     148.262897] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000207
+[     148.262897] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000364
+[     148.262897] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     148.271736] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001fc
+[     148.271736] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000365
+[     148.271736] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 113
+[     148.279546] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001f4
+[     148.279546] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000366
+[     148.279546] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 128
+[     148.287976] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001eb
+[     148.287976] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000367
+[     148.287976] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     148.297133] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001e3
+[     148.297133] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 109
+[     148.304276] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001e1
+[     148.304276] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 139
+[     148.312456] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001dc
+[     148.312456] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000368
+[     148.312456] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     148.321257] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001d4
+[     148.321257] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 113
+[     148.329057] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001cc
+[     148.329057] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000369
+[     148.329057] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 128
+[     148.337639] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001c3
+[     148.337639] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036a
+[     148.337639] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 116
+[     148.345764] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001bc
+[     148.345764] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036b
+[     148.345764] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 123
+[     148.354005] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001b7
+[     148.354005] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     148.362498] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001b1
+[     148.362498] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036c
+[     148.362498] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     148.370614] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001ae
+[     148.370614] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 123
+[     148.378830] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001a9
+[     148.378830] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036d
+[     148.378830] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     148.387205] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001a1
+[     148.387205] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     148.395500] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000019a
+[     148.395500] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036e
+[     148.395500] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     148.403858] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000192
+[     148.403858] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000036f
+[     148.403858] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     148.411964] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000018b
+[     148.411964] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000370
+[     148.411964] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 123
+[     148.420412] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000189
+[     148.420412] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     148.428651] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000185
+[     148.428651] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000371
+[     148.428651] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     148.437127] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000017f
+[     148.437127] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     148.445137] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000178
+[     148.445137] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000372
+[     148.445137] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     148.453584] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000173
+[     148.453584] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000373
+[     148.453584] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     148.462089] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000016e
+[     148.462089] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     148.470221] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000016b
+[     148.470221] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000374
+[     148.470221] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     148.478758] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000169
+[     148.478758] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     148.486806] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000164
+[     148.486806] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000375
+[     148.486806] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     148.494994] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000015f
+[     148.494994] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000376
+[     148.494994] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     148.503368] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000015a
+[     148.503368] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000377
+[     148.503368] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     148.511637] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000154
+[     148.511637] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000378
+[     148.511637] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     148.519946] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000150
+[     148.519946] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000379
+[     148.519946] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     148.528339] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000014b
+[     148.528339] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000037a
+[     148.528339] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     148.536571] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000146
+[     148.536571] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000037b
+[     148.536571] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     148.544877] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000142
+[     148.544877] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000037c
+[     148.544877] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     148.553183] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000013d
+[     148.553183] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000037d
+[     148.553183] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     148.561535] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000139
+[     148.561535] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000037e
+[     148.561535] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     148.569793] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000135
+[     148.569793] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000037f
+[     148.569793] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     148.578100] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000131
+[     148.578100] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000380
+[     148.578100] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     148.586436] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000012b
+[     148.586436] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000381
+[     148.586436] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     148.594889] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000125
+[     148.594889] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000382
+[     148.594889] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     148.603034] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000120
+[     148.603034] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000383
+[     148.603034] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     148.611288] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000011b
+[     148.611288] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000384
+[     148.611288] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     148.619762] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000117
+[     148.619762] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000385
+[     148.619762] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     148.628178] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000113
+[     148.628178] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000386
+[     148.628178] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     148.636504] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000110
+[     148.636504] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     148.644529] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000010c
+[     148.644529] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000387
+[     148.644529] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     148.652931] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000107
+[     148.652931] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000388
+[     148.652931] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     148.661223] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000102
+[     148.661223] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000389
+[     148.661223] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     148.669456] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000fc
+[     148.669456] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     148.677609] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000f7
+[     148.677609] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000038a
+[     148.677609] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     148.685899] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000f4
+[     148.685899] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000038b
+[     148.685899] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     148.694573] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000f0
+[     148.694573] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000038c
+[     148.694573] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 115
+[     148.702575] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000ed
+[     148.702575] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     148.711376] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000ea
+[     148.711376] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000038d
+[     148.711376] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 113
+[     148.719179] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000e7
+[     148.719179] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 128
+[     148.727432] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000e4
+[     148.727432] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000038e
+[     148.727432] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     148.735807] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000e1
+[     148.735807] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     148.743980] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000de
+[     148.743980] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000038f
+[     148.743980] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     148.752353] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000da
+[     148.752353] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     148.760634] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000d7
+[     148.760634] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     148.769265] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000d5
+[     148.769265] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 115
+[     148.777220] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000d2
+[     148.777220] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000390
+[     148.777220] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 125
+[     148.785483] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000d0
+[     148.785483] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     148.793835] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000cf
+[     148.793835] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     148.818782] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000ce
+[     148.818782] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 40
+[     148.835627] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000cd
+[     148.835627] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 59
+[     148.851939] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000ce
+[     148.851939] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 61
+[     148.952143] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000d1
+[     148.952143] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000391
+[     148.952143] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 9
+[     148.960493] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000d3
+[     148.960493] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     148.968810] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000dc
+[     148.968810] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000392
+[     148.968810] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     148.977726] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000e3
+[     148.977726] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000393
+[     148.977726] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 112
+[     148.985190] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000ee
+[     148.985190] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000394
+[     148.985190] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 133
+[     148.993277] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000f6
+[     148.993277] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 123
+[     149.001496] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000000ff
+[     149.001496] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     149.009866] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000108
+[     149.009866] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     149.018328] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000010f
+[     149.018328] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     149.026460] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000119
+[     149.026460] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     149.034845] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000011e
+[     149.034845] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000393
+[     149.034845] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     149.042939] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000124
+[     149.042939] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 123
+[     149.051376] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000012d
+[     149.051376] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000392
+[     149.051376] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     149.059423] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000135
+[     149.059423] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000391
+[     149.059423] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     149.068101] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000013f
+[     149.068101] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 115
+[     149.076078] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000147
+[     149.076078] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000390
+[     149.076078] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 125
+[     149.084373] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000014e
+[     149.084373] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     149.092551] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000157
+[     149.092551] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000038f
+[     149.092551] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     149.101102] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000015d
+[     149.101102] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000038e
+[     149.101102] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 116
+[     149.109327] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000166
+[     149.109327] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000038d
+[     149.109327] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     149.117835] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000016c
+[     149.117835] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000038c
+[     149.117835] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     149.125872] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000172
+[     149.125872] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     149.134162] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000179
+[     149.134162] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000038b
+[     149.134162] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     149.142435] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000180
+[     149.142435] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000038a
+[     149.142435] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     149.150708] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000188
+[     149.150708] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000389
+[     149.150708] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     149.159100] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000018f
+[     149.159100] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000388
+[     149.159100] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     149.167297] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    00000195
+[     149.167297] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     149.175687] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000019a
+[     149.175687] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000387
+[     149.175687] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     149.184223] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000019e
+[     149.184223] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000386
+[     149.184223] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 117
+[     149.192528] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001a3
+[     149.192528] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     149.200572] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001a7
+[     149.200572] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000385
+[     149.200572] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 124
+[     149.208659] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001ab
+[     149.208659] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000384
+[     149.208659] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 123
+[     149.217355] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001af
+[     149.217355] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 114
+[     149.225539] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001b2
+[     149.225539] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000383
+[     149.225539] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     149.233804] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001b5
+[     149.233804] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     149.242114] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001b6
+[     149.242114] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     149.250695] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001b7
+[     149.250695] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 116
+[     149.258907] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001b9
+[     149.258907] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000382
+[     149.258907] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 121
+[     149.275371] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001ba
+[     149.275371] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 60
+[     149.283559] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001bb
+[     149.283559] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     149.292120] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001c0
+[     149.292120] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 116
+[     149.300403] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000000
+[     149.300403] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000000
+[     149.300403] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000000
+[     149.300403] /dev/input/event2: EV_ABS       ABS_MT_TRACKING_ID   ffffffff
+[     149.300403] /dev/input/event2: EV_KEY       BTN_TOUCH            UP
+[     149.300403] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     203.870164] /dev/input/event1: EV_KEY       KEY_POWER            DOWN
+[     203.870164] /dev/input/event1: EV_SYN       SYN_REPORT           00000000             rate 0
+[     203.997412] /dev/input/event1: EV_KEY       KEY_POWER            UP
+[     203.997412] /dev/input/event1: EV_SYN       SYN_REPORT           00000000             rate 7
+[     205.117973] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000052
+[     205.117973] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000052
+[     205.117973] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000052
+[     205.117973] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001ad
+[     205.117973] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000617
+[     205.117973] /dev/input/event2: EV_ABS       ABS_MT_TRACKING_ID   0000001a
+[     205.117973] /dev/input/event2: EV_KEY       BTN_TOUCH            DOWN
+[     205.117973] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 0
+[     205.124908] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000056
+[     205.124908] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000056
+[     205.124908] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000056
+[     205.124908] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001b0
+[     205.124908] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000608
+[     205.124908] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 144
+[     205.133236] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000005a
+[     205.133236] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000005a
+[     205.133236] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000005a
+[     205.133236] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001b4
+[     205.133236] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000005ec
+[     205.133236] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     205.141624] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000005d
+[     205.141624] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000005d
+[     205.141624] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000005d
+[     205.141624] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001ba
+[     205.141624] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000005ca
+[     205.141624] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     205.150203] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000060
+[     205.150203] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000060
+[     205.150203] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000060
+[     205.150203] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001c1
+[     205.150203] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000059e
+[     205.150203] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 116
+[     205.158143] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000063
+[     205.158143] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000063
+[     205.158143] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000063
+[     205.158143] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001c7
+[     205.158143] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000057d
+[     205.158143] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 125
+[     205.166488] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000065
+[     205.166488] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000065
+[     205.166488] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000065
+[     205.166488] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001cd
+[     205.166488] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000561
+[     205.166488] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     205.174924] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000067
+[     205.174924] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000067
+[     205.174924] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000067
+[     205.174924] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001d3
+[     205.174924] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000546
+[     205.174924] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     205.183070] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000069
+[     205.183070] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000069
+[     205.183070] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000069
+[     205.183070] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001da
+[     205.183070] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    0000052e
+[     205.183070] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     205.191261] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000006a
+[     205.191261] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000006a
+[     205.191261] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000006a
+[     205.191261] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001e3
+[     205.191261] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000516
+[     205.191261] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 122
+[     205.199617] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000006b
+[     205.199617] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000006b
+[     205.199617] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000006b
+[     205.199617] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001ef
+[     205.199617] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    00000500
+[     205.199617] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 119
+[     205.207926] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000006c
+[     205.207926] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000006c
+[     205.207926] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000006c
+[     205.207926] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    000001fc
+[     205.207926] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000004ec
+[     205.207926] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 120
+[     205.216342] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000006d
+[     205.216342] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000006d
+[     205.216342] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000006d
+[     205.216342] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000020e
+[     205.216342] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000004d8
+[     205.216342] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     205.224803] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000006e
+[     205.224803] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000006e
+[     205.224803] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000006e
+[     205.224803] /dev/input/event2: EV_ABS       ABS_MT_POSITION_X    0000024e
+[     205.224803] /dev/input/event2: EV_ABS       ABS_MT_POSITION_Y    000004a1
+[     205.224803] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 118
+[     205.233459] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   00000000
+[     205.233459] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   00000000
+[     205.233459] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      00000000
+[     205.233459] /dev/input/event2: EV_ABS       ABS_MT_TRACKING_ID   ffffffff
+[     205.233459] /dev/input/event2: EV_KEY       BTN_TOUCH            UP
+[     205.233459] /dev/input/event2: EV_SYN       SYN_REPORT           00000000             rate 115
+[     207.060202] /dev/input/event2: EV_ABS       ABS_MT_TOUCH_MAJOR   0000000f
+[     207.060202] /dev/input/event2: EV_ABS       ABS_MT_WIDTH_MAJOR   0000000f
+[     207.060202] /dev/input/event2: EV_ABS       ABS_MT_PRESSURE      0000000f
+^C
+C:\Users\wbaen>adb shell dumpsys display
+DISPLAY MANAGER (dumpsys display)
+  mOnlyCode=false
+  mSafeMode=false
+  mPendingTraversal=false
+  mGlobalDisplayState=ON
+  mNextNonDefaultDisplayId=1
+  mViewports=[DisplayViewport{type=INTERNAL, valid=true, isActive=true, displayId=0, uniqueId='local:0', physicalPort=0, orientation=0, logicalFrame=Rect(0, 0 - 720, 1560), physicalFrame=Rect(0, 0 - 720, 1560), deviceWidth=720, deviceHeight=1560}]
+  mDefaultDisplayDefaultColorMode=0
+  mSingleDisplayDemoMode=false
+  mWifiDisplayScanRequestCount=0
+  mStableDisplaySize=Point(720, 1560)
+  mMinimumBrightnessCurve=[(0.0, 0.0), (2000.0, 50.0), (4000.0, 90.0)]
+
+Display Adapters: size=4
+  LocalDisplayAdapter
+  VirtualDisplayAdapter
+  OverlayDisplayAdapter
+    mCurrentOverlaySetting=
+    mOverlays: size=0
+  WifiDisplayAdapter
+    mCurrentStatus=WifiDisplayStatus{featureState=2, scanState=0, activeDisplayState=0, activeDisplay=null, displays=[], sessionInfo=WifiDisplaySessionInfo:
+        Client/Owner: Client
+        GroupId:
+        Passphrase:
+        SessionId: 0
+        IP Address: }
+    mFeatureState=2
+    mScanState=0
+    mActiveDisplayState=0
+    mActiveDisplay=null
+    mDisplays=[]
+    mAvailableDisplays=[]
+    mRememberedDisplays=[]
+    mPendingStatusChangeBroadcast=false
+    mSupportsProtectedBuffers=false
+    mDisplayController:
+      mWifiDisplayOnSetting=false
+      mWifiP2pEnabled=true
+      mWfdEnabled=false
+      mWfdEnabling=false
+      mNetworkInfo=[type: WIFI_P2P[], state: UNKNOWN/IDLE, reason: (unspecified), extra: (none), failover: false, available: false, roaming: false]
+      mScanRequested=false
+      mDiscoverPeersInProgress=false
+      mDesiredDevice=null
+      mConnectingDisplay=null
+      mDisconnectingDisplay=null
+      mCancelingDisplay=null
+      mConnectedDevice=null
+      mConnectionRetriesLeft=0
+      mRemoteDisplay=null
+      mRemoteDisplayInterface=null
+      mRemoteDisplayConnected=false
+      mAdvertisedDisplay=null
+      mAdvertisedDisplaySurface=null
+      mAdvertisedDisplayWidth=0
+      mAdvertisedDisplayHeight=0
+      mAdvertisedDisplayFlags=0
+      mAvailableWifiDisplayPeers: size=0
+
+Display Devices: size=1
+  DisplayDeviceInfo{"Built-in Screen": uniqueId="local:0", 720 x 1560, modeId 1, defaultModeId 1, supportedModes [{id=1, width=720, height=1560, fps=60.0}], colorMode 0, supportedColorModes [0], HdrCapabilities HdrCapabilities{mSupportedHdrTypes=[], mMaxLuminance=500.0, mMaxAverageLuminance=500.0, mMinLuminance=0.0}, allmSupported false, gameContentTypeSupported false, density 300, 268.941 x 291.352 dpi, appVsyncOff 1000000, presDeadline 16666667, cutout DisplayCutout{insets=Rect(0, 52 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(281, -1 - 440, 52), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]}}, touch INTERNAL, rotation 0, type INTERNAL, address {port=0}, deviceProductInfo null, state ON, FLAG_DEFAULT_DISPLAY, FLAG_ROTATES_WITH_CONTENT, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS}
+    mAdapter=LocalDisplayAdapter
+    mUniqueId=local:0
+    mDisplayToken=android.os.BinderProxy@9dceb2c
+    mCurrentLayerStack=0
+    mCurrentOrientation=0
+    mCurrentLayerStackRect=Rect(0, 0 - 720, 1560)
+    mCurrentDisplayRect=Rect(0, 0 - 720, 1560)
+    mCurrentSurface=null
+    mPhysicalDisplayId=0
+    mDisplayModeSpecs={baseModeId=1 primaryRefreshRateRange=[0 60] appRequestRefreshRateRange=[0 Infinity]}
+    mDisplayModeSpecsInvalid=false
+    mActiveConfigId=0
+    mActiveModeId=1
+    mActiveColorMode=0
+    mDefaultModeId=1
+    mState=ON
+    mBrightnessState=0.05
+    mBacklight=com.android.server.lights.LightsService$LightImpl@33e79e2
+    mAllmSupported=false
+    mAllmRequested=false
+    mGameContentTypeSupported=false
+    mGameContentTypeRequested=false
+    mDisplayInfo=DisplayInfo{isInternal=true, density=1.875, secure=true, deviceProductInfo=null}
+    mDisplayConfigs=
+      DisplayConfig{width=720, height=1560, xDpi=268.941, yDpi=291.352, refreshRate=60.0, appVsyncOffsetNanos=1000000, presentationDeadlineNanos=16666667, configGroup=-1}
+    mSupportedModes=
+      DisplayModeRecord{mMode={id=1, width=720, height=1560, fps=60.0}}
+    mSupportedColorModes=[0]
+Logical Displays: size=1
+  Display 0:
+mDisplayId=0
+    mLayerStack=0
+    mHasContent=true
+    mDesiredDisplayModeSpecs={baseModeId=1 primaryRefreshRateRange=[0 60] appRequestRefreshRateRange=[0 Infinity]}
+    mRequestedColorMode=0
+    mDisplayOffset=(0, 0)
+    mDisplayScalingDisabled=false
+    mPrimaryDisplayDevice=Built-in Screen
+    mBaseDisplayInfo=DisplayInfo{"Built-in Screen", displayId 0, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS, FLAG_TRUSTED, real 720 x 1560, largest app 720 x 1560, smallest app 720 x 1560, appVsyncOff 1000000, presDeadline 16666667, mode 1, defaultMode 1, modes [{id=1, width=720, height=1560, fps=60.0}], hdrCapabilities HdrCapabilities{mSupportedHdrTypes=[], mMaxLuminance=500.0, mMaxAverageLuminance=500.0, mMinLuminance=0.0}, minimalPostProcessingSupported false, rotation 0, state ON, type INTERNAL, uniqueId "local:0", app 720 x 1560, density 300 (268.941 x 291.352) dpi, layerStack 0, colorMode 0, supportedColorModes [0], address {port=0}, deviceProductInfo null, removeMode 0}
+    mOverrideDisplayInfo=DisplayInfo{"Built-in Screen", displayId 0, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS, FLAG_TRUSTED, real 720 x 1560, largest app 1418 x 1401, smallest app 720 x 651, appVsyncOff 1000000, presDeadline 16666667, mode 1, defaultMode 1, modes [{id=1, width=720, height=1560, fps=60.0}], hdrCapabilities HdrCapabilities{mSupportedHdrTypes=[], mMaxLuminance=500.0, mMaxAverageLuminance=500.0, mMinLuminance=0.0}, minimalPostProcessingSupported false, rotation 0, state ON, type INTERNAL, uniqueId "local:0", app 720 x 1418, density 300 (268.941 x 291.352) dpi, layerStack 0, colorMode 0, supportedColorModes [0], address {port=0}, deviceProductInfo null, removeMode 0}
+    mRequestedMinimalPostProcessing=false
+
+DisplayModeDirector
+  mSupportedModesByDisplay:
+    0 -> [{id=1, width=720, height=1560, fps=60.0}]
+  mDefaultModeByDisplay:
+    0 -> {id=1, width=720, height=1560, fps=60.0}
+  mVotesByDisplay:
+    -1:
+      PRIORITY_USER_SETTING_MIN_REFRESH_RATE -> Vote{width=-1, height=-1, minRefreshRate=0.0, maxRefreshRate=Infinity}
+      PRIORITY_DEFAULT_REFRESH_RATE -> Vote{width=-1, height=-1, minRefreshRate=0.0, maxRefreshRate=60.0}
+  SettingsObserver
+    mDefaultRefreshRate: 60.0
+    mDefaultPeakRefreshRate: 0.0
+  AppRequestObserver
+    mAppRequestedModeByDisplay:
+  BrightnessObserver
+    mAmbientLux: -1.0
+    mRefreshRateInZone: 0
+    mLastSensorData: 0.0
+
+Callbacks: size=46
+  0: mPid=1167, mWifiDisplayScanRequested=false
+  1: mPid=1347, mWifiDisplayScanRequested=false
+  2: mPid=1369, mWifiDisplayScanRequested=false
+  3: mPid=1521, mWifiDisplayScanRequested=false
+  4: mPid=1560, mWifiDisplayScanRequested=false
+  5: mPid=1642, mWifiDisplayScanRequested=false
+  6: mPid=1676, mWifiDisplayScanRequested=false
+  7: mPid=1699, mWifiDisplayScanRequested=false
+  8: mPid=1707, mWifiDisplayScanRequested=false
+  9: mPid=1725, mWifiDisplayScanRequested=false
+  10: mPid=1768, mWifiDisplayScanRequested=false
+  11: mPid=1788, mWifiDisplayScanRequested=false
+  12: mPid=2046, mWifiDisplayScanRequested=false
+  13: mPid=2191, mWifiDisplayScanRequested=false
+  14: mPid=2268, mWifiDisplayScanRequested=false
+  15: mPid=2313, mWifiDisplayScanRequested=false
+  16: mPid=2350, mWifiDisplayScanRequested=false
+  17: mPid=2381, mWifiDisplayScanRequested=false
+  18: mPid=2551, mWifiDisplayScanRequested=false
+  19: mPid=2592, mWifiDisplayScanRequested=false
+  20: mPid=2636, mWifiDisplayScanRequested=false
+  21: mPid=3709, mWifiDisplayScanRequested=false
+  22: mPid=3735, mWifiDisplayScanRequested=false
+  23: mPid=3907, mWifiDisplayScanRequested=false
+  24: mPid=3959, mWifiDisplayScanRequested=false
+  25: mPid=4283, mWifiDisplayScanRequested=false
+  26: mPid=4994, mWifiDisplayScanRequested=false
+  27: mPid=5241, mWifiDisplayScanRequested=false
+  28: mPid=6427, mWifiDisplayScanRequested=false
+  29: mPid=6513, mWifiDisplayScanRequested=false
+  30: mPid=6883, mWifiDisplayScanRequested=false
+  31: mPid=6901, mWifiDisplayScanRequested=false
+  32: mPid=6940, mWifiDisplayScanRequested=false
+  33: mPid=7268, mWifiDisplayScanRequested=false
+  34: mPid=7495, mWifiDisplayScanRequested=false
+  35: mPid=7648, mWifiDisplayScanRequested=false
+  36: mPid=7770, mWifiDisplayScanRequested=false
+  37: mPid=8948, mWifiDisplayScanRequested=false
+  38: mPid=8958, mWifiDisplayScanRequested=false
+  39: mPid=8979, mWifiDisplayScanRequested=false
+  40: mPid=9211, mWifiDisplayScanRequested=false
+  41: mPid=9233, mWifiDisplayScanRequested=false
+  42: mPid=9339, mWifiDisplayScanRequested=false
+  43: mPid=9391, mWifiDisplayScanRequested=false
+  44: mPid=9482, mWifiDisplayScanRequested=false
+  45: mPid=9563, mWifiDisplayScanRequested=false
+
+Display Power Controller Locked State:
+  mDisplayReadyLocked=true
+  mPendingRequestLocked=policy=DIM, useProximitySensor=false, screenBrightnessOverride=NaN, useAutoBrightness=true, screenAutoBrightnessAdjustmentOverride=NaN, screenLowPowerBrightnessFactor=1.0, blockScreenOn=false, lowPowerMode=false, boostScreenBrightness=false, dozeScreenBrightness=NaN, dozeScreenState=UNKNOWN
+  mPendingRequestChangedLocked=false
+  mPendingWaitForNegativeProximityLocked=false
+  mPendingUpdatePowerStateLocked=false
+
+Display Power Controller Configuration:
+  mScreenBrightnessDozeConfig=0.0
+  mScreenBrightnessDimConfig=0.05
+  mScreenBrightnessDefault=0.4
+  mScreenBrightnessForVrRangeMinimum=0.307087
+  mScreenBrightnessForVrRangeMaximum=1.0
+  mScreenBrightnessForVrDefault=0.33464
+  mUseSoftwareAutoBrightnessConfig=true
+  mAllowAutoBrightnessWhileDozingConfig=false
+  mSkipScreenOnBrightnessRamp=false
+  mColorFadeFadesConfig=false
+  mColorFadeEnabled=true
+  mDisplayBlanksAfterDozeConfig=false
+  mBrightnessBucketsInDozeConfig=false
+
+Display Power Controller Thread State:
+  mPowerRequest=policy=DIM, useProximitySensor=false, screenBrightnessOverride=NaN, useAutoBrightness=true, screenAutoBrightnessAdjustmentOverride=NaN, screenLowPowerBrightnessFactor=1.0, blockScreenOn=false, lowPowerMode=false, boostScreenBrightness=false, dozeScreenBrightness=NaN, dozeScreenState=UNKNOWN
+  mUnfinishedBusiness=false
+  mWaitingForNegativeProximity=false
+  mProximitySensor={Sensor name="PROXIMITY", vendor="MTK", version=1, type=8, maxRange=1.0, resolution=1.0, power=0.001, minDelay=0}
+  mProximitySensorEnabled=false
+  mProximityThreshold=1.0
+  mProximity=Unknown
+  mPendingProximity=Unknown
+  mPendingProximityDebounceTime=-1 (232956 ms ago)
+  mScreenOffBecauseOfProximity=false
+  mLastUserSetScreenBrightnessFloat=0.0
+  mPendingScreenBrightnessSettingFloat=NaN
+  mTemporaryScreenBrightnessFloat=NaN
+  mAutoBrightnessAdjustment=0.0
+  mBrightnessReason=automatic [ dim ]
+  mTemporaryAutoBrightnessAdjustment=NaN
+  mPendingAutoBrightnessAdjustment=NaN
+  mScreenBrightnessForVrFloat=0.33464
+  mAppliedAutoBrightness=true
+  mAppliedDimming=true
+  mAppliedLowPower=false
+  mAppliedScreenBrightnessOverride=false
+  mAppliedTemporaryBrightness=false
+  mDozing=false
+  mSkipRampState=RAMP_STATE_SKIP_NONE
+  mScreenOnBlockStartRealTime=203886
+  mScreenOffBlockStartRealTime=179457
+  mPendingScreenOnUnblocker=null
+  mPendingScreenOffUnblocker=null
+  mPendingScreenOff=false
+  mReportedToPolicy=REPORTED_TO_POLICY_SCREEN_ON
+  mScreenBrightnessRampAnimator.isAnimating()=false
+  mColorFadeOnAnimator.isStarted()=false
+  mColorFadeOffAnimator.isStarted()=false
+
+Display Power State:
+  mScreenState=ON
+  mScreenBrightness=0.05
+  mScreenReady=true
+  mScreenUpdatePending=false
+  mColorFadePrepared=false
+  mColorFadeLevel=1.0
+  mColorFadeReady=true
+  mColorFadeDrawPending=false
+
+Photonic Modulator State:
+  mPendingState=ON
+  mPendingBacklight=0.05
+  mActualState=ON
+  mActualBacklight=0.05
+  mStateChangeInProgress=false
+  mBacklightChangeInProgress=false
+
+Color Fade State:
+  mPrepared=false
+  mMode=1
+  mDisplayLayerStack=0
+  mDisplayWidth=720
+  mDisplayHeight=1560
+  mSurfaceVisible=false
+  mSurfaceAlpha=0.0
+
+Automatic Brightness Controller Configuration:
+  mScreenBrightnessRangeMinimum=0.0
+  mScreenBrightnessRangeMaximum=1.0
+  mDozeScaleFactor=1.0
+  mInitialLightSensorRate=250
+  mNormalLightSensorRate=250
+  mLightSensorWarmUpTimeConfig=0
+  mBrighteningLightDebounceConfig=3000
+  mDarkeningLightDebounceConfig=4000
+  mResetAmbientLuxAfterWarmUpConfig=true
+  mAmbientLightHorizon=10000
+  mWeightingIntercept=10000
+
+Automatic Brightness Controller State:
+  mLightSensor={Sensor name="LIGHT", vendor="MTK", version=1, type=5, maxRange=65535.0, resolution=1.0, power=0.001, minDelay=0}
+  mLightSensorEnabled=true
+  mLightSensorEnableTime=203886 (29071 ms ago)
+  mCurrentLightSensorRate=250
+  mAmbientLux=77.67989
+  mAmbientLuxValid=true
+  mAmbientBrighteningThreshold=85.44788
+  mAmbientDarkeningThreshold=62.143917
+  mScreenBrighteningThreshold=0.41014695
+  mScreenDarkeningThreshold=0.29828867
+  mLastObservedLux=58.0
+  mLastObservedLuxTime=232772 (185 ms ago)
+  mRecentLightSamples=118
+  mAmbientLightRingBuffer=[70.0 / 2ms, 71.0 / 400ms, 70.0 / 200ms, 69.0 / 200ms, 69.0 / 200ms, 67.0 / 199ms, 66.0 / 199ms, 64.0 / 200ms, 62.0 / 201ms, 62.0 / 200ms, 63.0 / 200ms, 63.0 / 199ms, 65.0 / 201ms, 67.0 / 200ms, 69.0 / 600ms, 68.0 / 200ms, 67.0 / 199ms, 67.0 / 200ms, 65.0 / 200ms, 64.0 / 201ms, 63.0 / 199ms, 61.0 / 200ms, 60.0 / 200ms, 60.0 / 201ms, 60.0 / 200ms, 60.0 / 200ms, 62.0 / 200ms, 63.0 / 200ms, 64.0 / 199ms, 65.0 / 201ms, 65.0 / 400ms, 65.0 / 200ms, 64.0 / 200ms, 63.0 / 400ms, 63.0 / 200ms, 63.0 / 400ms, 63.0 / 200ms, 62.0 / 200ms, 61.0 / 199ms, 63.0 / 201ms, 59.0 / 200ms, 63.0 / 200ms, 60.0 / 200ms, 60.0 / 200ms, 58.0 / 199ms, 58.0 / 185ms]
+  mScreenAutoBrightness=0.37286085
+  mDisplayPolicy=DIM
+  mShortTermModelTimeout=300000
+  mShortTermModelAnchor=-1.0
+  mShortTermModelValid=true
+  mBrightnessAdjustmentSamplePending=false
+  mBrightnessAdjustmentSampleOldLux=0.0
+  mBrightnessAdjustmentSampleOldBrightness=0.0
+  mForegroundAppPackageName=com.android.launcher3
+  mPendingForegroundAppPackageName=null
+  mForegroundAppCategory=-1
+  mPendingForegroundAppCategory=-1
+
+PhysicalMappingStrategy
+  mConfig=BrightnessConfiguration{[(0.0, 11.0), (10.0, 35.0), (30.0, 66.0), (80.0, 136.0), (160.0, 208.0), (300.0, 297.0), (520.0, 346.4), (700.0, 346.4), (1000.0, 346.4), (2000.0, 346.4), (4000.0, 346.4), (5000.0, 346.4)], {}, ', shouldCollectColorSamples = false, shortTermModelTimeout = 300000, shortTermModelLowerLuxMultiplier = 0.6, shortTermModelUpperLuxMultiplier = 0.6'}
+  mBrightnessSpline=MonotoneCubicSpline{[(0.0, 6.335621: 3.3634121), (10.0, 39.96974: 2.3324673), (30.0, 66.00019: 1.3507533), (80.0, 135.99939: 1.1500121), (160.0, 208.00261: 0.7677641), (300.0, 296.97092: 0.43008277), (520.0, 346.4: 0.0), (700.0, 346.4: 0.0), (1000.0, 346.4: 0.0), (2000.0, 346.4: 0.0), (4000.0, 346.4: 0.0), (5000.0, 346.4: 0.0)]}
+  mNitsToBacklightSpline=MonotoneCubicSpline{[(1.9, -1.0: 0.056726776), (20.5, 0.05511811: 0.008359925), (41.6, 0.114173226: 7.824561E-4), (62.9, 0.17322835: 0.0027923444), (83.9, 0.23228346: 0.002805485), (105.0, 0.2913386: 0.0028539703), (125.3, 0.3503937: 0.0028606337), (146.3, 0.40944883: 0.0028678342), (166.5, 0.46850392: 0.0029682675), (186.1, 0.52755904: 0.0030364348), (205.4, 0.5866142: 0.0029633027), (226.0, 0.6456693: 0.003003991), (244.8, 0.70472443: 0.003116561), (263.9, 0.7637795: 0.0030077058), (284.1, 0.8228347: 0.0029021283), (304.6, 0.88188976: 0.0030899537), (322.5, 0.9409449: 0.0028850483), (346.4, 1.0: 0.002470925)]}
+  mMaxGamma=3.0
+  mAutoBrightnessAdjustment=0.0
+  mUserLux=-1.0
+  mUserBrightness=-1.0
+  mDefaultConfig=BrightnessConfiguration{[(0.0, 11.0), (10.0, 35.0), (30.0, 66.0), (80.0, 136.0), (160.0, 208.0), (300.0, 297.0), (520.0, 346.4), (700.0, 346.4), (1000.0, 346.4), (2000.0, 346.4), (4000.0, 346.4), (5000.0, 346.4)], {}, ', shouldCollectColorSamples = false, shortTermModelTimeout = 300000, shortTermModelLowerLuxMultiplier = 0.6, shortTermModelUpperLuxMultiplier = 0.6'}
+
+HysteresisLevels
+  mBrighteningThresholds=[0.1]
+  mDarkeningThresholds=[0.2]
+  mThresholdLevels=[]
+HysteresisLevels
+  mBrighteningThresholds=[0.1]
+  mDarkeningThresholds=[0.2]
+  mThresholdLevels=[]
+
+BrightnessTracker state:
+  mStarted=true
+  mLastBatteryLevel=0.55
+  mLastBrightness=20.293545
+  mLastSensorReadings.size=45
+  mLastSensorReadings time span 222771675252->232771673059
+  mEventsDirty=true
+  mEvents.size=0
+  mWriteBrightnessTrackerStateScheduled=false
+  mSensorRegistered=true
+  mColorSamplingEnabled=false
+  mNoFramesToSample=0
+  mFrameRate=0.0
+
+AmbientBrightnessStats:
+  0 2021-09-26 {0.0, 0.1, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0, 300.0, 1000.0, 3000.0, 10000.0} {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 187.24179, 0.0, 0.0, 0.0, 0.0, 0.0}
+
+
+PersistentDataStore
+  mLoaded=true
+  mDirty=false
+  RememberedWifiDisplays:
+  DisplayStates:
+  StableDeviceValues:
+      StableDisplayWidth=720
+      StableDisplayHeight=1560
+  BrightnessConfigurations:
+
+C:\Users\wbaen>
