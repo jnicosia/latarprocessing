@@ -106,10 +106,14 @@ displaydata1 <- displaydata %>%
   mutate(display_latency_us_mean = mean(display_latency_us, na.rm = T),
          display_latency_us_sd = mean(display_latency_us, na.rm = T),
          display_latency_us_z = (display_latency_us-display_latency_us_mean)/display_latency_us_sd,
-         display_latency_us_otlrsrmvd = ifelse(abs(display_latency_us_z) > 1.5, NA, display_latency_us))
+         display_latency_us_otlrsrmvd = ifelse(abs(display_latency_us_z) > 1.5, NA, display_latency_us),
+         callback_latency_us_mean = mean(callback_latency_us, na.rm = T),
+         callback_latency_us_sd = mean(callback_latency_us, na.rm = T),
+         callback_latency_us_z = (callback_latency_us-callback_latency_us_mean)/callback_latency_us_sd,
+         callback_latency_us_otlrsrmvd = ifelse(abs(callback_latency_us_z) > 1.5, NA, callback_latency_us))
 ```
 
-## Line Graphs
+# Line Graphs
 ```{r}
 # capacitive
 # raw
@@ -170,67 +174,7 @@ ggplot(displaydata1_noload_exemplar, aes(x = index_fixture, y = display_latency_
         strip.background = element_blank()) + coord_cartesian(xlim = c(0, 100), ylim = c(0, 80000))
 ```
 
-## Bar Graphs
-### By Phone
-```{r}
-# means
-capacitivemeans <- summarySE(data = capacitivedata1_noload,
-                             measurevar = "action_latency_us_otlrsrmvd",
-                             groupvars = c("phone_model", "procedure"),
-                             na.rm = T,
-                             conf.interval = 0.95,
-                             .drop = TRUE)
-
-# plot
-ggplot(capacitivemeans, aes(x = procedure,
-                            y = action_latency_us_otlrsrmvd, 
-                            fill = procedure)) +
-geom_bar(position = "dodge",
-         stat = "identity",
-         color = "black") +
-  scale_fill_manual(values = c("white", "grey70", "grey50")) +
-  labs(x = "Load",
-       y = "RT (us)") +
-  guides(fill = guide_legend(title = "Procedure")) +
-  geom_errorbar(aes (ymin = action_latency_us_otlrsrmvd - ci, ymax = action_latency_us_otlrsrmvd + ci),
-                position = position_dodge(0.9), width = .1) +
-  #coord_cartesian(ylim = c(-0.25, 0.15)) +
-  facet_wrap(~phone_model, scales = "free_x", ncol = 6) +
-  theme_classic() +
-  theme(text = element_text(size = 9), 
-        strip.background = element_blank())  + 
-  theme(text = element_text(size = 9)) 
-
-# means
-displaymeans <- summarySE(data = displaydata1_noload,
-                             measurevar = "display_latency_us_otlrsrmvd",
-                             groupvars = c("phone_model", "procedure"),
-                             na.rm = T,
-                             conf.interval = 0.95,
-                             .drop = TRUE)
-
-# plot
-ggplot(displaymeans, aes(x = procedure,
-                         y = display_latency_us_otlrsrmvd, 
-                         fill = procedure)) +
-geom_bar(position = "dodge",
-         stat = "identity",
-         color = "black") +
-  scale_fill_manual(values = c("white", "grey70", "grey50")) +
-  labs(x = "Load",
-       y = "RT (us)") +
-  guides(fill = guide_legend(title = "Procedure")) +
-  geom_errorbar(aes (ymin = display_latency_us_otlrsrmvd - ci, ymax = display_latency_us_otlrsrmvd + ci),
-                position = position_dodge(0.9), width = .1) +
-  #coord_cartesian(ylim = c(-0.25, 0.15)) +
-  facet_wrap(~phone_model, scales = "free_x", ncol = 6) +
-  theme_classic() +
-  theme(text = element_text(size = 9), 
-        strip.background = element_blank())  + 
-  theme(text = element_text(size = 9)) + coord_cartesian(xlim = c(0, 100), ylim = c(0, 80000))
-```
-
-### Line Range Plots
+# Line Range Plots
 ```{r}
 # capacitive
 capacitivedata1_noload_199 <- subset(capacitivedata1_noload, procedure == "199")
@@ -282,72 +226,89 @@ ggplot(displaymeans, aes(x = Model, y = display_latency_us_otlrsrmvd, color = Mo
         text = element_text(size = 20)) + theme(legend.position = "none") + coord_cartesian(ylim = c(0, 100000))
 ```
 
-### Across Phones
+# Callback vs. Action
 ```{r}
-# means
-capacitivemeans <- summarySE(data = capacitivedata1_noload,
-                             measurevar = "action_latency_us_otlrsrmvd",
-                             groupvars = c("procedure"),
+# capacitive
+capacitivedata1_noload_199_callVact <- capacitivedata1_noload_199 %>%
+  mutate(callbackActionDiff = callback_latency_us_otlrsrmvd - action_latency_us_otlrsrmvd)
+
+capacitivemeans <- summarySE(data = capacitivedata1_noload_199_callVact,
+                             measurevar = "callbackActionDiff",
+                             groupvars = c("Model"),
                              na.rm = T,
                              conf.interval = 0.95,
-                             .drop = TRUE)
+                             .drop = F)
 
-# plot
-ggplot(capacitivemeans, aes(x = procedure,
-                            y = action_latency_us_otlrsrmvd, 
-                            fill = procedure)) +
-geom_bar(position = "dodge",
-         stat = "identity",
-         color = "black") +
-  scale_fill_manual(values = c("white", "grey70", "grey50")) +
-  labs(x = "Load",
-       y = "RT (us)") +
-  guides(fill = guide_legend(title = "Procedure")) +
-  geom_errorbar(aes (ymin = action_latency_us_otlrsrmvd - ci, ymax = action_latency_us_otlrsrmvd + ci),
-                position = position_dodge(0.9), width = .1) +
-  #coord_cartesian(ylim = c(-0.25, 0.15)) +
-  #facet_wrap(~phone_model, scales = "free_x", ncol = 6) +
+capacitivemeans$Model <- factor(capacitivemeans$Model, levels = c("iPhone 7", "iPhone 8", "iPhone X", "Samsung Galaxy S9", "iPhone XR", "iPhone XS", "Samsung A30", "Samsung A10", "iPhone 11", "LG Journey", "Samsung A51", "Samsung A01", "Wiko Ride 3", "Samsung A12", "Motorola moto g stylus", "Samsung A32", "Samsung A52"))
+
+ggplot(capacitivemeans, aes(x = Model, y = callbackActionDiff, color = Model)) +
+  geom_linerange(aes(ymin = callbackActionDiff - ci, ymax = callbackActionDiff + ci), 
+                 size = 4, alpha = 0.5, position = position_dodge(0.9)) +
+  geom_point(aes(color = Model), size = 4, position = position_dodge(0.9)) +
+  labs(title = "Callback vs. Action Capacitive Tap Latencies",
+       y = "Callback - Action Capacitive Tap Latency (μs)",
+       x = "Phone Model") + 
   theme_classic() +
-  theme(text = element_text(size = 9), 
-        strip.background = element_blank())  + 
-  theme(text = element_text(size = 9))
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+        text = element_text(size = 20)) + theme(legend.position = "none") #+ coord_cartesian(ylim = c(0, 40000))
 
-# means
-displaymeans <- summarySE(data = displaydata1_noload,
-                             measurevar = "display_latency_us_otlrsrmvd",
-                             groupvars = c("procedure"),
+# display
+displaydata1_noload_199_callVact <- displaydata1_noload_199 %>%
+  mutate(callbackActionDiff = callback_latency_us_otlrsrmvd - display_latency_us_otlrsrmvd)
+
+displaymeans <- summarySE(data = displaydata1_noload_199_callVact,
+                             measurevar = "callbackActionDiff",
+                             groupvars = c("Model"),
                              na.rm = T,
                              conf.interval = 0.95,
-                             .drop = TRUE)
+                             .drop = F)
 
-# plot
-ggplot(displaymeans, aes(x = procedure,
-                            y = display_latency_us_otlrsrmvd, 
-                            fill = procedure)) +
-geom_bar(position = "dodge",
-         stat = "identity",
-         color = "black") +
-  scale_fill_manual(values = c("white", "grey70", "grey50")) +
-  labs(x = "Load",
-       y = "RT (us)") +
-  guides(fill = guide_legend(title = "Procedure")) +
-  geom_errorbar(aes (ymin = display_latency_us_otlrsrmvd - ci, ymax = display_latency_us_otlrsrmvd + ci),
-                position = position_dodge(0.9), width = .1) +
-  #coord_cartesian(ylim = c(-0.25, 0.15)) +
-  #facet_wrap(~phone_model, scales = "free_x", ncol = 6) +
+displaymeans$Model <- factor(displaymeans$Model, levels = c("iPhone 7", "iPhone 8", "iPhone X", "Samsung Galaxy S9", "iPhone XR", "iPhone XS", "Samsung A30", "Samsung A10", "iPhone 11", "LG Journey", "Samsung A51", "Samsung A01", "Wiko Ride 3", "Samsung A12", "Motorola moto g stylus", "Samsung A32", "Samsung A52"))
+
+ggplot(displaymeans, aes(x = Model, y = callbackActionDiff, color = Model)) +
+  geom_linerange(aes(ymin = callbackActionDiff - ci, ymax = callbackActionDiff + ci), 
+                 size = 4, alpha = 0.5, position = position_dodge(0.9)) +
+  geom_point(aes(color = Model), size = 4, position = position_dodge(0.9)) +
+  labs(title = "Callback vs. Action Display Latencies",
+       y = "Callback - Action Display Latency (μs)",
+       x = "Phone Model") + 
   theme_classic() +
-  theme(text = element_text(size = 9), 
-        strip.background = element_blank())  + 
-  theme(text = element_text(size = 9))
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+        text = element_text(size = 20)) + theme(legend.position = "none") #+ coord_cartesian(ylim = c(0, 100000))
 ```
 
-# Regression(s)
-## What matters?
+# Regression Models
 ```{r}
-phonedata <- read.csv("~/CTRLab/LaTARBot/latarprocessing/phone_data.csv")
-capacitivedatafull <- full_join(capacitivedata1_noload, phonedata)
+currDate <- "10/01/2021"
+phonedata <- read.csv("~/CTRLab/LaTARBot/latarprocessing/phone_data.csv") %>%
+  mutate(phone_age = as.numeric(as.Date(currDate, format = "%m/%d/%Y") - as.Date(ReleaseYr, format = "%m/%d/%Y"))/365.24)
+capacitivedatafull <- full_join(capacitivedata1_noload, phonedata) 
 
-summary(lmer(action_latency_us_otlrsrmvd ~ Geekbench_5_single_core + Touch_refresh_Hz + (index_fixture|phone_model), data = capacitivedatafull))
+# capacitive action latency
+capacitivedatafull %>% subset(., select = c(action_latency_us_otlrsrmvd, OS_binary, load, procedure, Geekbench_5_single_core, Touch_refresh_Hz, phone_age, index_fixture)) %>%
+  pairs.panels(stars = T, lm = T, hist.col = "blue", ellipses = F, jiggle = T)
+
+capacitivedatafull_agg <- capacitivedatafull %>%
+  group_by(phone_model, procedure) %>%
+  summarize(OS = unique(OS_binary),
+            Geekbench_5_single_core = mean(Geekbench_5_single_core, na.rm = T),
+            Touch_refresh_Hz = mean(Touch_refresh_Hz, na.rm = T),
+            phone_age = mean(phone_age, na.rm = T),
+            action_latency_us_otlrsrmvd = mean(action_latency_us_otlrsrmvd, na.rm = T),
+            callback_latency_us_otlrsrmvd = mean(callback_latency_us_otlrsrmvd, na.rm = T))
+
+capacitivedatafull_agg %>% subset(., select = c(OS, procedure, Geekbench_5_single_core, Touch_refresh_Hz, phone_age)) %>%
+  pairs.panels(stars = T, lm = T, hist.col = "blue", ellipses = F, jiggle = T)
+
+capactmod <- lm(action_latency_us_otlrsrmvd ~ OS + procedure + Geekbench_5_single_core + Touch_refresh_Hz + phone_age, data = capacitivedatafull_agg)
+
+summary(capactmod)
+
+# capacitive callback latency
+
+# display action latency
+
+# display callback latency
 ```
 
 
