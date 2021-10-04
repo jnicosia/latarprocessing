@@ -323,6 +323,12 @@ aggbounds <- full_join(display_bounds, capacitive_bounds) %>%
 
 min(aggbounds$summedMin, na.rm = T)
 max(aggbounds$summedMax, na.rm = T)
+
+tapquantiles <- quantile(capacitivedata1_noload_199_box$microseconds, na.rm = T)
+displayquantiles <- quantile(displaydata1_noload_199_box$microseconds, na.rm = T)
+
+summedQ1 <- tapquantiles[2] + displayquantiles[2]
+summedQ3 <- tapquantiles[4] + displayquantiles[4]
 ```
 
 # Device Characteristics
