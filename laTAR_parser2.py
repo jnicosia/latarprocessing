@@ -181,7 +181,7 @@ def insert_df_row(df, row_idx):
     na_row.index = range(row_idx, row_idx + 1)
     post_df = df.iloc[row_idx:]
     post_df.index += 1
-    return pre_df.append(na_row).append(post_df)
+    return pd.concat([pre_df, na_row, post_df])
 
 # For a stimulus and response to be aligned:
 # - stimulus must be <= response timestamp (increment response until satisfied)
@@ -289,6 +289,7 @@ def export_csv(csv_filepath, df):
 
 # Processes a JSON file and returns the number of failures
 def process_file(filename, output_dir):
+    global df_clocksync
     print(f"INFO: Processing file '{filename}'...")
 
     f = open(filename, 'r')
@@ -307,6 +308,29 @@ def process_file(filename, output_dir):
     procedure_objectives = data["procedure"]["objectives"]
 
     conflicts = 0
+
+    # Process clock sync data and output
+    df_row = pd.DataFrame(data=np.array([[
+        phone_name,
+        filename,
+        data["clockSync"]['fixture']['avgTcs'],
+        data["clockSync"]['fixture']['offset'],
+        data["clockSync"]['fixture']['stdDevTcs'],
+        data["clockSync"]['mobile']['avgTcs'],
+        data["clockSync"]['mobile']['offset'],
+        data["clockSync"]['mobile']['stdDevTcs']
+    ]]), columns=[
+        'phone_name',
+        'filename',
+        'fixture_avgTcs',
+        'fixture_offset',
+        'fixture_stdDevTcs',
+        'mobile_avgTcs',
+        'mobile_offset',
+        'mobile_stdDevTcs'
+    ])
+    df_clocksync = pd.concat([df_clocksync,df_row], ignore_index=True)
+
 
     # Process each objective
     for i,objective in enumerate(objectives):
@@ -370,6 +394,10 @@ def process_file(filename, output_dir):
 # Main program
 #######################################################
 
+# Dataframe to log clock sync results
+df_clocksync = pd.DataFrame() 
+
+
 files = os.listdir(normpath(INPUT_JSON_DIR))
 conflicts = 0
 num_processed_files = 0
@@ -383,6 +411,9 @@ for i,file in enumerate(files):
         num_processed_files += 1
     else:
         print(f"INFO: Ignoring non-json file '{filepath}'")
+
+# Export clocksync data to file
+df_clocksync.to_csv('clocksync_summary.csv', index=False)
 
 print(f"\n\nINFO: Done. Processed {num_processed_files} JSON files with {conflicts} conflicts/failures.")
 if conflicts > 0:

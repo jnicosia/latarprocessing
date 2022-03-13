@@ -22,7 +22,7 @@ library(effsize)
 library(pROC)
 library(DT)
 library(psych)
-library(survminer)
+#library(survminer)
 library(survival)
 library(data.table)
 library(sjPlot)
@@ -40,7 +40,7 @@ library(dplyr)
 
 # Load Data
 ```{r}
-setwd("~/CTRLab/LaTARBot/latarprocessing/")
+#setwd("~/CTRLab/LaTARBot/latarprocessing/")
 
 ##### CAPACITIVE
 wd <- "./04-CSV_data/Capacitive_Tap_Latency/"
