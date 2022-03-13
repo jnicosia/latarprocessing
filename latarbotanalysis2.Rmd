@@ -192,7 +192,7 @@ ggplot(displaydata1_noload_exemplar, aes(x = index_fixture, y = display_latency_
         strip.background = element_blank()) + coord_cartesian(xlim = c(0, 100), ylim = c(0, 80000))
 
 # exemplar (Samsung SM-G960U/iPhone12_1 (120Hz example))
-capacitivedata1_noload_exemplar <- subset(capacitivedata1_noload, phone_model == "Samsung SM-N970U1" & procedure == "199")
+capacitivedata1_noload_exemplar <- subset(capacitivedata1_noload, phone_model == "iPhone12_1" & procedure == "199")
 
 ggplot(capacitivedata1_noload_exemplar, aes(x = index_fixture, y = action_latency_us_otlrsrmvd)) +
   labs(title = "(B) iPhone 11 (120 Hz Touch Sample Rate)",
