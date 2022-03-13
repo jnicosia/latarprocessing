@@ -22,9 +22,12 @@ df['shortname'] = df['filename'].str.extract(r'session_\d{4}-\d{2}-\d{2}_\d{2}-\
 
 # Horizontal bar plot with index being shortened filename
 df = df.set_index("shortname")
-ax = df.plot.barh()
+df = df.sort_index()
+ax_mobile = df[["mobile_offset", "mobile_stdDevTcs"]].plot.barh()
+
+ax_fixture = df[["fixture_offset", "fixture_stdDevTcs"]].plot.barh()
 
 # Optionally zoom in a bit b/c there may be serious outliers
-ax.set_xlim(-2000,30000)
+ax_mobile.set_xlim(-2000,30000)
 
 plt.show()
