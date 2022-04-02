@@ -1,4 +1,5 @@
 import json
+import matplotlib.pyplot as plt
 
 filename = "session_2022-03-28_01-22-18.json"
 
@@ -32,18 +33,20 @@ for trip in data["clockSync"]["mobile"]["roundTrips"]:
     
     latencies.append(trip_latency)
     deltaTs.append(deltaT)
-
-
-import matplotlib.pyplot as plt
-# import numpy as np
- 
-#data
-# x = np.random.randint(0, 50, 50)
-# y = np.random.randint(0, 50, 50)
  
 #scatter plot
+fig = plt.figure()
 plt.scatter(list(range(len(latencies))), latencies)
 plt.scatter(list(range(len(deltaTs))), deltaTs)
- 
+
+plt.legend(["round-trip latency" , "deltaT"])
+plt.xlabel("sample number")
+plt.ylabel("ms")
+
+# plt.show()
+fig = plt.figure()
+
+plt.scatter(latencies, deltaTs)
+plt.xlabel("latency")
+plt.ylabel("deltaT")
 plt.show()
-# breakpoint()
