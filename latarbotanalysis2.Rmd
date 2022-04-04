@@ -74,18 +74,18 @@ displaydata <- data
 
 
 ##### SOLENOID
-wd <- "./04-CSV_data/Solenoid_Tap_Latency/"
-N <- paste(wd, list.files(wd), sep = "")
-data <- data.frame()
-for (i in 1:length(N)){
-  file <- N[i]
-  #print(file)
-  data_in <- read.csv(file, header = TRUE, stringsAsFactors = FALSE)
-  data_in$procedure <- str_match(basename(N[i]), "([0-9]{3})_ms")[,2]
-  data <- rbind(data, data_in)
-}
+#wd <- "./04-CSV_data/Solenoid_Tap_Latency/"
+#N <- paste(wd, list.files(wd), sep = "")
+#data <- data.frame()
+#for (i in 1:length(N)){
+#  file <- N[i]
+#  #print(file)
+#  data_in <- read.csv(file, header = TRUE, stringsAsFactors = FALSE)
+#  data_in$procedure <- str_match(basename(N[i]), "([0-9]{3})_ms")[,2]
+#  data <- rbind(data, data_in)
+#}
 
-solenoiddata <- data
+#solenoiddata <- data
 ```
 
 # Clean Data
@@ -185,8 +185,8 @@ ggplot(displaydata1_noload_exemplar, aes(x = index_fixture, y = display_latency_
   geom_hline(aes(yintercept = mean(display_latency_us_otlrsrmvd, na.rm = T)), color = "grey", linetype = "solid", size = 1.5) +
   geom_line() +
   geom_point() + 
-  annotate("text", x = 85, y = 35000, size = 5.5, label = "Actual Difference = 31,777 μs") + 
-  annotate("text", x = 85, y = 30000, size = 5.5, label = "Theoretical Difference = 16,666 μs") + 
+  annotate("text", x = 80, y = 35000, size = 5.5, label = "Actual Difference = 29,411 μs") + 
+  annotate("text", x = 80, y = 30000, size = 5.5, label = "Theoretical Difference = 16,666 μs") + 
   theme_classic() +
   theme(text = element_text(size = 22), 
         strip.background = element_blank()) + coord_cartesian(xlim = c(0, 100), ylim = c(0, 80000))
@@ -203,12 +203,11 @@ ggplot(capacitivedata1_noload_exemplar, aes(x = index_fixture, y = action_latenc
   geom_hline(aes(yintercept = mean(action_latency_us_otlrsrmvd, na.rm = T)), color = "grey", linetype = "solid", size = 1.5) +
   geom_line() +
   geom_point() +
-  annotate("text", x = 85, y = 18500, size = 5.5, label = "Actual Difference = 9,118 μs") + 
-  annotate("text", x = 85, y = 17500, size = 5.5, label = "Theoretical Difference = 8,333 μs") + 
+  annotate("text", x = 80, y = 18500, size = 5.5, label = "Actual Difference = 8,168 μs") + 
+  annotate("text", x = 80, y = 17500, size = 5.5, label = "Theoretical Difference = 8,333 μs") + 
   theme_classic() +
   theme(text = element_text(size = 22), 
-        strip.background = element_blank()) + coord_cartesian(xlim = c(0, 100))
-#, ylim = c(0, 20000)
+        strip.background = element_blank()) + coord_cartesian(xlim = c(0, 100), ylim = c(0, 20000))
 ```
 
 # Box Plots
@@ -307,7 +306,7 @@ display_bounds <- displaydata1_noload_199_box %>%
   summarise(minDisplayBound = min(microseconds, na.rm = T),
             maxDisplayBound = max(microseconds, na.rm = T)) %>%
   mutate(latencyType = ifelse(latencyType == "display_latency_us_otlrsrmvd", "action", "callback")) %>%
-  subset(., latencyType == "callback", select = c("Model", "minDisplayBound", "maxDisplayBound"))
+  subset(., latencyType == "action", select = c("Model", "minDisplayBound", "maxDisplayBound"))
 
 # capacitive
 capacitive_bounds <- capacitivedata1_noload_199_box %>%
@@ -332,10 +331,45 @@ summedQ1 <- tapquantiles[2] + displayquantiles[2]
 summedQ3 <- tapquantiles[4] + displayquantiles[4]
 ```
 
+```{r}
+# only Apple
+# display
+display_bounds <- displaydata1_noload_199_box %>%
+  subset(OS_binary == "iOS") %>%
+  group_by(Model, latencyType) %>%
+  summarise(minDisplayBound = min(microseconds, na.rm = T),
+            maxDisplayBound = max(microseconds, na.rm = T)) %>%
+  mutate(latencyType = ifelse(latencyType == "display_latency_us_otlrsrmvd", "action", "callback")) %>%
+  subset(., latencyType == "action", select = c("Model", "minDisplayBound", "maxDisplayBound"))
+
+# capacitive
+capacitive_bounds <- capacitivedata1_noload_199_box %>%
+  subset(OS_binary == "iOS") %>%
+  group_by(Model, latencyType) %>%
+  summarise(minCapacitiveBound = min(microseconds, na.rm = T),
+            maxCapcitiveBound = max(microseconds, na.rm = T)) %>%
+  mutate(latencyType = ifelse(latencyType == "action_latency_us_otlrsrmvd", "action", "callback")) %>%
+  subset(., latencyType == "action", select = c("Model", "minCapacitiveBound", "maxCapcitiveBound"))
+
+aggbounds <- full_join(display_bounds, capacitive_bounds) %>%
+  mutate(summedMin = minDisplayBound + minCapacitiveBound,
+         summedMax = maxDisplayBound + maxCapcitiveBound,
+         range = summedMax - summedMin)
+
+min(aggbounds$summedMin, na.rm = T)
+max(aggbounds$summedMax, na.rm = T)
+
+tapquantiles <- quantile(capacitivedata1_noload_199_box$microseconds, na.rm = T)
+displayquantiles <- quantile(displaydata1_noload_199_box$microseconds, na.rm = T)
+
+summedQ1 <- tapquantiles[2] + displayquantiles[2]
+summedQ3 <- tapquantiles[4] + displayquantiles[4]
+```
+
 # Device Characteristics
 ## Figures 4 A/B (Correlations)
 ```{r}
-currDate <- "10/01/2021"
+currDate <- "04/02/2022"
 
 phonedata <- read.csv("~/CTRLab/LaTARBot/latarprocessing/phone_data.csv") %>%
   mutate(phone_age = as.numeric(as.Date(currDate, format = "%m/%d/%Y") - as.Date(ReleaseYr, format = "%m/%d/%y"))/365.24)
@@ -355,9 +389,9 @@ displaydatafull_agg <- displaydatafull %>%
             callback_latency_us_otlrsrmvd = mean(callback_latency_us_otlrsrmvd, na.rm = T),
             callbackActionDiff = mean(callbackActionDiff, na.rm = T))
 
-displaydatafull_agg %>% subset(., select = c(display_latency_us_otlrsrmvd, callback_latency_us_otlrsrmvd, callbackActionDiff, Geekbench_5_single_core, Display_refresh_Hz, phone_age, MSRP_USD)) %>%
-  setnames(., old = c("display_latency_us_otlrsrmvd", "callback_latency_us_otlrsrmvd", "callbackActionDiff", "Geekbench_5_single_core", "Display_refresh_Hz", "phone_age", "MSRP_USD"), new = c("Display Latency (μs)", "Callback Latency (μs)", "Callback - Display (μs)", "Geekbench 5 Score", "Display Refresh (Hz)", "Phone Age (Yrs)", "Cost (MRSP; USD)")) %>%
-pairs.panels(stars = T, lm = T, ci = T, method = "pearson", hist.col = "#00AFBB", density = T, ellipses = F, cex.cor = 10, main = "(A) Device Characteristics and Display Latency Correlations", cex = 2, cex.labels = 1.2, cex.main = 2)
+displaydatafull_agg %>% subset(., select = c(display_latency_us_otlrsrmvd, callback_latency_us_otlrsrmvd, callbackActionDiff, Geekbench_5_single_core, phone_age, MSRP_USD)) %>%
+  setnames(., old = c("display_latency_us_otlrsrmvd", "callback_latency_us_otlrsrmvd", "callbackActionDiff", "Geekbench_5_single_core", "phone_age", "MSRP_USD"), new = c("Display Latency (μs)", "Callback Latency (μs)", "Callback - Display (μs)", "Geekbench 5 Score", "Phone Age (Yrs)", "Cost (MRSP; USD)")) %>%
+pairs.panels(stars = T, lm = T, ci = T, method = "pearson", hist.col = "#00AFBB", density = T, ellipses = F, cex.cor = 3, main = "(A) Device Characteristics and Display Latency Correlations", cex = 2, cex.labels = 1.2, cex.main = 2)
 
 # capacitive
 capacitivedatafull <- full_join(capacitivedata1_noload, phonedata) %>%
@@ -374,9 +408,10 @@ capacitivedatafull_agg <- capacitivedatafull %>%
             callback_latency_us_otlrsrmvd = mean(callback_latency_us_otlrsrmvd, na.rm = T),
             callbackActionDiff = mean(callbackActionDiff, na.rm = T))
 
-capacitivedatafull_agg %>% subset(., select = c(action_latency_us_otlrsrmvd, callback_latency_us_otlrsrmvd, callbackActionDiff, Geekbench_5_single_core, Touch_refresh_Hz, phone_age, MSRP_USD)) %>%
-  setnames(., old = c("action_latency_us_otlrsrmvd", "callback_latency_us_otlrsrmvd", "callbackActionDiff", "Geekbench_5_single_core", "Touch_refresh_Hz", "phone_age", "MSRP_USD"), new = c("Action Latency (μs)", "Callback Latency (μs)", "Callback - Action (μs)", "Geekbench 5 Score", "Touch Sampling (Hz)", "Phone Age (Yrs)", "Cost (MRSP; USD)")) %>%
-pairs.panels(stars = T, lm = T, ci = T, method = "pearson", hist.col = "#00AFBB", density = T, ellipses = F, cex.cor = 10, main = "(B) Device Characteristics and Capacitive Tap Latency Correlations", cex = 2, cex.labels = 1.2, cex.main = 2)
+capacitivedatafull_agg %>% mutate(callbackActionDiff = ifelse(phone_model == "iPhone14_5", NA, callbackActionDiff)) %>%
+  subset(., select = c(action_latency_us_otlrsrmvd, callback_latency_us_otlrsrmvd, callbackActionDiff, Geekbench_5_single_core, phone_age, MSRP_USD)) %>%
+  setnames(., old = c("action_latency_us_otlrsrmvd", "callback_latency_us_otlrsrmvd", "callbackActionDiff", "Geekbench_5_single_core", "phone_age", "MSRP_USD"), new = c("Action Latency (μs)", "Callback Latency (μs)", "Callback - Action (μs)", "Geekbench 5 Score", "Phone Age (Yrs)", "Cost (MRSP; USD)")) %>%
+pairs.panels(stars = T, lm = T, ci = T, method = "pearson", hist.col = "#00AFBB", density = T, ellipses = F, cex.cor = 3, main = "(B) Device Characteristics and Capacitive Tap Latency Correlations", cex = 2, cex.labels = 1.2, cex.main = 2)
 ```
 
 # OS Comparisons
@@ -426,7 +461,7 @@ summary(aov(Display_refresh_Hz ~ phone_age + OS, data = T2data))
 summary(aov(MSRP_USD ~ phone_age + OS, data = T2data))
 ```
 
-## Table 1
+## Table 2
 ```{r}
 T2data %>% subset(., select = c("OS", "action_latency_us_otlrsrmvd", "tapcallback_latency_us_otlrsrmvd", "tapcallbackActionDiff", "display_latency_us_otlrsrmvd", "dispcallback_latency_us_otlrsrmvd", "dispcallbackActionDiff", "Geekbench_5_single_core", "Touch_refresh_Hz", "Display_refresh_Hz", "phone_age", "MSRP_USD")) %>%
   #na.omit(.) %>%
@@ -446,8 +481,17 @@ T2data %>% subset(., select = c("OS", "action_latency_us_otlrsrmvd", "tapcallbac
               type = c(action_latency_us_otlrsrmvd, tapcallback_latency_us_otlrsrmvd, tapcallbackActionDiff, display_latency_us_otlrsrmvd, dispcallback_latency_us_otlrsrmvd, dispcallbackActionDiff, Geekbench_5_single_core, Touch_refresh_Hz, Display_refresh_Hz, phone_age, MSRP_USD) ~ "continuous",
               statistic = list(all_continuous() ~ "{mean} ({sd})")) %>%
   add_p(test = list(all_continuous() ~ "t.test"), pvalue_fun = ~style_pvalue(.x, digits = 2)) %>%
-  modify_header(label = "** **") %>%
-  modify_caption("**Table 1. OS Differences**") %>%
+  modify_header(label = "") %>%
+  modify_caption("**Table 2. OS Differences**") %>%
   bold_labels()
 ```
+
+
+
+
+
+
+
+
+
 

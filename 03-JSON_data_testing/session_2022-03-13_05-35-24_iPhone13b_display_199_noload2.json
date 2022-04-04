@@ -1,0 +1,3883 @@
+{
+    "calibration": {
+        "displayData": {
+            "maxValue": 37669,
+            "minValue": 97
+        },
+        "displayThreshold": 3854,
+        "type": 1,
+        "typeName": "Calibration"
+    },
+    "clockSync": {
+        "fixture": {
+            "avgTcs": 1521,
+            "offset": 1506,
+            "roundTrips": [
+                {
+                    "localRecv": 1012834,
+                    "localSend": 1010039,
+                    "remote": 1009968
+                },
+                {
+                    "localRecv": 2012870,
+                    "localSend": 2009637,
+                    "remote": 2009843
+                },
+                {
+                    "localRecv": 3012733,
+                    "localSend": 3009830,
+                    "remote": 3009846
+                },
+                {
+                    "localRecv": 4013428,
+                    "localSend": 4010180,
+                    "remote": 4010495
+                },
+                {
+                    "localRecv": 5013845,
+                    "localSend": 5010833,
+                    "remote": 5010737
+                },
+                {
+                    "localRecv": 6012866,
+                    "localSend": 6009515,
+                    "remote": 6009843
+                },
+                {
+                    "localRecv": 7012859,
+                    "localSend": 7009244,
+                    "remote": 7009845
+                },
+                {
+                    "localRecv": 8012900,
+                    "localSend": 8010007,
+                    "remote": 8009872
+                },
+                {
+                    "localRecv": 9013426,
+                    "localSend": 9010420,
+                    "remote": 9010330
+                },
+                {
+                    "localRecv": 10013735,
+                    "localSend": 10010848,
+                    "remote": 10010704
+                },
+                {
+                    "localRecv": 11012902,
+                    "localSend": 11009335,
+                    "remote": 11009845
+                },
+                {
+                    "localRecv": 12013657,
+                    "localSend": 12010447,
+                    "remote": 12010631
+                },
+                {
+                    "localRecv": 13012943,
+                    "localSend": 13009270,
+                    "remote": 13009845
+                },
+                {
+                    "localRecv": 14012810,
+                    "localSend": 14009963,
+                    "remote": 14009843
+                },
+                {
+                    "localRecv": 15012997,
+                    "localSend": 15009325,
+                    "remote": 15009845
+                },
+                {
+                    "localRecv": 16013389,
+                    "localSend": 16010457,
+                    "remote": 16010271
+                },
+                {
+                    "localRecv": 17013819,
+                    "localSend": 17010829,
+                    "remote": 17010650
+                },
+                {
+                    "localRecv": 18013056,
+                    "localSend": 18010204,
+                    "remote": 18009935
+                },
+                {
+                    "localRecv": 19013192,
+                    "localSend": 19009364,
+                    "remote": 19009845
+                },
+                {
+                    "localRecv": 20013888,
+                    "localSend": 20010592,
+                    "remote": 20010649
+                },
+                {
+                    "localRecv": 21013038,
+                    "localSend": 21009369,
+                    "remote": 21009845
+                },
+                {
+                    "localRecv": 22013986,
+                    "localSend": 22010487,
+                    "remote": 22010728
+                },
+                {
+                    "localRecv": 23013377,
+                    "localSend": 23010294,
+                    "remote": 23010078
+                },
+                {
+                    "localRecv": 24013192,
+                    "localSend": 24009341,
+                    "remote": 24009843
+                },
+                {
+                    "localRecv": 25013882,
+                    "localSend": 25010608,
+                    "remote": 25010594
+                },
+                {
+                    "localRecv": 26013236,
+                    "localSend": 26009342,
+                    "remote": 26009843
+                },
+                {
+                    "localRecv": 27013620,
+                    "localSend": 27010724,
+                    "remote": 27010388
+                },
+                {
+                    "localRecv": 28013424,
+                    "localSend": 28010154,
+                    "remote": 28010084
+                },
+                {
+                    "localRecv": 29011868,
+                    "localSend": 29009131,
+                    "remote": 29008535
+                },
+                {
+                    "localRecv": 30013736,
+                    "localSend": 30010226,
+                    "remote": 30010320
+                }
+            ],
+            "stdDevTcs": 174,
+            "t0": 1647149724563923,
+            "t1": 1647149724567179
+        },
+        "mobile": {
+            "avgTcs": 6795,
+            "offset": 6047,
+            "roundTrips": [
+                {
+                    "localRecv": 19016,
+                    "localSend": 3585,
+                    "remote": 3443
+                },
+                {
+                    "localRecv": 29454,
+                    "localSend": 19084,
+                    "remote": 19057
+                },
+                {
+                    "localRecv": 94248,
+                    "localSend": 29506,
+                    "remote": 32070
+                },
+                {
+                    "localRecv": 154817,
+                    "localSend": 94353,
+                    "remote": 94362
+                },
+                {
+                    "localRecv": 190414,
+                    "localSend": 154873,
+                    "remote": 154957
+                },
+                {
+                    "localRecv": 193290,
+                    "localSend": 190470,
+                    "remote": 190340
+                },
+                {
+                    "localRecv": 208329,
+                    "localSend": 193347,
+                    "remote": 193082
+                },
+                {
+                    "localRecv": 257217,
+                    "localSend": 208396,
+                    "remote": 211410
+                },
+                {
+                    "localRecv": 275212,
+                    "localSend": 257435,
+                    "remote": 257174
+                },
+                {
+                    "localRecv": 291135,
+                    "localSend": 275391,
+                    "remote": 275101
+                },
+                {
+                    "localRecv": 362014,
+                    "localSend": 291310,
+                    "remote": 291022
+                },
+                {
+                    "localRecv": 395102,
+                    "localSend": 362229,
+                    "remote": 362055
+                },
+                {
+                    "localRecv": 428813,
+                    "localSend": 395194,
+                    "remote": 394852
+                },
+                {
+                    "localRecv": 465579,
+                    "localSend": 428884,
+                    "remote": 428607
+                },
+                {
+                    "localRecv": 497290,
+                    "localSend": 465803,
+                    "remote": 469487
+                },
+                {
+                    "localRecv": 531827,
+                    "localSend": 497484,
+                    "remote": 497029
+                },
+                {
+                    "localRecv": 566109,
+                    "localSend": 532031,
+                    "remote": 557673
+                },
+                {
+                    "localRecv": 583066,
+                    "localSend": 566179,
+                    "remote": 565598
+                },
+                {
+                    "localRecv": 597362,
+                    "localSend": 583116,
+                    "remote": 584079
+                },
+                {
+                    "localRecv": 600058,
+                    "localSend": 597470,
+                    "remote": 596909
+                },
+                {
+                    "localRecv": 605406,
+                    "localSend": 600141,
+                    "remote": 599497
+                },
+                {
+                    "localRecv": 633186,
+                    "localSend": 605563,
+                    "remote": 615248
+                },
+                {
+                    "localRecv": 646985,
+                    "localSend": 633259,
+                    "remote": 632683
+                },
+                {
+                    "localRecv": 667892,
+                    "localSend": 647059,
+                    "remote": 660602
+                },
+                {
+                    "localRecv": 701858,
+                    "localSend": 667974,
+                    "remote": 667327
+                },
+                {
+                    "localRecv": 705044,
+                    "localSend": 701999,
+                    "remote": 701423
+                },
+                {
+                    "localRecv": 724767,
+                    "localSend": 705199,
+                    "remote": 707616
+                },
+                {
+                    "localRecv": 745359,
+                    "localSend": 724821,
+                    "remote": 733860
+                },
+                {
+                    "localRecv": 775282,
+                    "localSend": 745473,
+                    "remote": 763456
+                },
+                {
+                    "localRecv": 803976,
+                    "localSend": 775355,
+                    "remote": 794607
+                },
+                {
+                    "localRecv": 809977,
+                    "localSend": 804065,
+                    "remote": 803335
+                },
+                {
+                    "localRecv": 814767,
+                    "localSend": 810043,
+                    "remote": 809223
+                },
+                {
+                    "localRecv": 838827,
+                    "localSend": 814827,
+                    "remote": 824029
+                },
+                {
+                    "localRecv": 879311,
+                    "localSend": 838885,
+                    "remote": 838129
+                },
+                {
+                    "localRecv": 903802,
+                    "localSend": 879425,
+                    "remote": 888415
+                },
+                {
+                    "localRecv": 909283,
+                    "localSend": 903986,
+                    "remote": 905810
+                },
+                {
+                    "localRecv": 917266,
+                    "localSend": 909481,
+                    "remote": 908625
+                },
+                {
+                    "localRecv": 961949,
+                    "localSend": 917473,
+                    "remote": 916819
+                },
+                {
+                    "localRecv": 972086,
+                    "localSend": 962131,
+                    "remote": 965241
+                },
+                {
+                    "localRecv": 978142,
+                    "localSend": 972246,
+                    "remote": 974185
+                },
+                {
+                    "localRecv": 992315,
+                    "localSend": 978296,
+                    "remote": 977448
+                },
+                {
+                    "localRecv": 1008328,
+                    "localSend": 992491,
+                    "remote": 997022
+                },
+                {
+                    "localRecv": 1017135,
+                    "localSend": 1008528,
+                    "remote": 1007808
+                },
+                {
+                    "localRecv": 1045243,
+                    "localSend": 1017340,
+                    "remote": 1024285
+                },
+                {
+                    "localRecv": 1077311,
+                    "localSend": 1045455,
+                    "remote": 1053281
+                },
+                {
+                    "localRecv": 1083444,
+                    "localSend": 1077488,
+                    "remote": 1076671
+                },
+                {
+                    "localRecv": 1112378,
+                    "localSend": 1083624,
+                    "remote": 1108926
+                },
+                {
+                    "localRecv": 1120877,
+                    "localSend": 1112565,
+                    "remote": 1111698
+                },
+                {
+                    "localRecv": 1162005,
+                    "localSend": 1121049,
+                    "remote": 1132802
+                },
+                {
+                    "localRecv": 1179648,
+                    "localSend": 1162192,
+                    "remote": 1162725
+                },
+                {
+                    "localRecv": 1186395,
+                    "localSend": 1179839,
+                    "remote": 1179055
+                },
+                {
+                    "localRecv": 1189128,
+                    "localSend": 1186564,
+                    "remote": 1185878
+                },
+                {
+                    "localRecv": 1191568,
+                    "localSend": 1189319,
+                    "remote": 1188418
+                },
+                {
+                    "localRecv": 1193798,
+                    "localSend": 1191766,
+                    "remote": 1190877
+                },
+                {
+                    "localRecv": 1195862,
+                    "localSend": 1193925,
+                    "remote": 1193034
+                },
+                {
+                    "localRecv": 1198286,
+                    "localSend": 1196025,
+                    "remote": 1195192
+                },
+                {
+                    "localRecv": 1214135,
+                    "localSend": 1198463,
+                    "remote": 1197543
+                },
+                {
+                    "localRecv": 1249598,
+                    "localSend": 1214356,
+                    "remote": 1245741
+                },
+                {
+                    "localRecv": 1261077,
+                    "localSend": 1249863,
+                    "remote": 1255983
+                },
+                {
+                    "localRecv": 1314068,
+                    "localSend": 1261253,
+                    "remote": 1282090
+                },
+                {
+                    "localRecv": 1318798,
+                    "localSend": 1314324,
+                    "remote": 1314381
+                },
+                {
+                    "localRecv": 1325087,
+                    "localSend": 1319064,
+                    "remote": 1321734
+                },
+                {
+                    "localRecv": 1335220,
+                    "localSend": 1325353,
+                    "remote": 1324558
+                },
+                {
+                    "localRecv": 1384525,
+                    "localSend": 1335462,
+                    "remote": 1334872
+                },
+                {
+                    "localRecv": 1403681,
+                    "localSend": 1384643,
+                    "remote": 1383976
+                },
+                {
+                    "localRecv": 1415581,
+                    "localSend": 1403771,
+                    "remote": 1406711
+                },
+                {
+                    "localRecv": 1420383,
+                    "localSend": 1415668,
+                    "remote": 1417719
+                },
+                {
+                    "localRecv": 1452293,
+                    "localSend": 1420467,
+                    "remote": 1419845
+                },
+                {
+                    "localRecv": 1473833,
+                    "localSend": 1452454,
+                    "remote": 1451750
+                },
+                {
+                    "localRecv": 1486800,
+                    "localSend": 1473976,
+                    "remote": 1483560
+                },
+                {
+                    "localRecv": 1519288,
+                    "localSend": 1486893,
+                    "remote": 1486035
+                },
+                {
+                    "localRecv": 1523784,
+                    "localSend": 1519421,
+                    "remote": 1518702
+                },
+                {
+                    "localRecv": 1532048,
+                    "localSend": 1524032,
+                    "remote": 1523250
+                },
+                {
+                    "localRecv": 1589469,
+                    "localSend": 1532290,
+                    "remote": 1550707
+                },
+                {
+                    "localRecv": 1606135,
+                    "localSend": 1589687,
+                    "remote": 1588962
+                },
+                {
+                    "localRecv": 1623523,
+                    "localSend": 1606360,
+                    "remote": 1614504
+                },
+                {
+                    "localRecv": 1626202,
+                    "localSend": 1623736,
+                    "remote": 1622993
+                },
+                {
+                    "localRecv": 1631756,
+                    "localSend": 1626355,
+                    "remote": 1628402
+                },
+                {
+                    "localRecv": 1636289,
+                    "localSend": 1631861,
+                    "remote": 1630983
+                },
+                {
+                    "localRecv": 1655175,
+                    "localSend": 1636360,
+                    "remote": 1645824
+                }
+            ],
+            "stdDevTcs": 8740,
+            "t0": 1647149724645952,
+            "t1": 1647149724649440
+        },
+        "type": 2,
+        "typeName": "Clock Sync"
+    },
+    "description": "",
+    "fixture": {
+        "id": "0001",
+        "metadata": {
+        },
+        "name": "Puck B1",
+        "occupied": false,
+        "type": "Puck"
+    },
+    "id": 1,
+    "mobile": {
+        "id": "",
+        "metadata": {
+            "app": {
+                "launcherName": "LaTAR iOS",
+                "packageName": "com.healthyMedium.LaTAR-iOS",
+                "versionCode": "1",
+                "versionName": "1.0.3"
+            },
+            "hardware": {
+                "brand": "Apple",
+                "id": "",
+                "manufacturer": "Apple",
+                "model": "iPhone14,5",
+                "name": "iPhone14_5b"
+            },
+            "os": {
+                "name": "iOS",
+                "release": "15.2",
+                "sdk": "",
+                "securityPatch": ""
+            }
+        },
+        "name": "iPhone14_5b",
+        "occupied": false,
+        "type": "iOS"
+    },
+    "objectives": [
+        {
+            "data": [
+                {
+                    "callbackTime": 37424939,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 37424965,
+                    "index": 0,
+                    "source": "mobile"
+                },
+                {
+                    "callbackTime": 37623937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 37623956,
+                    "index": 1,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 37775591,
+                    "index": 1,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 37822939,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 37822961,
+                    "index": 2,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 37972711,
+                    "index": 2,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 38021938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 38021957,
+                    "index": 3,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 38187751,
+                    "index": 3,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 38220958,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 38220972,
+                    "index": 4,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 38366951,
+                    "index": 4,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 38419936,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 38419956,
+                    "index": 5,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 38581991,
+                    "index": 5,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 38618941,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 38618965,
+                    "index": 6,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 38761191,
+                    "index": 6,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 38817937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 38817955,
+                    "index": 7,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 38976231,
+                    "index": 7,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 39016938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 39016985,
+                    "index": 8,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 39173351,
+                    "index": 8,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 39215936,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 39215952,
+                    "index": 9,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 39370471,
+                    "index": 9,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 39414939,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 39415001,
+                    "index": 10,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 39549671,
+                    "index": 10,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "detectTime": 39764710,
+                    "index": 11,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 39613939,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 39613997,
+                    "index": 11,
+                    "source": "mobile"
+                },
+                {
+                    "callbackTime": 39812935,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 39812950,
+                    "index": 12,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 39943911,
+                    "index": 12,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 40011940,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 40011986,
+                    "index": 13,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 40158951,
+                    "index": 13,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 40211007,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 40211021,
+                    "index": 14,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 40356071,
+                    "index": 14,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 40409941,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 40409961,
+                    "index": 15,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 40571111,
+                    "index": 15,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 40608938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 40608953,
+                    "index": 16,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 40750311,
+                    "index": 16,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 40807938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 40807988,
+                    "index": 17,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 40965351,
+                    "index": 17,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 41006937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 41006952,
+                    "index": 18,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 41144551,
+                    "index": 18,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 41205938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 41205951,
+                    "index": 19,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 41359591,
+                    "index": 19,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 41404937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 41404988,
+                    "index": 20,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 41556711,
+                    "index": 20,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 41603938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 41603954,
+                    "index": 21,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 41771751,
+                    "index": 21,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 41802938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 41802989,
+                    "index": 22,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 41950951,
+                    "index": 22,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 42001937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 42001954,
+                    "index": 23,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 42165991,
+                    "index": 23,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 42200937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 42200994,
+                    "index": 24,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 42327272,
+                    "index": 24,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 42399940,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 42399956,
+                    "index": 25,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 42542311,
+                    "index": 25,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 42598938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 42598957,
+                    "index": 26,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 42739431,
+                    "index": 26,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 42797939,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 42797954,
+                    "index": 27,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 42954471,
+                    "index": 27,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 42996939,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 42996952,
+                    "index": 28,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 43133671,
+                    "index": 28,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 43196005,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 43196018,
+                    "index": 29,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 43348711,
+                    "index": 29,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 43394941,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 43394956,
+                    "index": 30,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 43527911,
+                    "index": 30,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 43593938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 43593954,
+                    "index": 31,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 43742951,
+                    "index": 31,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 43792938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 43792958,
+                    "index": 32,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 43940071,
+                    "index": 32,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 43991938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 43991954,
+                    "index": 33,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 44155111,
+                    "index": 33,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 44190951,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 44190967,
+                    "index": 34,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 44334311,
+                    "index": 34,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 44389936,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 44389949,
+                    "index": 35,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 44549351,
+                    "index": 35,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 44588959,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 44589009,
+                    "index": 36,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 44728551,
+                    "index": 36,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 44787938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 44787984,
+                    "index": 37,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 44943591,
+                    "index": 37,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 44986939,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 44986959,
+                    "index": 38,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 45140712,
+                    "index": 38,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 45185937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 45185952,
+                    "index": 39,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 45337831,
+                    "index": 39,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 45384937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 45384952,
+                    "index": 40,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 45517033,
+                    "index": 40,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 45583938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 45583954,
+                    "index": 41,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 45732071,
+                    "index": 41,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 45782937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 45782956,
+                    "index": 42,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 45929191,
+                    "index": 42,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 45982007,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 45982019,
+                    "index": 43,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 46144231,
+                    "index": 43,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 46180938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 46180953,
+                    "index": 44,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 46323431,
+                    "index": 44,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 46379948,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 46379962,
+                    "index": 45,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 46538471,
+                    "index": 45,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 46578937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 46578953,
+                    "index": 46,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 46717671,
+                    "index": 46,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 46777937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 46777949,
+                    "index": 47,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 46932711,
+                    "index": 47,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 46976937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 46976952,
+                    "index": 48,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 47129831,
+                    "index": 48,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 47175946,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 47175961,
+                    "index": 49,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 47344872,
+                    "index": 49,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 47374936,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 47374949,
+                    "index": 50,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 47524071,
+                    "index": 50,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 47573948,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 47573961,
+                    "index": 51,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 47739111,
+                    "index": 51,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 47772938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 47772989,
+                    "index": 52,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 47918311,
+                    "index": 52,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 47971937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 47971951,
+                    "index": 53,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 48133351,
+                    "index": 53,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 48170938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 48170951,
+                    "index": 54,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 48312551,
+                    "index": 54,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 48369936,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 48369951,
+                    "index": 55,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 48527591,
+                    "index": 55,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 48568937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 48568952,
+                    "index": 56,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 48706791,
+                    "index": 56,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 48767957,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 48767971,
+                    "index": 57,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 48921831,
+                    "index": 57,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 48967007,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 48967021,
+                    "index": 58,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 49101031,
+                    "index": 58,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 49165937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 49165954,
+                    "index": 59,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 49316071,
+                    "index": 59,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 49364937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 49364952,
+                    "index": 60,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 49513191,
+                    "index": 60,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 49563937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 49563953,
+                    "index": 61,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 49728231,
+                    "index": 61,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 49762940,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 49762953,
+                    "index": 62,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 49907431,
+                    "index": 62,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 49961938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 49961952,
+                    "index": 63,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 50122471,
+                    "index": 63,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 50160937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 50160952,
+                    "index": 64,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 50301671,
+                    "index": 64,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 50359938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 50359952,
+                    "index": 65,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 50516711,
+                    "index": 65,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 50558938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 50558952,
+                    "index": 66,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 50713831,
+                    "index": 66,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 50757937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 50757987,
+                    "index": 67,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 50928871,
+                    "index": 67,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 50956994,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 50957011,
+                    "index": 68,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 51108071,
+                    "index": 68,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 51155935,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 51155949,
+                    "index": 69,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 51305191,
+                    "index": 69,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 51354941,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 51354953,
+                    "index": 70,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 51484391,
+                    "index": 70,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 51553936,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 51553951,
+                    "index": 71,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 51699431,
+                    "index": 71,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 51752940,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 51752953,
+                    "index": 72,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 51896551,
+                    "index": 72,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 51952006,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 51952020,
+                    "index": 73,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 52111591,
+                    "index": 73,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 52150987,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 52151004,
+                    "index": 74,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 52290791,
+                    "index": 74,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 52350124,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 52350140,
+                    "index": 75,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 52505831,
+                    "index": 75,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 52549137,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 52549153,
+                    "index": 76,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 52685031,
+                    "index": 76,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 52747939,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 52747951,
+                    "index": 77,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 52900071,
+                    "index": 77,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "detectTime": 53097191,
+                    "index": 78,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 52946937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 52946953,
+                    "index": 78,
+                    "source": "mobile"
+                },
+                {
+                    "callbackTime": 53145940,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 53145954,
+                    "index": 79,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 53312231,
+                    "index": 79,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 53344940,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 53344984,
+                    "index": 80,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 53491431,
+                    "index": 80,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 53543937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 53543952,
+                    "index": 81,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 53706471,
+                    "index": 81,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 53742940,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 53742956,
+                    "index": 82,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 53885671,
+                    "index": 82,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 53941937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 53941950,
+                    "index": 83,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 54082792,
+                    "index": 83,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 54140939,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 54140952,
+                    "index": 84,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 54279911,
+                    "index": 84,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 54339938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 54339951,
+                    "index": 85,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 54494951,
+                    "index": 85,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 54538940,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 54538953,
+                    "index": 86,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 54674151,
+                    "index": 86,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 54737972,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 54737986,
+                    "index": 87,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 54889191,
+                    "index": 87,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 54937006,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 54937021,
+                    "index": 88,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 55086311,
+                    "index": 88,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 55135937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 55135954,
+                    "index": 89,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 55283431,
+                    "index": 89,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 55334937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 55334955,
+                    "index": 90,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 55480551,
+                    "index": 90,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 55533939,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 55533957,
+                    "index": 91,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 55695591,
+                    "index": 91,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 55732940,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 55732952,
+                    "index": 92,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 55874791,
+                    "index": 92,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 55931939,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 55931954,
+                    "index": 93,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 56089831,
+                    "index": 93,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 56130938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 56130953,
+                    "index": 94,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 56286952,
+                    "index": 94,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 56329937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 56329951,
+                    "index": 95,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 56484071,
+                    "index": 95,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 56528938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 56528952,
+                    "index": 96,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 56681191,
+                    "index": 96,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 56727938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 56727952,
+                    "index": 97,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 56896232,
+                    "index": 97,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 56926949,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 56926961,
+                    "index": 98,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 57057511,
+                    "index": 98,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 57125940,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 57125954,
+                    "index": 99,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 57272553,
+                    "index": 99,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 57324940,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 57324956,
+                    "index": 100,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 57469671,
+                    "index": 100,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                }
+            ],
+            "dataPreprocessed": [
+                {
+                    "callbackTime": 37623937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 37623956,
+                    "index": 0,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 37775591,
+                    "index": 0,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 37822939,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 37822961,
+                    "index": 1,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 37972711,
+                    "index": 1,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 38021938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 38021957,
+                    "index": 2,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 38187751,
+                    "index": 2,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 38220958,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 38220972,
+                    "index": 3,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 38366951,
+                    "index": 3,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 38419936,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 38419956,
+                    "index": 4,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 38581991,
+                    "index": 4,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 38618941,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 38618965,
+                    "index": 5,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 38761191,
+                    "index": 5,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 38817937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 38817955,
+                    "index": 6,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 38976231,
+                    "index": 6,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 39016938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 39016985,
+                    "index": 7,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 39173351,
+                    "index": 7,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 39215936,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 39215952,
+                    "index": 8,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 39370471,
+                    "index": 8,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 39414939,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 39415001,
+                    "index": 9,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 39549671,
+                    "index": 9,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 39613939,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 39613997,
+                    "index": 10,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 39764710,
+                    "index": 10,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 39812935,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 39812950,
+                    "index": 11,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 39943911,
+                    "index": 11,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 40011940,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 40011986,
+                    "index": 12,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 40158951,
+                    "index": 12,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 40211007,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 40211021,
+                    "index": 13,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 40356071,
+                    "index": 13,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 40409941,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 40409961,
+                    "index": 14,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 40571111,
+                    "index": 14,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 40608938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 40608953,
+                    "index": 15,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 40750311,
+                    "index": 15,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 40807938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 40807988,
+                    "index": 16,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 40965351,
+                    "index": 16,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 41006937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 41006952,
+                    "index": 17,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 41144551,
+                    "index": 17,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 41205938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 41205951,
+                    "index": 18,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 41359591,
+                    "index": 18,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 41404937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 41404988,
+                    "index": 19,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 41556711,
+                    "index": 19,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 41603938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 41603954,
+                    "index": 20,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 41771751,
+                    "index": 20,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 41802938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 41802989,
+                    "index": 21,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 41950951,
+                    "index": 21,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 42001937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 42001954,
+                    "index": 22,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 42165991,
+                    "index": 22,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 42200937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 42200994,
+                    "index": 23,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 42327272,
+                    "index": 23,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 42399940,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 42399956,
+                    "index": 24,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 42542311,
+                    "index": 24,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 42598938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 42598957,
+                    "index": 25,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 42739431,
+                    "index": 25,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 42797939,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 42797954,
+                    "index": 26,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 42954471,
+                    "index": 26,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 42996939,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 42996952,
+                    "index": 27,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 43133671,
+                    "index": 27,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 43196005,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 43196018,
+                    "index": 28,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 43348711,
+                    "index": 28,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 43394941,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 43394956,
+                    "index": 29,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 43527911,
+                    "index": 29,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 43593938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 43593954,
+                    "index": 30,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 43742951,
+                    "index": 30,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 43792938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 43792958,
+                    "index": 31,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 43940071,
+                    "index": 31,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 43991938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 43991954,
+                    "index": 32,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 44155111,
+                    "index": 32,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 44190951,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 44190967,
+                    "index": 33,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 44334311,
+                    "index": 33,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 44389936,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 44389949,
+                    "index": 34,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 44549351,
+                    "index": 34,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 44588959,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 44589009,
+                    "index": 35,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 44728551,
+                    "index": 35,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 44787938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 44787984,
+                    "index": 36,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 44943591,
+                    "index": 36,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 44986939,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 44986959,
+                    "index": 37,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 45140712,
+                    "index": 37,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 45185937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 45185952,
+                    "index": 38,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 45337831,
+                    "index": 38,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 45384937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 45384952,
+                    "index": 39,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 45517033,
+                    "index": 39,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 45583938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 45583954,
+                    "index": 40,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 45732071,
+                    "index": 40,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 45782937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 45782956,
+                    "index": 41,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 45929191,
+                    "index": 41,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 45982007,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 45982019,
+                    "index": 42,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 46144231,
+                    "index": 42,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 46180938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 46180953,
+                    "index": 43,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 46323431,
+                    "index": 43,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 46379948,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 46379962,
+                    "index": 44,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 46538471,
+                    "index": 44,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 46578937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 46578953,
+                    "index": 45,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 46717671,
+                    "index": 45,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 46777937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 46777949,
+                    "index": 46,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 46932711,
+                    "index": 46,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 46976937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 46976952,
+                    "index": 47,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 47129831,
+                    "index": 47,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 47175946,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 47175961,
+                    "index": 48,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 47344872,
+                    "index": 48,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 47374936,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 47374949,
+                    "index": 49,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 47524071,
+                    "index": 49,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 47573948,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 47573961,
+                    "index": 50,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 47739111,
+                    "index": 50,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 47772938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 47772989,
+                    "index": 51,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 47918311,
+                    "index": 51,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 47971937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 47971951,
+                    "index": 52,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 48133351,
+                    "index": 52,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 48170938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 48170951,
+                    "index": 53,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 48312551,
+                    "index": 53,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 48369936,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 48369951,
+                    "index": 54,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 48527591,
+                    "index": 54,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 48568937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 48568952,
+                    "index": 55,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 48706791,
+                    "index": 55,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 48767957,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 48767971,
+                    "index": 56,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 48921831,
+                    "index": 56,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 48967007,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 48967021,
+                    "index": 57,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 49101031,
+                    "index": 57,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 49165937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 49165954,
+                    "index": 58,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 49316071,
+                    "index": 58,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 49364937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 49364952,
+                    "index": 59,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 49513191,
+                    "index": 59,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 49563937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 49563953,
+                    "index": 60,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 49728231,
+                    "index": 60,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 49762940,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 49762953,
+                    "index": 61,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 49907431,
+                    "index": 61,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 49961938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 49961952,
+                    "index": 62,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 50122471,
+                    "index": 62,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 50160937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 50160952,
+                    "index": 63,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 50301671,
+                    "index": 63,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 50359938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 50359952,
+                    "index": 64,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 50516711,
+                    "index": 64,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 50558938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 50558952,
+                    "index": 65,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 50713831,
+                    "index": 65,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 50757937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 50757987,
+                    "index": 66,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 50928871,
+                    "index": 66,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 50956994,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 50957011,
+                    "index": 67,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 51108071,
+                    "index": 67,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 51155935,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 51155949,
+                    "index": 68,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 51305191,
+                    "index": 68,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 51354941,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 51354953,
+                    "index": 69,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 51484391,
+                    "index": 69,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 51553936,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 51553951,
+                    "index": 70,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 51699431,
+                    "index": 70,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 51752940,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 51752953,
+                    "index": 71,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 51896551,
+                    "index": 71,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 51952006,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 51952020,
+                    "index": 72,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 52111591,
+                    "index": 72,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 52150987,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 52151004,
+                    "index": 73,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 52290791,
+                    "index": 73,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 52350124,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 52350140,
+                    "index": 74,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 52505831,
+                    "index": 74,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 52549137,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 52549153,
+                    "index": 75,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 52685031,
+                    "index": 75,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 52747939,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 52747951,
+                    "index": 76,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 52900071,
+                    "index": 76,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 52946937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 52946953,
+                    "index": 77,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 53097191,
+                    "index": 77,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 53145940,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 53145954,
+                    "index": 78,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 53312231,
+                    "index": 78,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 53344940,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 53344984,
+                    "index": 79,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 53491431,
+                    "index": 79,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 53543937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 53543952,
+                    "index": 80,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 53706471,
+                    "index": 80,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 53742940,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 53742956,
+                    "index": 81,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 53885671,
+                    "index": 81,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 53941937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 53941950,
+                    "index": 82,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 54082792,
+                    "index": 82,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 54140939,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 54140952,
+                    "index": 83,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 54279911,
+                    "index": 83,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 54339938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 54339951,
+                    "index": 84,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 54494951,
+                    "index": 84,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 54538940,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 54538953,
+                    "index": 85,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 54674151,
+                    "index": 85,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 54737972,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 54737986,
+                    "index": 86,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 54889191,
+                    "index": 86,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 54937006,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 54937021,
+                    "index": 87,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 55086311,
+                    "index": 87,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 55135937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 55135954,
+                    "index": 88,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 55283431,
+                    "index": 88,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 55334937,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 55334955,
+                    "index": 89,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 55480551,
+                    "index": 89,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 55533939,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 55533957,
+                    "index": 90,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 55695591,
+                    "index": 90,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 55732940,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 55732952,
+                    "index": 91,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 55874791,
+                    "index": 91,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 55931939,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 55931954,
+                    "index": 92,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 56089831,
+                    "index": 92,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 56130938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 56130953,
+                    "index": 93,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 56286952,
+                    "index": 93,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 56329937,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 56329951,
+                    "index": 94,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 56484071,
+                    "index": 94,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 56528938,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 56528952,
+                    "index": 95,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 56681191,
+                    "index": 95,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 56727938,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 56727952,
+                    "index": 96,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 56896232,
+                    "index": 96,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 56926949,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 56926961,
+                    "index": 97,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 57057511,
+                    "index": 97,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                },
+                {
+                    "callbackTime": 57125940,
+                    "color": 0,
+                    "colorName": "BLACK",
+                    "displayTime": 57125954,
+                    "index": 98,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 57272553,
+                    "index": 98,
+                    "source": "fixture",
+                    "value": "DARK"
+                },
+                {
+                    "callbackTime": 57324940,
+                    "color": 1,
+                    "colorName": "WHITE",
+                    "displayTime": 57324956,
+                    "index": 99,
+                    "source": "mobile"
+                },
+                {
+                    "detectTime": 57469671,
+                    "index": 99,
+                    "source": "fixture",
+                    "value": "LIGHT"
+                }
+            ],
+            "loadResults": {
+                "avg": 0,
+                "count": 0,
+                "max": 0,
+                "min": 0,
+                "stddeviation": 0,
+                "sum": 0,
+                "threadCount": 0,
+                "threads": [
+                ],
+                "variance": 0
+            },
+            "notes": [
+                "preprocessing found 1 missing fixture entry",
+                "preprocessing discarded 1 mobile entry",
+                "results processing found 100 valid entries"
+            ],
+            "parameters": {
+                "count": 100,
+                "interval": 199,
+                "load": "",
+                "loadMinInterval": 0,
+                "loadThreadCount": 0
+            },
+            "results": [
+                {
+                    "index": 0,
+                    "latency": 74147
+                },
+                {
+                    "index": 1,
+                    "latency": 72262
+                },
+                {
+                    "index": 2,
+                    "latency": 88306
+                },
+                {
+                    "index": 3,
+                    "latency": 68491
+                },
+                {
+                    "index": 4,
+                    "latency": 84547
+                },
+                {
+                    "index": 5,
+                    "latency": 64738
+                },
+                {
+                    "index": 6,
+                    "latency": 80788
+                },
+                {
+                    "index": 7,
+                    "latency": 78878
+                },
+                {
+                    "index": 8,
+                    "latency": 77031
+                },
+                {
+                    "index": 9,
+                    "latency": 57182
+                },
+                {
+                    "index": 10,
+                    "latency": 73225
+                },
+                {
+                    "index": 11,
+                    "latency": 53473
+                },
+                {
+                    "index": 12,
+                    "latency": 69477
+                },
+                {
+                    "index": 13,
+                    "latency": 67562
+                },
+                {
+                    "index": 14,
+                    "latency": 83662
+                },
+                {
+                    "index": 15,
+                    "latency": 63870
+                },
+                {
+                    "index": 16,
+                    "latency": 79875
+                },
+                {
+                    "index": 17,
+                    "latency": 60111
+                },
+                {
+                    "index": 18,
+                    "latency": 76152
+                },
+                {
+                    "index": 19,
+                    "latency": 74235
+                },
+                {
+                    "index": 20,
+                    "latency": 90309
+                },
+                {
+                    "index": 21,
+                    "latency": 70474
+                },
+                {
+                    "index": 22,
+                    "latency": 86549
+                },
+                {
+                    "index": 23,
+                    "latency": 48790
+                },
+                {
+                    "index": 24,
+                    "latency": 64867
+                },
+                {
+                    "index": 25,
+                    "latency": 62986
+                },
+                {
+                    "index": 26,
+                    "latency": 79029
+                },
+                {
+                    "index": 27,
+                    "latency": 59231
+                },
+                {
+                    "index": 28,
+                    "latency": 75205
+                },
+                {
+                    "index": 29,
+                    "latency": 55467
+                },
+                {
+                    "index": 30,
+                    "latency": 71509
+                },
+                {
+                    "index": 31,
+                    "latency": 69625
+                },
+                {
+                    "index": 32,
+                    "latency": 85669
+                },
+                {
+                    "index": 33,
+                    "latency": 65856
+                },
+                {
+                    "index": 34,
+                    "latency": 81914
+                },
+                {
+                    "index": 35,
+                    "latency": 62054
+                },
+                {
+                    "index": 36,
+                    "latency": 78119
+                },
+                {
+                    "index": 37,
+                    "latency": 76265
+                },
+                {
+                    "index": 38,
+                    "latency": 74391
+                },
+                {
+                    "index": 39,
+                    "latency": 54593
+                },
+                {
+                    "index": 40,
+                    "latency": 70629
+                },
+                {
+                    "index": 41,
+                    "latency": 68747
+                },
+                {
+                    "index": 42,
+                    "latency": 84724
+                },
+                {
+                    "index": 43,
+                    "latency": 64990
+                },
+                {
+                    "index": 44,
+                    "latency": 81021
+                },
+                {
+                    "index": 45,
+                    "latency": 61230
+                },
+                {
+                    "index": 46,
+                    "latency": 77274
+                },
+                {
+                    "index": 47,
+                    "latency": 75391
+                },
+                {
+                    "index": 48,
+                    "latency": 91423
+                },
+                {
+                    "index": 49,
+                    "latency": 71634
+                },
+                {
+                    "index": 50,
+                    "latency": 87662
+                },
+                {
+                    "index": 51,
+                    "latency": 67834
+                },
+                {
+                    "index": 52,
+                    "latency": 83912
+                },
+                {
+                    "index": 53,
+                    "latency": 64112
+                },
+                {
+                    "index": 54,
+                    "latency": 80152
+                },
+                {
+                    "index": 55,
+                    "latency": 60351
+                },
+                {
+                    "index": 56,
+                    "latency": 76372
+                },
+                {
+                    "index": 57,
+                    "latency": 56522
+                },
+                {
+                    "index": 58,
+                    "latency": 72629
+                },
+                {
+                    "index": 59,
+                    "latency": 70751
+                },
+                {
+                    "index": 60,
+                    "latency": 86790
+                },
+                {
+                    "index": 61,
+                    "latency": 66990
+                },
+                {
+                    "index": 62,
+                    "latency": 83031
+                },
+                {
+                    "index": 63,
+                    "latency": 63231
+                },
+                {
+                    "index": 64,
+                    "latency": 79271
+                },
+                {
+                    "index": 65,
+                    "latency": 77391
+                },
+                {
+                    "index": 66,
+                    "latency": 93396
+                },
+                {
+                    "index": 67,
+                    "latency": 73572
+                },
+                {
+                    "index": 68,
+                    "latency": 71754
+                },
+                {
+                    "index": 69,
+                    "latency": 51950
+                },
+                {
+                    "index": 70,
+                    "latency": 67992
+                },
+                {
+                    "index": 71,
+                    "latency": 66110
+                },
+                {
+                    "index": 72,
+                    "latency": 82083
+                },
+                {
+                    "index": 73,
+                    "latency": 62299
+                },
+                {
+                    "index": 74,
+                    "latency": 78203
+                },
+                {
+                    "index": 75,
+                    "latency": 58390
+                },
+                {
+                    "index": 76,
+                    "latency": 74632
+                },
+                {
+                    "index": 77,
+                    "latency": 72750
+                },
+                {
+                    "index": 78,
+                    "latency": 88789
+                },
+                {
+                    "index": 79,
+                    "latency": 68959
+                },
+                {
+                    "index": 80,
+                    "latency": 85031
+                },
+                {
+                    "index": 81,
+                    "latency": 65227
+                },
+                {
+                    "index": 82,
+                    "latency": 63354
+                },
+                {
+                    "index": 83,
+                    "latency": 61471
+                },
+                {
+                    "index": 84,
+                    "latency": 77512
+                },
+                {
+                    "index": 85,
+                    "latency": 57710
+                },
+                {
+                    "index": 86,
+                    "latency": 73717
+                },
+                {
+                    "index": 87,
+                    "latency": 71802
+                },
+                {
+                    "index": 88,
+                    "latency": 69989
+                },
+                {
+                    "index": 89,
+                    "latency": 68108
+                },
+                {
+                    "index": 90,
+                    "latency": 84146
+                },
+                {
+                    "index": 91,
+                    "latency": 64351
+                },
+                {
+                    "index": 92,
+                    "latency": 80389
+                },
+                {
+                    "index": 93,
+                    "latency": 78511
+                },
+                {
+                    "index": 94,
+                    "latency": 76632
+                },
+                {
+                    "index": 95,
+                    "latency": 74751
+                },
+                {
+                    "index": 96,
+                    "latency": 90792
+                },
+                {
+                    "index": 97,
+                    "latency": 53062
+                },
+                {
+                    "index": 98,
+                    "latency": 69111
+                },
+                {
+                    "index": 99,
+                    "latency": 67227
+                }
+            ],
+            "type": 4,
+            "typeName": "Display Latency"
+        }
+    ],
+    "procedure": {
+        "id": 50,
+        "name": "Display_199_noload",
+        "objectives": [
+            {
+                "parameters": {
+                    "count": 100,
+                    "interval": 199,
+                    "load": "",
+                    "loadMinInterval": 0,
+                    "loadThreadCount": 0
+                },
+                "type": 4,
+                "typeName": "Display Latency"
+            }
+        ]
+    },
+    "startTime": "2022-03-13T05:35:24.562Z",
+    "stopTime": "2022-03-13T05:36:25.524Z"
+}
