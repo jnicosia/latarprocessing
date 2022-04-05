@@ -221,6 +221,10 @@ displaydata1_noload_199 <- full_join(displaydata1_noload_199, phonedata)
 displaydata1_noload_199_box <- subset(displaydata1_noload_199, select = c("index_fixture", "Model", "load", "procedure", "display_latency_us_otlrsrmvd", "callback_latency_us_otlrsrmvd" , "OS_binary", "Geekbench_5_single_core", "Geekbench_5_multiple_core", "Touch_refresh_Hz", "Display_refresh_Hz", "Clockspeed_GHz", "MSRP_USD", "ReleaseYr")) %>%
   gather(., latencyType, microseconds, display_latency_us_otlrsrmvd:callback_latency_us_otlrsrmvd)
 
+displaydata1_noload_199_box$latencyType <- factor(displaydata1_noload_199_box$latencyType, levels = c("display_latency_us_otlrsrmvd", "callback_latency_us_otlrsrmvd"))
+
+displaydata1_noload_199_box$Model <- factor(displaydata1_noload_199_box$Model, levels = c("LG Journey", "Motorola moto g stylus", "Google Pixel 3a", "Google Pixel 5a", "Google Pixel 6", "Google Pixel 6 Pro", "Samsung A01", "Samsung A30", "Samsung A32", "Samsung A51", "Samsung A52", "Samsung Galaxy S9", "Samsung Galaxy S10", "Samsung Galaxy S20", "Samsung Galaxy S21", "Samsung Galaxy Note9", "Samsung Galaxy Note10", "Samsung Galaxy Note20", "iPhone 7", "iPhone X", "iPhone XS", "iPhone XR", "iPhone 11", "iPhone 12", "iPhone SE (2020)", "iPhone 13"))
+
 ggplot(displaydata1_noload_199_box, aes(x = Model, y = microseconds, color = Model, fill = Model))  +
   geom_boxplot(aes(alpha = latencyType)) +
   scale_alpha_manual(values = c(0.6, 0.2), guide = F) +
@@ -238,6 +242,10 @@ capacitivedata1_noload_199 <- full_join(capacitivedata1_noload_199, phonedata)
 
 capacitivedata1_noload_199_box <- subset(capacitivedata1_noload_199, select = c("index_fixture", "Model", "load", "procedure", "action_latency_us_otlrsrmvd", "callback_latency_us_otlrsrmvd" , "OS_binary", "Geekbench_5_single_core", "Geekbench_5_multiple_core", "Touch_refresh_Hz", "Display_refresh_Hz", "Clockspeed_GHz", "MSRP_USD", "ReleaseYr")) %>%
   gather(., latencyType, microseconds, action_latency_us_otlrsrmvd:callback_latency_us_otlrsrmvd)
+
+capacitivedata1_noload_199_box$latencyType <- factor(capacitivedata1_noload_199_box$latencyType, levels = c("action_latency_us_otlrsrmvd", "callback_latency_us_otlrsrmvd"))
+
+capacitivedata1_noload_199_box$Model <- factor(capacitivedata1_noload_199_box$Model, levels = c("LG Journey", "Motorola moto g stylus", "Google Pixel 3a", "Google Pixel 5a", "Google Pixel 6", "Google Pixel 6 Pro", "Samsung A01", "Samsung A30", "Samsung A32", "Samsung A51", "Samsung A52", "Samsung Galaxy S9", "Samsung Galaxy S10", "Samsung Galaxy S20", "Samsung Galaxy S21", "Samsung Galaxy Note9", "Samsung Galaxy Note10", "Samsung Galaxy Note20", "iPhone 7", "iPhone X", "iPhone XS", "iPhone XR", "iPhone 11", "iPhone 12", "iPhone SE (2020)", "iPhone 13"))
 
 ggplot(capacitivedata1_noload_199_box, aes(x = Model, y = microseconds, color = Model, fill = Model)) + 
   geom_boxplot(aes(alpha = latencyType)) +
