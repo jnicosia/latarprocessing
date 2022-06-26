@@ -35,6 +35,7 @@ library(ez)
 library(directlabels)
 library(tidyverse)
 library(skimr)
+library(lsr)
 library(dplyr)
 ```
 
@@ -171,7 +172,7 @@ ggplot(capacitivedata1_noload, aes(x = index_fixture, y = action_latency_us_otlr
         strip.background = element_blank())
 ```
 
-## Figure 2 A/B
+## Figure 4 A/B
 ```{r}
 # exemplar (Samsung SM-G960U/iPhone12_1 (120Hz example))
 displaydata1_noload_exemplar <- subset(displaydata1_noload, phone_model == "iPhone12_1" & procedure == "199")
@@ -211,7 +212,7 @@ ggplot(capacitivedata1_noload_exemplar, aes(x = index_fixture, y = action_latenc
 ```
 
 # Box Plots
-## Figure 3 A/B
+## Figure 5 A/B
 ```{r}
 # display
 displaydata1_noload_199 <- subset(displaydata1_noload, procedure == "199")
@@ -277,11 +278,15 @@ summary(aov(microseconds ~ Model*latencyType, data = displaydata1_noload_199_box
 
 ## action
 displaydata1_noload_199_box_action <- subset(displaydata1_noload_199_box, latencyType == "display_latency_us_otlrsrmvd")
-summary(aov(microseconds ~ Model, data = displaydata1_noload_199_box_action))
+dispactionanova <- aov(microseconds ~ Model, data = displaydata1_noload_199_box_action)
+summary(dispactionanova)
+etaSquared(dispactionanova)
 
 # call back
 displaydata1_noload_199_box_callback <- subset(displaydata1_noload_199_box, latencyType == "callback_latency_us_otlrsrmvd")
-summary(aov(microseconds ~ Model, data = displaydata1_noload_199_box_callback))
+dispcallanova <- aov(microseconds ~ Model, data = displaydata1_noload_199_box_callback)
+summary(dispcallanova)
+etaSquared(dispcallanova)
 
 # capacitive
 capacitivedata1_noload_199_box_agg <- capacitivedata1_noload_199_box %>%
@@ -295,15 +300,21 @@ pander(summarySE(data = capacitivedata1_noload_199_box_agg,
                  .drop = TRUE,
                  na.rm = T))
 
-summary(aov(microseconds ~ Model*latencyType, data = capacitivedata1_noload_199_box))
+capfullanova <- aov(microseconds ~ Model*latencyType, data = capacitivedata1_noload_199_box)
+summary(capfullanova)
+etaSquared(capfullanova)
 
 ## action
 capacitivedata1_noload_199_box_action <- subset(capacitivedata1_noload_199_box, latencyType == "action_latency_us_otlrsrmvd")
-summary(aov(microseconds ~ Model, data = capacitivedata1_noload_199_box_action))
+capactionanova <- aov(microseconds ~ Model, data = capacitivedata1_noload_199_box_action)
+summary(capactionanova)
+etaSquared(capactionanova)
 
 # call back
 capacitivedata1_noload_199_box_callback <- subset(capacitivedata1_noload_199_box, latencyType == "callback_latency_us_otlrsrmvd")
-summary(aov(microseconds ~ Model, data = capacitivedata1_noload_199_box_callback))
+capcallanova <- aov(microseconds ~ Model, data = capacitivedata1_noload_199_box_callback)
+summary(capcallanova)
+etaSquared(capcallanova)
 ```
 
 ## Bounds
@@ -375,7 +386,7 @@ summedQ3 <- tapquantiles[4] + displayquantiles[4]
 ```
 
 # Device Characteristics
-## Figures 4 A/B (Correlations)
+## Figures 6 A/B (Correlations)
 ```{r}
 currDate <- "04/02/2022"
 
@@ -399,7 +410,7 @@ displaydatafull_agg <- displaydatafull %>%
 
 displaydatafull_agg %>% subset(., select = c(display_latency_us_otlrsrmvd, callback_latency_us_otlrsrmvd, callbackActionDiff, Geekbench_5_single_core, phone_age, MSRP_USD)) %>%
   setnames(., old = c("display_latency_us_otlrsrmvd", "callback_latency_us_otlrsrmvd", "callbackActionDiff", "Geekbench_5_single_core", "phone_age", "MSRP_USD"), new = c("Display Latency (μs)", "Callback Latency (μs)", "Callback - Display (μs)", "Geekbench 5 Score", "Phone Age (Yrs)", "Cost (MRSP; USD)")) %>%
-pairs.panels(stars = T, lm = T, ci = T, method = "pearson", hist.col = "#00AFBB", density = T, ellipses = F, cex.cor = 3, main = "(A) Device Characteristics and Display Latency Correlations", cex = 2, cex.labels = 1.2, cex.main = 2)
+pairs.panels(stars = T, lm = T, ci = T, method = "pearson", hist.col = "#00AFBB", density = T, ellipses = F, cex.cor = 4, main = "(A) Device Characteristics and Display Latency Correlations", cex = 2, cex.labels = 2, cex.main = 2)
 
 # capacitive
 capacitivedatafull <- full_join(capacitivedata1_noload, phonedata) %>%
@@ -419,7 +430,7 @@ capacitivedatafull_agg <- capacitivedatafull %>%
 capacitivedatafull_agg %>% mutate(callbackActionDiff = ifelse(phone_model == "iPhone14_5", NA, callbackActionDiff)) %>%
   subset(., select = c(action_latency_us_otlrsrmvd, callback_latency_us_otlrsrmvd, callbackActionDiff, Geekbench_5_single_core, phone_age, MSRP_USD)) %>%
   setnames(., old = c("action_latency_us_otlrsrmvd", "callback_latency_us_otlrsrmvd", "callbackActionDiff", "Geekbench_5_single_core", "phone_age", "MSRP_USD"), new = c("Action Latency (μs)", "Callback Latency (μs)", "Callback - Action (μs)", "Geekbench 5 Score", "Phone Age (Yrs)", "Cost (MRSP; USD)")) %>%
-pairs.panels(stars = T, lm = T, ci = T, method = "pearson", hist.col = "#00AFBB", density = T, ellipses = F, cex.cor = 3, main = "(B) Device Characteristics and Capacitive Tap Latency Correlations", cex = 2, cex.labels = 1.2, cex.main = 2)
+pairs.panels(stars = T, lm = T, ci = T, method = "pearson", hist.col = "#00AFBB", density = T, ellipses = F, cex.cor = 4, main = "(B) Device Characteristics and Capacitive Tap Latency Correlations", cex = 2, cex.labels = 2, cex.main = 2)
 ```
 
 # OS Comparisons
@@ -454,7 +465,7 @@ displaydatafull_T2 <- subset(displaydata1_noload, procedure == "199") %>%
 
 T2data <- full_join(capacitivedatafull_T2, displaydatafull_T2)
 
-# sig diff in phone OS ages so gotta do ancovas to control for phone age when assessing differences in OS models
+# sig diff in phone OS ages so gotta do ancovas to control for phone age when assessing differences in OS models (did not end up doing this in the paper!)
 t.test(T2data$phone_age[which(T2data$OS == "iOS")], T2data$phone_age[which(T2data$OS == "Android")])
 
 summary(aov(action_latency_us_otlrsrmvd  ~ phone_age + OS, data = T2data))
@@ -467,9 +478,22 @@ summary(aov(Geekbench_5_single_core ~ phone_age + OS, data = T2data))
 summary(aov(Touch_refresh_Hz ~ phone_age + OS, data = T2data))
 summary(aov(Display_refresh_Hz ~ phone_age + OS, data = T2data))
 summary(aov(MSRP_USD ~ phone_age + OS, data = T2data))
+
+# re-doing t-tests and getting cohen's ds for the OS differences analyses
+t.test(T2data$display_latency_us_otlrsrmvd[which(T2data$OS == "iOS")], T2data$display_latency_us_otlrsrmvd[which(T2data$OS == "Android")])
+cohensD(T2data$display_latency_us_otlrsrmvd[which(T2data$OS == "iOS")], T2data$display_latency_us_otlrsrmvd[which(T2data$OS == "Android")])
+
+t.test(T2data$dispcallback_latency_us_otlrsrmvd[which(T2data$OS == "iOS")], T2data$dispcallback_latency_us_otlrsrmvd[which(T2data$OS == "Android")])
+cohensD(T2data$dispcallback_latency_us_otlrsrmvd[which(T2data$OS == "iOS")], T2data$dispcallback_latency_us_otlrsrmvd[which(T2data$OS == "Android")])
+
+t.test(T2data$dispcallbackActionDiff[which(T2data$OS == "iOS")], T2data$dispcallbackActionDiff[which(T2data$OS == "Android")])
+cohensD(T2data$dispcallbackActionDiff[which(T2data$OS == "iOS")], T2data$dispcallbackActionDiff[which(T2data$OS == "Android")])
+
+t.test(T2data$MSRP_USD[which(T2data$OS == "iOS")], T2data$MSRP_USD[which(T2data$OS == "Android")])
+cohensD(T2data$MSRP_USD[which(T2data$OS == "iOS")], T2data$MSRP_USD[which(T2data$OS == "Android")])
 ```
 
-## Table 2
+## Table 3
 ```{r}
 T2data %>% subset(., select = c("OS", "action_latency_us_otlrsrmvd", "tapcallback_latency_us_otlrsrmvd", "tapcallbackActionDiff", "display_latency_us_otlrsrmvd", "dispcallback_latency_us_otlrsrmvd", "dispcallbackActionDiff", "Geekbench_5_single_core", "Touch_refresh_Hz", "Display_refresh_Hz", "phone_age", "MSRP_USD")) %>%
   #na.omit(.) %>%
